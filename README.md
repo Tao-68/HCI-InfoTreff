@@ -1,6 +1,6 @@
 # Learning Flutter
 
-![Build Status](https://gitlab.com/utrapp/learning-flutter/badges/main/pipeline.svg)
+![Build Status](https://code.fbi.h-da.de/hci-trapp/hci-lab-studi-wise23-24/hciMo-4-Huynh_Lehr_Reining_Schultze_Tan/badges/main/pipeline.svg)
 
 This repo contains a base project, that
 
@@ -9,8 +9,8 @@ This repo contains a base project, that
   - in German:[Flutter-Tutorial (deutsch) mit Riverpod und GoRouter](https://www.youtube.com/playlist?list=PLosiZFS_rnz4QLGoivxmL8thtp9la79eW)
   - in English: [Flutter tutorial with Riverpod and GoRouter](https://www.youtube.com/playlist?list=PLosiZFS_rnz6GE9SJPoVrmHB3wndU6K_Q)
 - shows the publication with gitlab ci and gitlab pages of
-  - [documentation](https://utrapp.gitlab.io/learning-flutter/docs/) written in md-files as supported by [obsidian](https://obsidian.md/) and realized using [mkdocs](https://www.mkdocs.org/)
-  - the running flutter app as a [web app](https://utrapp.gitlab.io/learning-flutter/app/)
+  - [documentation](https://hcimo-4-huynh-lehr-reining-schultze-tan-hci-trap-5088c442cb8d4f.h-da.io/docs/) written in md-files as supported by [obsidian](https://obsidian.md/) and realized using [mkdocs](https://www.mkdocs.org/)
+  - the running flutter app as a [web app](https://hcimo-4-huynh-lehr-reining-schultze-tan-hci-trap-5088c442cb8d4f.h-da.io/app/)
 - shows ci of a flutter app
   - building the android APK-file (unsigned)
   - building the web app
@@ -23,8 +23,8 @@ However, most of the corresponding material is publicly available under [HCI-Tra
 
 ## Pages
 
-- [check your docs](https://utrapp.gitlab.io/learning-flutter/docs/)
-- [check the app](https://utrapp.gitlab.io/learning-flutter/app/)
+- [check your docs](https://hcimo-4-huynh-lehr-reining-schultze-tan-hci-trap-5088c442cb8d4f.h-da.io/docs/)
+- [check the app](https://hcimo-4-huynh-lehr-reining-schultze-tan-hci-trap-5088c442cb8d4f.h-da.io/app/)
 
 ## Getting started
 
