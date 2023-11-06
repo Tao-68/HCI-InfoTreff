@@ -2,24 +2,26 @@
 Wir haben uns für User-Interviews als User Research entshieden.
 
 ## Hypothesen
-Die Nutzer wollen alle Informationen in einem App und nicht von verschiedenen Quellen
+Die Nutzer wollen alle Informationen in einer App und nicht von verschiedenen Quellen
 
 Die User wollen Bilder zu den Getränke haben
 
 Die User wollen Beschreibungen (Inhaltstoffe, Allergie, Vegan) zu den Getränke haben
 
-Events als Kalendereinträge
+Die User möchten über Events informiert werden
+
+Die User möchten die Events direkt im Kalender speichern
 
 Die User möchte gerne Möglichkeit haben, Feedback zu geben 
 
 ## Fragen für User-Interviews
-1. Möchten Sie Vorschläge zum Sortiment machen?
-2. Welche Angebote kennen Sie im Infotreff-Cafe?
+1. Welche Angebote kennen Sie im Infotreff-Cafe?
+2. Wie informieren Sie sich über die Angebote im Restaurants oder Cafes?
 3. Welche Angabe zu den Inhaltstoffe wäre Ihnen wichtig?
-4. Wie möchten Sie Informationen zu den Events bekommen? Push-Nachrichten..
-5. Wie informieren Sie sich über die Angebote im Restaurants oder Cafes?
-6. Sind Ihnen Bilder zu den Getränke wichtig?
-7. Haben Sie schonmal Events von dem Infotreff besucht? (Wenn ja, alleine/ als Gruppe...) 
+4. Sind Ihnen Bilder zu den Getränke wichtig?
+5. Möchten Sie Vorschläge zum Sortiment machen?
+6. Haben Sie schonmal Events von dem Infotreff besucht? (Wenn ja, alleine/ als Gruppe...) 
+7. Wie möchten Sie Informationen zu den Events bekommen? Push-Nachrichten..
 8. Möchten Sie die Möglichkeit haben, die Events zu teilen (statt Screenshot)? 
 
 ## Project-Model: 
