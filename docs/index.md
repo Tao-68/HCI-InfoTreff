@@ -12,7 +12,7 @@ Studierende bekommen die Chance das komplette Angebot zu sehen und finden leicht
 
 ## MVP
 
-App enthält die Karten für heiße und kalte Getränke enthält
+App enthält die Karten für heiße und kalte Getränke 
 
 ## vmtl. Delighter
 
