@@ -15,14 +15,18 @@ Die User möchten die Events direkt im Kalender speichern
 Die User möchte gerne Möglichkeit haben, Feedback zu geben 
 
 ## Fragen für User-Interviews
-1. Welche Angebote kennen Sie im Infotreff-Cafe?
-2. Wie informieren Sie sich über die Angebote im Restaurants oder Cafes?
-3. Welche Angabe zu den Inhaltstoffe wäre Ihnen wichtig?
-4. Sind Ihnen Bilder zu den Getränke wichtig?
-5. Möchten Sie Vorschläge zum Sortiment machen?
-6. Haben Sie schonmal Events von dem Infotreff besucht? (Wenn ja, alleine/ als Gruppe...) 
-7. Wie möchten Sie Informationen zu den Events bekommen? Push-Nachrichten..
-8. Möchten Sie die Möglichkeit haben, die Events zu teilen (statt Screenshot)? 
+
+1. Wie oft besuchen Sie das Café der Schule und was bestellen Sie normalerweise?
+2. Welche Angebote kennen Sie im Infotreff-Cafe?
+3. Wie informieren Sie sich über die Angebote im Restaurants oder Cafes?
+4. Wie ist die Erfahrug mit der aktuellen Darstellung des Angebots?
+5. Welche Angabe zu den Inhaltstoffen wäre Ihnen wichtig?
+6. Wie würden detaillierte Beschreibungen und Bilder der Getränke und Snacks Ihre Kaufentscheidung beeinflussen?
+7. Was halten Sie von einer Übersicht für Events ?
+8. Wollen Sie Events in Ihren Kalender integrieren können? 
+9. Möchten Sie Events mit anderen teilen können? 
+10. Würden Sie eine solche Anwendung als App oder über Web nutzen?
+11. Würden soziale Funktionen, wie das Sehen, welche Artikel bei den Studenten beliebt sind, Ihre Wahl beeinflussen?
 
 ## Project-Model: 
 
