@@ -3,21 +3,20 @@
 # Project Documentation
 
 ## Vision Statement:
-Beschäftigte Studierende oder Dozent*innen, die bequemen Zugang zu Erfrischungen und Informationen über Veranstaltungen wünschen, benötigen eine schnelle Übersicht über das tägliche Café-Angebot. Dabei möchten Sie eine einzige Quelle für Informationen.
-"InfoTreff Connect" ist eine mobile App für Getränkekarten und Events, die eine schnelle und einfache Sicht auf das Angebot und die Events des InfoTreff bietet. Im Gegensatz zur aktuellen nicht digitalen Karte, bietet unsere App eine interaktive und zentralisierte Plattform für das tägliche Café-Angebot und macht dieses leichter zugänglich.
+Employees, students or professors who want convenient access to refreshments and information about events need a quick overview of the daily Infotreff-Café menu. They want a single source of information.
+"InfoTreff Connect" is a mobile app for drinks menus and events that provides a quick and easy view of the InfoTreff's menu and events. In contrast to the current non-digital card, our app provides an interactive and more centralised platform for the daily café offer and makes it more accessible.
 
 ## Motivation 
 
-Studierende bekommen die Chance das komplette Angebot zu sehen und finden leichter das was Sie gerne Trinken, einfache Möglichkeit Special-Karten bei Events einzubinden. Gleichzeitig kann man die App auch als Übersichtsfläche für Events nutzen.
+Students get the chance to see the complete offerings and find more easily what they like to drink, easy possibility to include special cards at events. At the same time, the app can also be used as an overview area for events.
 
 ## MVP
 
-App enthält die Karten für heiße und kalte Getränke 
+App contains the cards for hot and cold drinks 
 
-## vmtl. Delighter
+## possible Delighter
 
-Die Option Special Karten für Events zu sehen
-
+The option to see special cards for events
 
 ## Project links    
 - link to [app](https://hcimo-4-huynh-lehr-reining-schultze-tan-hci-trap-5088c442cb8d4f.h-da.io/app/)
