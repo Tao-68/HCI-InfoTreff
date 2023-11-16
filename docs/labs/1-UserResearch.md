@@ -1,33 +1,33 @@
 # User Research
-Wir haben uns für User-Interviews als User Research entshieden.
+We have opted for user interviews as user research.
 
-## Hypothesen
-Die Nutzer wollen alle Informationen in einer App und nicht von verschiedenen Quellen
+## Hypotheses
+Users want all information in one app and not from different sources
 
-Die User wollen Bilder zu den Getränke haben
+Users want pictures of the drinks
 
-Die User wollen Beschreibungen (Inhaltstoffe, Allergie, Vegan) zu den Getränke haben
+Users want descriptions (ingredients, allergies, vegan) of the drinks and snacks
 
-Die User möchten über Events informiert werden
+Users want to be informed about events
 
-Die User möchten die Events direkt im Kalender speichern
+Users want to save the events directly in the calendar
 
-Die User möchte gerne Möglichkeit haben, Feedback zu geben 
+Users would like to have the opportunity to give feedback 
 
-## Fragen für User-Interviews
+## Questions for user interviews
 
-1. Wie oft besuchen Sie das Café der Schule und was bestellen Sie normalerweise?
-2. Welche Angebote kennen Sie im Infotreff-Cafe?
-3. Wie informieren Sie sich über die Angebote im Restaurants oder Cafes?
-4. Wie ist die Erfahrug mit der aktuellen Darstellung des Angebots?
-5. Welche Angabe zu den Inhaltstoffen wäre Ihnen wichtig?
-6. Wie würden detaillierte Beschreibungen und Bilder der Getränke und Snacks Ihre Kaufentscheidung beeinflussen?
-7. Was halten Sie von einer Übersicht für Events ?
-8. Wollen Sie Events in Ihren Kalender integrieren können? 
-9. Möchten Sie Events mit anderen teilen können? 
-10. Würden Sie eine solche Anwendung als App oder über Web nutzen?
-11. Würden soziale Funktionen, wie das Sehen, welche Artikel bei den Studenten beliebt sind, Ihre Wahl beeinflussen?
+1. how often do you visit the Infotreff-Café and what do you usually order?
+2. which offers do you know in the Infotreff Café?
+3. how do you find out about the offers in the restaurants or cafés?
+4. what is your experience with the current presentation of the offer?
+5. what information about the ingredients would be important to you?
+6. how would detailed descriptions and pictures of the drinks and snacks influence your purchase decision?
+7. what do you think of an overview for events?
+8. would you like to be able to integrate events into your calendar? 
+9. would you like to be able to share events with others? 
+10. would you use such an application as an app or via the web?
+11. would social features, such as seeing which items are popular with students, influence your choice?
 
-## Project-Model: 
+## Project model: 
 
-Wir haben uns für Agile UX als Prozessmodell entschieden. Wir finden es passt am Besten zu der Vorgehensweise, die wir für dieses Semester, in Anlegung an die Praktika, geplant haben. Double Diamond ist unserer Meinung nach zu mächtig und groß in seinen Funktionen, um in unserem kleinen Rahmen sinnvoll genutzt zu werden. Den Design Sprint fanden wir als Ansatz auch gut, aber der Aufwand auf Projekt- und Prozessmanagement Seite war uns zu hoch.
+We have decided in favour of Agile UX as a process model. We think it fits best with the approach we have planned for this semester, based on the lab exercises. In our opinion, Double Diamond is too powerful and large in its functions to be used effectively on our small scale. We also liked the Design Sprint approach, but we found the effort on the project and process management side too high.
