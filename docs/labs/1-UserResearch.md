@@ -51,17 +51,21 @@ We have decided in favour of Agile UX as a process model. We think it fits best 
 
 **1. Frank Müller**
 Age: 22
+
 Background:
    Originates from a small town with a profound connection to nature
    Early fascination with the natural world influenced academic pursuits in biology
+
 Academic Journey:
    Actively participates in lectures and laboratories at University
    Engages in extracurricular activities, such as a biology club, for a holistic university experience
    Demonstrates an inquisitive mind and commitment to academic excellence
+
 Research Interest:
    Focuses on ecology and environmental biology
    Intrigued by the delicate balance of ecosystems and the impact of human activities on biodiversity
    Aspires to contribute to research addressing pressing environmental challenges
+
 Lifestyle:
    Fitness enthusiast with a routine that includes regular workouts
    Avid nature photographer capturing the beauty of the environment
@@ -73,17 +77,22 @@ Lifestyle:
 
 **2. Sandra Rodriguez**
 Age: 23
+
 Background:
    Grew up in a nature-centric small town.
    Instilled with environmental values by conscious parents.
+
 Academic Journey:
    Pursuing a master's degree in Environmental Studies.
    Completed undergraduate studies in Environmental Science with honors.
+
 Research Interests:
    Focus on sustainable agriculture, conservation, and the intersection of social justice and environmental issues.
+
 Vegan Lifestyle:
    Adopted a vegan lifestyle during undergrad.
    Advocates for plant-based diets due to the environmental impact of animal agriculture.
+
 Activism and Community Involvement:
    Active member of environmental and vegan advocacy groups on campus.
    Engages in community clean-up initiatives and organizes awareness events.
@@ -93,10 +102,12 @@ Activism and Community Involvement:
 
 **3. Konrad Ingram**
 Age:	47
+
 Background:
    A seasoned software engineer with a passion for teaching and mentoring. 
    Holds a master's degree in computer science and has accumulated over a decade of experience in the tech industry. 
    Worked on a diverse range of projects, from developing cutting-edge software applications to contributing to open-source projects.
+
 Workplace Persona:
    A respected figure both among his colleagues and the management. 
    Is adorned with a mix of coding references and motivational quotes, reflecting his dedication to both the craft and the community. 
