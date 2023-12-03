@@ -50,6 +50,7 @@ We have decided in favour of Agile UX as a process model. We think it fits best 
 ## User Personas
 
 **1. Frank Müller**
+
 Age: 22
 
 Background:
@@ -71,11 +72,13 @@ Lifestyle:
    Avid nature photographer capturing the beauty of the environment
    Balances study sessions between the structured university library and a favorite local café
 
-**User Story: **
+**User Story**
+
 “As a student, I would like to choose snack from the cafeteria without go there, so that I can decide beforehand. I want to know the ingredient and the nutrient of the snack on the menu, so that I can manage my meal to benefit my workout routine. As a student, I also want to share event to my friend and add event detailed to my personal calendar, so that it’s easier to manage my time table and to invite more friend to the event”
 
 
 **2. Sandra Rodriguez**
+
 Age: 23
 
 Background:
@@ -97,10 +100,12 @@ Activism and Community Involvement:
    Active member of environmental and vegan advocacy groups on campus.
    Engages in community clean-up initiatives and organizes awareness events.
 
-**User story:** 
+**User story** 
+
 „As a student, I want to know if there is some available vegan option in the menu. I want to know if the calorie of the food is low for a more healthy diet. I also want to know if some event for vegan advocacy group are on the site”
 
 **3. Konrad Ingram**
+
 Age:	47
 
 Background:
@@ -128,7 +133,8 @@ Coffee Corner:
    Students know that if they want to catch him for a quick chat or advice, this is the place to find him. 
    Believes that good conversations often happen over a cup of coffee, and he enjoys creating a welcoming space for such interactions.
 
-**User story:**
+**User story**
+
 “As a teacher, I want to arrage some event for my student, and have some mealtime conversation. I want to give the feedback of the caffee to the maker, so that it might improve in the future. “
 
 
