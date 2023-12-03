@@ -74,7 +74,7 @@ Lifestyle:
 
 **User Story**
 
-“As a student, I would like to choose snack from the cafeteria without go there, so that I can decide beforehand. I want to know the ingredient and the nutrient of the snack on the menu, so that I can manage my meal to benefit my workout routine. As a student, I also want to share event to my friend and add event detailed to my personal calendar, so that it’s easier to manage my time table and to invite more friend to the event”
+“As a student, I would like to know available snack from the cafeteria without go there, so that I can decide beforehand. I want to know the ingredient and the nutrient of the snack on the menu, so that I can manage my meal to benefit my workout routine. As a student, I also want to share event to my friend and add event detailed to my personal calendar, so that it’s easier to manage my time table and to invite more friend to the event”
 
 
 **2. Sandra Rodriguez**
@@ -102,7 +102,7 @@ Activism and Community Involvement:
 
 **User story** 
 
-„As a student, I want to know if there is some available vegan option in the menu. I want to know if the calorie of the food is low for a more healthy diet. I also want to know if some event for vegan advocacy group are on the site”
+„As a vegan, I want to know if there is some available vegan option in the menu. I want to know if the calorie of the food is low for a more healthy diet. I also want to know if some event for vegan advocacy group are on the site”
 
 **3. Konrad Ingram**
 
