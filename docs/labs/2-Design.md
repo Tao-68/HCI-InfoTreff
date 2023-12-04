@@ -28,5 +28,5 @@ Then we combined the features we liked into one final Paper Prototype.
 We decided to use the already excisting logo of the InfoTreff Cafe and derived the colours for the app from
 it with only some slight adjustments for better readability.
 
-![Logo_InfoTreff](../PaperPrototypes/logoInfoTreff.jpg)  
-![Colours_InfoTreff](../PaperPrototypes/Farben_Infotreff_app.jpg)  
+![Logo_InfoTreff](../PaperPrototypes/logoInfoTreff.png)  
+![Colours_InfoTreff](../PaperPrototypes/Farben_Infotreff_app.png)  
