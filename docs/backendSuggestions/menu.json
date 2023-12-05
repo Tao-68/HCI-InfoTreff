@@ -2,263 +2,318 @@
   "hotDrinks" : [
     {
       "name" : "Coffee",
-      "price" : "1.00€"
+      "price" : "1.00€",
+      "active" : true
     },
     {
       "name" : "Milk Coffee",
-      "price" : "1.50€"
+      "price" : "1.50€",
+      "active" : true
     },
     {
       "name" : "Espresso",
-      "price" : "1.50€"
+      "price" : "1.50€",
+      "active" : true
     },
     {
       "name" : "Espresso Doppio",
-      "price" : "1.80€"
+      "price" : "1.80€",
+      "active" : true
     },
     {
       "name" : "Latte Macchiato",
-      "price" : "1.50€"
+      "price" : "1.50€",
+      "active" : true
     },
     {
       "name" : "Cappucchino",
-      "price" : "1.50€"
+      "price" : "1.50€",
+      "active" : true
     },
     {
       "name" : "Cortado",
-      "price" : "1.50€"
+      "price" : "1.50€",
+      "active" : true
     },
     {
       "name" : "Chococchino",
-      "price" : "1.50€"
+      "price" : "1.50€",
+      "active" : true
     },
     {
       "name" : "Hot Chocolate",
-      "price" : "1.50€"
+      "price" : "1.50€",
+      "active" : true
     },
     {
       "name" : "Tea",
-      "price" : "1.00€"
+      "price" : "1.00€",
+      "active" : true
     },
     {
       "name" : "Kinderpunsch",
-      "price" : "2.00€"
+      "price" : "2.00€",
+      "active" : true
     }
   ],
   "coldDrinks" : [
     {
       "name" : "Mio Mio Mate",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Mio Mio Mate Zero",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Mio Mio Mate Ginger",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Mio Mio Cola",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Mio Mio Cola Zero",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Club Mate Original",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Club Mate Granat",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Club Mate ICE T",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Club Mate Winter Edition",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "ChariTea Red",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "ChariTea Mate",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "ChariTea Green",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "ChariTea Black",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Lemonaid Blutorange",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Lemonaid Ingwer",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Lemonaid Maracuja",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Lemonaid Limette",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Durstlöscher Eistee Pfirsich",
       "price" : "1.00",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Durstlöscher Eistee Zitrone",
       "price" : "1.00",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Durstlöscher Banane-Sauerkirsche",
       "price" : "1.00",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Durstlöscher Multivitamin",
       "price" : "1.00",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Afri Cola",
-      "price" : "1.50€"
+      "price" : "1.50€",
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Spezi Original",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Spezi Zero",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Apfelschorle",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bernadett Brunnen Medium",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bernadett Brunnen Spritzig",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bernadett Wellness Kräuter",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bernadett Rote Schorle",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bernadett Limette",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bernadett ACE",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bernadett Sport Fit",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bernadett Johannisbeere Spritz",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bernadett Mandarine-Mango",
       "price" : "1.50€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Proviant Cola Zuckerfrei",
       "price" : "1.50€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Proviant Rhabarber",
       "price" : "1.50€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Proviant Zitrone",
       "price" : "1.50€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Proviant Orange",
       "price" : "1.50€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "alkoholfreies Radler",
       "price" : "1.50€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "alkoholfreies Bier",
       "price" : "1.50€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Red Bull Zero",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Red Bull",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Red Bull Sea Blue Edition",
       "price" : "2.00€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     }
 
   ],
@@ -266,102 +321,124 @@
     {
       "name" : "Pils",
       "price" : "1.50€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Bembel With Care Pur",
       "price" : "2,00€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bembel With Care Cola",
       "price" : "2,00€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bembel With Care Sauer",
       "price" : "2,00€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bembel With Care Kirsch",
       "price" : "2.00€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Bembel With Care Gold",
       "price" : "2.00€",
-      "size" : "0.5l"
+      "size" : "0.5l",
+      "active" : true
     },
     {
       "name" : "Radler",
       "price" : "1.50€",
-      "size" : "0.33l"
+      "size" : "0.33l",
+      "active" : true
     },
     {
       "name" : "Glühwein",
-      "price" : "2.00€"
+      "price" : "2.00€",
+      "active" : true
     },
     {
       "name" : "Heidelbeerglühwein",
-      "price" : "2.50€"
+      "price" : "2.50€",
+      "active" : true
     }
 
   ],
   "cocktails" : [
     {
       "name" : "Tequila Sunrise",
-      "price" : "3.50€"
+      "price" : "3.50€",
+      "active" : true
     },
     {
       "name" : "Gin Tonic",
-      "price" : "3.50€"
+      "price" : "3.50€",
+      "active" : true
     },
     {
       "name" : "Blue Lagoon",
-      "price" : "3.50€"
+      "price" : "3.50€",
+      "active" : true
     },
     {
       "name" : "Long Island Icetea",
-      "price" : "4.50€"
+      "price" : "4.50€",
+      "active" : true
     },
     {
       "name" : "Zombie",
-      "price" : "4.50€"
+      "price" : "4.50€",
+      "active" : true
     },
     {
       "name" : "Mojito",
-      "price" : "4.50€"
+      "price" : "4.50€",
+      "active" : true
     }
   ],
   "shots" : [
     {
       "name" : "Jägermeister",
-      "price" : "1.00€"
+      "price" : "1.00€",
+      "active" : true
     },
     {
       "name" : "Wodka",
-      "price" : "1.00€"
+      "price" : "1.00€",
+      "active" : true
     },
     {
       "name" : "Berliner Luft",
-      "price" : "1.00€"
+      "price" : "1.00€",
+      "active" : true
     },
     {
       "name" : "Tequila",
-      "price" : "1.00€"
+      "price" : "1.00€",
+      "active" : true
     },
     {
       "name" : "GUDE Nacht Kräuter",
-      "price" : "1.00€"
+      "price" : "1.00€",
+      "active" : true
     },
     {
       "name" : "GUDE NACHT Haselnuss",
-      "price" : "1.00€"
+      "price" : "1.00€",
+      "active" : true
     },
     {
       "name" : "FICKEN",
-      "price" : "1.00€"
+      "price" : "1.00€",
+      "active" : true
     }
   ]
 }
