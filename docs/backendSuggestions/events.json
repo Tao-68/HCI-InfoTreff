@@ -1,0 +1,60 @@
+{
+    "open living rooms" : [
+        {
+            "title" : "HomeComing - Cocktails",
+            "date" : "2023-10-18T17:00:00",
+            "description" : "Cocktailparty at the begin of the semester",
+            "special" : "Cocktails and Wraps"
+        },
+        {
+            "title" : "Game Night",
+            "date" : "2023-11-08T17:00:00",
+            "description" : "Magic, Table Top Games, Card Games and more",
+            "special" : "Hot Dogs"
+        },
+        {
+            "title" : "Karaoke",
+            "date" : "2023-11-22T17:00:00",
+            "description" : "Karaoke in 2.04 with Cocktails",
+            "special" : "Burger"
+        },
+        {
+            "title" : "Christmas Market",
+            "date" : "2023-12-06T15:00:00",
+            "description" : "The InfoTreff gets covered in christas atmosphere",
+            "special" : "Waffles and potato soup"
+        },
+        {
+            "title" : "Study Evening",
+            "date" : "2024-01-17T15:00:00",
+            "description" : "Ask tutors all questions and get explanation for your problems",
+            "special" : "Chili sin carne"
+        },
+        {
+            "title" : "Study Evening",
+            "date" : "2024-01-17T15:00:00",
+            "description" : "Ask tutors all questions and get explanation for your problems",
+            "special" : "Spaghetti with sauces"
+        }
+    ],
+    "partys" : [
+        {
+            "title" : "Halloween",
+            "date" : "2023-10-30T19:00:00",
+            "description" : "Dress up and enjoy the spookiest night with us",
+            "special" : "Hot Dogs, bowl with eyes and a free shot if you come dressed up"
+        },
+        {
+            "title" : "Christmas",
+            "date" : "2023-12-20T19:00:00",
+            "description" : "Christmas and the holidays are near so let's celebrate toegether",
+            "special" : "Currywurst"
+        },
+        {
+            "title" : "Prokastination Night",
+            "date" : "2024-02-09T19:00:00",
+            "description" : "It's almost exam phase so let us have some fun before the hard work starts",
+            "special" : "suprise :)"
+        }
+    ]
+}

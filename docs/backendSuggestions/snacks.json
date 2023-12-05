@@ -1,0 +1,141 @@
+{
+    "candy" : [
+        {
+            "name" : "Snickers",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "Mars",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "Kinder Bueno",
+            "price" : "1.00€",
+            "active" : true
+        },
+        {
+            "name" : "Mr Tom",
+            "price" : "1.00€",
+            "active" : true
+        },
+        {
+            "name" : "Corny Big Chocolate",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "Corny Big Peanut",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "Corny Big Salted Caramel",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "Kinder Riegel",
+            "price" : "0,50€",
+            "active" : true
+        },
+        {
+            "name" : "Lion",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "PickUP",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "M&Ms",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "Knoppers Nussriegel",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "Knoppers",
+            "price" : "0,50€",
+            "active" : true
+        },
+        {
+            "name" : "Bubblegum",
+            "price" : "0.80€",
+            "active" : true
+        },
+        {
+            "name" : "Ice Lollies",
+            "price" : "1.00€",
+            "active" : true
+        },
+        {
+            "name" : "Water Ice",
+            "price" : "0.80€",
+            "active" : true
+        }
+    ],
+    "food" : [
+        {
+            "name" : "vegan topped bread rolls",
+            "price" : "1.20€",
+            "active" : true
+        },
+        {
+            "name" : "tomato mozarella lye bar",
+            "price" : "1.80€",
+            "active" : true
+        },
+        {
+            "name" : "beef sausage roll",
+            "price" : "2.00€",
+            "active" : true
+        },
+        {
+            "name" : "vegetarian sausage roll",
+            "price" : "2.00€",
+            "active" : true
+        },
+        {
+            "name" : "3 Min Ramen Teriyaki",
+            "price" : "2.00€",
+            "active" : true
+        },
+        {
+            "name" : "3 Min Ramen Miso",
+            "price" : "2.00€",
+            "active" : true
+        },
+        {
+            "name" : "3 Min Ramen Curry",
+            "price" : "2.00€",
+            "active" : true
+        },
+        {
+            "name" : "5 Min Pasta Cream Sauce",
+            "price" : "2.00€",
+            "active" : true
+        },
+        {
+            "name" : "5 Min Pasta Mushroom-Cream Sauce",
+            "price" : "2.00€",
+            "active" : true
+        },
+        {
+            "name" : "5 Min Pasta Broccoli-Cheese Sauce",
+            "price" : "2.00€",
+            "active" : true
+        },
+        {
+            "name" : "5 Min Pasta Arabiata",
+            "price" : "2.00€",
+            "active" : false
+        }
+    ]
+}
