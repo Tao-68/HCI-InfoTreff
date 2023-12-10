@@ -45,3 +45,5 @@ flutter:
   uses-material-design: true
   # for localization
   generate: true
+  assets:
+    - assets/
