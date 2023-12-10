@@ -9,7 +9,9 @@
           "ingredients" : "",
           "nutrition" : "",
           "diet" : 1,
-          "picture" : ""
+          "picture" : "",
+          "favorite" : false,
+          "likes" : 0
         },
         {
           "name" : "oat milk",
@@ -18,7 +20,9 @@
           "ingredients" : "",
           "nutrition" : "",
           "diet" : 2,
-          "picture" : ""
+          "picture" : "",
+          "favorite" : false,
+          "likes" : 0
         },
         {
           "name" : "soy milk",
@@ -27,7 +31,9 @@
           "ingredients" : "",
           "nutrition" : "",
           "diet" : 2,
-          "picture" : ""
+          "picture" : "",
+          "favorite" : false,
+          "likes" : 0
         }
       ]
     },
@@ -39,7 +45,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Milk Coffee",
@@ -49,7 +57,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 0,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Espresso",
@@ -59,7 +69,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Espresso Doppio",
@@ -69,7 +81,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Latte Macchiato",
@@ -79,7 +93,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 0,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Cappucchino",
@@ -89,7 +105,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 0,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Cortado",
@@ -99,7 +117,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 0,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Chococchino",
@@ -109,7 +129,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 0,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Hot Chocolate",
@@ -119,7 +141,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 0,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Tea",
@@ -129,7 +153,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Kinderpunsch",
@@ -139,7 +165,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     }
   ],
   "coldDrinks" : [
@@ -152,7 +180,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Mio Mio Mate Zero",
@@ -163,7 +193,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Mio Mio Mate Ginger",
@@ -174,7 +206,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Mio Mio Cola",
@@ -185,7 +219,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Mio Mio Cola Zero",
@@ -196,7 +232,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Club Mate Original",
@@ -207,7 +245,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Club Mate Granat",
@@ -218,7 +258,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Club Mate ICE T",
@@ -229,7 +271,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Club Mate Winter Edition",
@@ -240,7 +284,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "ChariTea Red",
@@ -251,7 +297,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "ChariTea Mate",
@@ -262,7 +310,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "ChariTea Green",
@@ -273,7 +323,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "ChariTea Black",
@@ -284,7 +336,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Lemonaid Blutorange",
@@ -295,7 +349,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Lemonaid Ingwer",
@@ -306,7 +362,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Lemonaid Maracuja",
@@ -317,7 +375,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Lemonaid Limette",
@@ -328,7 +388,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Durstlöscher Eistee Pfirsich",
@@ -339,7 +401,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Durstlöscher Eistee Zitrone",
@@ -350,7 +414,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Durstlöscher Banane-Sauerkirsche",
@@ -361,7 +427,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Durstlöscher Multivitamin",
@@ -372,7 +440,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Afri Cola",
@@ -383,7 +453,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Spezi Original",
@@ -393,7 +465,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Spezi Zero",
@@ -403,7 +477,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Apfelschorle",
@@ -413,7 +489,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bernadett Brunnen Medium",
@@ -423,7 +501,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bernadett Brunnen Spritzig",
@@ -433,7 +513,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bernadett Wellness Kräuter",
@@ -443,7 +525,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bernadett Rote Schorle",
@@ -453,7 +537,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bernadett Limette",
@@ -463,7 +549,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bernadett ACE",
@@ -473,7 +561,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bernadett Sport Fit",
@@ -483,7 +573,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bernadett Johannisbeere Spritz",
@@ -493,7 +585,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bernadett Mandarine-Mango",
@@ -503,7 +597,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Proviant Cola Zuckerfrei",
@@ -513,7 +609,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Proviant Rhabarber",
@@ -523,7 +621,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Proviant Zitrone",
@@ -533,7 +633,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Proviant Orange",
@@ -543,7 +645,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Red Bull Zero",
@@ -553,7 +657,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Red Bull",
@@ -563,7 +669,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Red Bull Sea Blue Edition",
@@ -573,7 +681,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     }
 
   ],
@@ -586,7 +696,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Radler",
@@ -596,7 +708,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "alkoholfreies Radler",
@@ -606,7 +720,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "alkoholfreies Bier",
@@ -616,7 +732,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bembel With Care Pur",
@@ -626,7 +744,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bembel With Care Cola",
@@ -636,7 +756,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bembel With Care Sauer",
@@ -646,7 +768,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bembel With Care Kirsch",
@@ -656,7 +780,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Bembel With Care Gold",
@@ -666,7 +792,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Glühwein",
@@ -675,7 +803,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Heidelbeerglühwein",
@@ -684,7 +814,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     }
   ],
   "cocktails" : [
@@ -695,7 +827,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Gin Tonic",
@@ -704,7 +838,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Blue Lagoon",
@@ -713,7 +849,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Long Island Icetea",
@@ -722,7 +860,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Zombie",
@@ -731,7 +871,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Mojito",
@@ -740,7 +882,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     }
   ],
   "shots" : [
@@ -751,7 +895,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Wodka",
@@ -760,7 +906,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Berliner Luft",
@@ -769,7 +917,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "Tequila",
@@ -778,7 +928,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "GUDE Nacht Kräuter",
@@ -787,7 +939,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "GUDE NACHT Haselnuss",
@@ -796,7 +950,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     },
     {
       "name" : "FICKEN",
@@ -805,7 +961,9 @@
       "ingredients" : "",
       "nutrition" : "",
       "diet" : 2,
-      "picture" : ""
+      "picture" : "",
+      "favorite" : false,
+      "likes" : 0
     }
   ]
 }

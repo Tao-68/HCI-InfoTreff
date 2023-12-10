@@ -4,145 +4,193 @@
             "name" : "Snickers",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Mars",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Kinder Bueno",
             "price" : "1.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Mr Tom",
             "price" : "1.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Corny Big Chocolate",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Corny Big Peanut",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Corny Big Salted Caramel",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Kinder Riegel",
             "price" : "0,50€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Lion",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "PickUP",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "M&Ms",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Knoppers Nussriegel",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Knoppers",
             "price" : "0,50€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Bubblegum",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 2,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Ice Lollies",
             "price" : "1.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "Water Ice",
             "price" : "0.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 2,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         }
     ],
     "food" : [
@@ -150,100 +198,133 @@
             "name" : "vegan topped bread rolls",
             "price" : "1.20€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 2,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "tomato mozarella lye bar",
             "price" : "1.80€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "beef sausage roll",
             "price" : "2.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 0,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "vegetarian sausage roll",
             "price" : "2.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "3 Min Ramen Teriyaki",
             "price" : "2.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 0,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "3 Min Ramen Miso",
             "price" : "2.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 2,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "3 Min Ramen Curry",
             "price" : "2.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 0,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "5 Min Pasta Cream Sauce",
             "price" : "2.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "5 Min Pasta Mushroom-Cream Sauce",
             "price" : "2.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "5 Min Pasta Broccoli-Cheese Sauce",
             "price" : "2.00€",
             "active" : true,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         },
         {
             "name" : "5 Min Pasta Arabiata",
             "price" : "2.00€",
             "active" : false,
+            "allergens" : "",
             "ingredients" : "",
             "nutrition" : "",
             "diet" : 1,
-            "picture" : ""
+            "picture" : "",
+            "favorite" : false,
+            "likes" : 0
         }
     ]
 }
