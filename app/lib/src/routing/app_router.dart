@@ -6,6 +6,7 @@ import '../features/counter/presentation/counter_screen.dart';
 import '../features/rest_crud_demo/domain/person.dart';
 import '../features/rest_crud_demo/presentation/details_screen.dart';
 import '../features/rest_crud_demo/presentation/people_screen.dart';
+import '../features/rest_crud_demo/presentation/home_screen.dart';
 import 'scaffold_with_navigation.dart';
 
 part 'app_router.g.dart';
