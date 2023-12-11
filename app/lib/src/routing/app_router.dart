@@ -7,6 +7,7 @@ import '../features/rest_crud_demo/domain/person.dart';
 import '../features/rest_crud_demo/presentation/details_screen.dart';
 import '../features/rest_crud_demo/presentation/people_screen.dart';
 import '../features/rest_crud_demo/presentation/home_screen.dart';
+import '../features/rest_crud_demo/presentation/page_view_screen.dart';
 import 'scaffold_with_navigation.dart';
 
 part 'app_router.g.dart';
@@ -55,7 +56,7 @@ GoRouter goRouter(GoRouterRef ref) {
                 name: TopLevelDestinations.people.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const PeopleScreen(),
+                  child: const MyHomePage(),
                 ),
                 routes: <RouteBase>[
                   // The details screen to display stacked on navigator of the
