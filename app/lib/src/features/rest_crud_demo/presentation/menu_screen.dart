@@ -17,6 +17,12 @@ class MenuePage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: MenueCategories(),
       ),
+      Center(
+          child: IconButton(
+        onPressed: () {},
+        icon: Icon(Icons.filter_list_rounded),
+        iconSize: 50,
+      )),
     ]);
   }
 }
