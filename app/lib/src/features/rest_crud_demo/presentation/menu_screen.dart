@@ -41,7 +41,33 @@ class _MenueCategoriesState extends State<MenueCategories> {
       ListView(
         children: [
           for (var title in categories)
-            Accordion(title: title, content: 'item 1'),
+            Accordion(
+              title: title,
+              childWidget: Text("Items"),
+            ),
+        ],
+      ),
+    ]);
+  }
+}
+
+class MenueItems extends StatelessWidget {
+  var items = <String>["Burger", "Cola", "Mate"];
+
+  Widget build(BuildContext context) {
+    if (items.isEmpty) {
+      return Center(
+        child: Text('No Menue found.'),
+      );
+    }
+
+    return Stack(alignment: const Alignment(0.6, 0.6), children: [
+      ListView(
+        children: [
+          for (var item in items)
+            ListTile(
+              title: Text(item),
+            ),
         ],
       ),
     ]);
@@ -50,9 +76,9 @@ class _MenueCategoriesState extends State<MenueCategories> {
 
 class Accordion extends StatefulWidget {
   final String title;
-  final String content;
+  final Widget childWidget;
 
-  const Accordion({Key? key, required this.title, required this.content})
+  const Accordion({Key? key, required this.title, required this.childWidget})
       : super(key: key);
   @override
   State<Accordion> createState() => _AccordionState();
@@ -89,7 +115,7 @@ class _AccordionState extends State<Accordion> {
             ? Container(
                 padding:
                     const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                child: Text(widget.content),
+                child: widget.childWidget,
               )
             : Container()
       ]),
