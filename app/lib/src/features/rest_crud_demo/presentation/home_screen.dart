@@ -6,12 +6,6 @@ class HomePage extends StatelessWidget {
     IconData event_icon = Icons.celebration_rounded;
     IconData menu_icon = Icons.coffee_rounded;
 
-    //IconData icon;
-    //if (appState.favorites.contains(pair)) {
-    //  icon = Icons.favorite;
-    //} else {
-    //  icon = Icons.favorite_border;
-    //}
     return Stack(children: [
       Container(
         decoration: BoxDecoration(
@@ -104,6 +98,7 @@ class SwipeRight extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return IconButton(
+      constraints: BoxConstraints.tight(Size(80, 100)),
       iconSize: 100,
       onPressed: () {},
       icon: Icon(Icons.arrow_forward_ios_rounded),
@@ -121,6 +116,7 @@ class SwipeLeft extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return IconButton(
+      constraints: BoxConstraints.tight(Size(80, 100)),
       iconSize: 100,
       onPressed: () {},
       icon: Icon(Icons.arrow_back_ios_new_rounded),
