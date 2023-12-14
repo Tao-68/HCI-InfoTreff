@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/features/events/presentation/events_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../features/counter/presentation/counter_screen.dart';
@@ -14,7 +15,7 @@ part 'app_router.g.dart';
 
 // shell routes, appear in the bottom navigation
 // see https://pub.dev/documentation/go_router/latest/go_router/ShellRoute-class.html
-enum TopLevelDestinations { people, counter }
+enum TopLevelDestinations { people, counter, events }
 
 // GlobalKey is a factory, hence each call creates a key
 //this is root, even if it navigates to people, it needs a separate key!!!
@@ -34,7 +35,7 @@ enum Parameter { id }
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) {
   return GoRouter(
-    initialLocation: '/${TopLevelDestinations.people.name}',
+    initialLocation: '/${TopLevelDestinations.events.name}',
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
@@ -48,6 +49,14 @@ GoRouter goRouter(GoRouterRef ref) {
           StatefulShellBranch(
             navigatorKey: _peopleNavigatorKey,
             routes: [
+              GoRoute(
+                path: '/${TopLevelDestinations.events.name}', // path: /people
+                name: TopLevelDestinations.events.name,
+                pageBuilder: (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: const EventsScreen(),
+                ),
+              ),
               // base route people
               GoRoute(
                 path: '/${TopLevelDestinations.people.name}', // path: /people

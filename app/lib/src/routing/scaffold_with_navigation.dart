@@ -13,6 +13,7 @@ class NavigationItem {
 }
 
 final _navigationList = (
+  events: NavigationItem(icon: Icons.ac_unit, selectedIcon: Icons.ac_unit),
   people: NavigationItem(icon: Icons.home_outlined, selectedIcon: Icons.home),
   counter: NavigationItem(
     icon: Icons.plus_one_outlined,
@@ -72,6 +73,11 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
         selectedIndex: currentIndex,
         destinations: [
           NavigationDestination(
+            icon: Icon(_navigationList.events.icon),
+            selectedIcon: Icon(_navigationList.events.selectedIcon),
+            label: context.loc.home,
+          ),
+          NavigationDestination(
             icon: Icon(_navigationList.people.icon),
             selectedIcon: Icon(_navigationList.people.selectedIcon),
             label: context.loc.home,
@@ -109,6 +115,11 @@ class ScaffoldWithNavigationRail extends StatelessWidget {
             onDestinationSelected: onDestinationSelected,
             labelType: NavigationRailLabelType.all,
             destinations: <NavigationRailDestination>[
+              NavigationRailDestination(
+                icon: Icon(_navigationList.events.icon),
+                selectedIcon: Icon(_navigationList.events.selectedIcon),
+                label: Text(context.loc.home),
+              ),
               NavigationRailDestination(
                 icon: Icon(_navigationList.people.icon),
                 selectedIcon: Icon(_navigationList.people.selectedIcon),

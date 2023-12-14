@@ -21,7 +21,7 @@ final peopleRepositoryProvider = AutoDisposeProvider<PeopleRepository>.internal(
 );
 
 typedef PeopleRepositoryRef = AutoDisposeProviderRef<PeopleRepository>;
-String _$fetchPeopleHash() => r'772e01d6c483daa24de83820a021601fa93618e7';
+String _$fetchPeopleHash() => r'54515a223c9fa0e4b082b37cf022284a41b8575b';
 
 /// See also [fetchPeople].
 @ProviderFor(fetchPeople)
@@ -57,8 +57,6 @@ class _SystemHash {
     return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
-
-typedef FetchPersonByIdRef = AutoDisposeFutureProviderRef<Person>;
 
 /// See also [fetchPersonById].
 @ProviderFor(fetchPersonById)
@@ -106,10 +104,10 @@ class FetchPersonByIdFamily extends Family<AsyncValue<Person>> {
 class FetchPersonByIdProvider extends AutoDisposeFutureProvider<Person> {
   /// See also [fetchPersonById].
   FetchPersonByIdProvider(
-    this.id,
-  ) : super.internal(
+    int id,
+  ) : this._internal(
           (ref) => fetchPersonById(
-            ref,
+            ref as FetchPersonByIdRef,
             id,
           ),
           from: fetchPersonByIdProvider,
@@ -121,9 +119,43 @@ class FetchPersonByIdProvider extends AutoDisposeFutureProvider<Person> {
           dependencies: FetchPersonByIdFamily._dependencies,
           allTransitiveDependencies:
               FetchPersonByIdFamily._allTransitiveDependencies,
+          id: id,
         );
 
+  FetchPersonByIdProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.id,
+  }) : super.internal();
+
   final int id;
+
+  @override
+  Override overrideWith(
+    FutureOr<Person> Function(FetchPersonByIdRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FetchPersonByIdProvider._internal(
+        (ref) => create(ref as FetchPersonByIdRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<Person> createElement() {
+    return _FetchPersonByIdProviderElement(this);
+  }
 
   @override
   bool operator ==(Object other) {
@@ -138,4 +170,18 @@ class FetchPersonByIdProvider extends AutoDisposeFutureProvider<Person> {
     return _SystemHash.finish(hash);
   }
 }
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
+
+mixin FetchPersonByIdRef on AutoDisposeFutureProviderRef<Person> {
+  /// The parameter `id` of this provider.
+  int get id;
+}
+
+class _FetchPersonByIdProviderElement
+    extends AutoDisposeFutureProviderElement<Person> with FetchPersonByIdRef {
+  _FetchPersonByIdProviderElement(super.provider);
+
+  @override
+  int get id => (origin as FetchPersonByIdProvider).id;
+}
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
