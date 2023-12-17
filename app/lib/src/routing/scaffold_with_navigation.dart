@@ -13,7 +13,7 @@ class NavigationItem {
 }
 
 final _navigationList = (
-  events: NavigationItem(icon: Icons.ac_unit, selectedIcon: Icons.ac_unit),
+  events: NavigationItem(icon: Icons.event, selectedIcon: Icons.event),
   people: NavigationItem(icon: Icons.home_outlined, selectedIcon: Icons.home),
   counter: NavigationItem(
     icon: Icons.plus_one_outlined,
