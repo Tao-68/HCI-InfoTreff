@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/home_screen.dart';
 import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/menu_screen.dart';
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends ConsumerStatefulWidget {
   const MyHomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  ConsumerState<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends ConsumerState<MyHomePage> {
   final _controller = PageController(
     initialPage: 1,
   );
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
           'InfoTreff',
           selectionColor: theme.colorScheme.onTertiary,
         ),
-        backgroundColor: theme.colorScheme.onPrimary,
+        backgroundColor: Colors.amber,
         shadowColor: theme.colorScheme.primary,
         surfaceTintColor: theme.colorScheme.onPrimary,
         elevation: 4,

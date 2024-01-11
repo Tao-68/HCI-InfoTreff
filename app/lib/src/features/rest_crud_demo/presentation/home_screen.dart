@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     IconData event_icon = Icons.celebration_rounded;
     IconData menu_icon = Icons.coffee_rounded;
 
@@ -51,7 +54,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class Headline extends StatelessWidget {
+class Headline extends ConsumerWidget {
   const Headline({
     super.key,
     required this.main_axis_alignment,
@@ -66,7 +69,7 @@ class Headline extends StatelessWidget {
   final Color headline_color;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
 
     final style = theme.textTheme.displayMedium!.copyWith(
@@ -89,13 +92,13 @@ class Headline extends StatelessWidget {
   }
 }
 
-class SwipeRight extends StatelessWidget {
+class SwipeRight extends ConsumerWidget {
   const SwipeRight({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     return IconButton(
       constraints: BoxConstraints.tight(Size(80, 100)),
@@ -107,13 +110,13 @@ class SwipeRight extends StatelessWidget {
   }
 }
 
-class SwipeLeft extends StatelessWidget {
+class SwipeLeft extends ConsumerWidget {
   const SwipeLeft({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     return IconButton(
       constraints: BoxConstraints.tight(Size(80, 100)),
@@ -125,13 +128,13 @@ class SwipeLeft extends StatelessWidget {
   }
 }
 
-class AppLogo extends StatelessWidget {
+class AppLogo extends ConsumerWidget {
   const AppLogo({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return const CircleAvatar(
       backgroundImage: AssetImage('assets/InfoTreffLogo.png'),
       radius: 80,

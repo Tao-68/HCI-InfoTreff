@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MenuePage extends StatelessWidget {
+class MenuePage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Stack(children: [
       Container(
         decoration: BoxDecoration(
@@ -27,12 +28,14 @@ class MenuePage extends StatelessWidget {
   }
 }
 
-class MenueCategories extends StatefulWidget {
+class MenueCategories extends ConsumerStatefulWidget {
+  const MenueCategories({super.key});
+
   @override
-  State<MenueCategories> createState() => _MenueCategoriesState();
+  ConsumerState<MenueCategories> createState() => _MenueCategoriesState();
 }
 
-class _MenueCategoriesState extends State<MenueCategories> {
+class _MenueCategoriesState extends ConsumerState<MenueCategories> {
   @override
   Widget build(BuildContext context) {
     var categories = <String>["Snacks", "Cofe", "Tee"];
@@ -57,10 +60,10 @@ class _MenueCategoriesState extends State<MenueCategories> {
   }
 }
 
-class MenueItems extends StatelessWidget {
+class MenueItems extends ConsumerWidget {
   var items = <String>["Burger", "Cola", "Mate"];
 
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     if (items.isEmpty) {
       return Center(
         child: Text('No Menue found.'),
@@ -80,17 +83,17 @@ class MenueItems extends StatelessWidget {
   }
 }
 
-class Accordion extends StatefulWidget {
+class Accordion extends ConsumerStatefulWidget {
   final String title;
   final Widget childWidget;
 
   const Accordion({Key? key, required this.title, required this.childWidget})
       : super(key: key);
   @override
-  State<Accordion> createState() => _AccordionState();
+  ConsumerState<Accordion> createState() => _AccordionState();
 }
 
-class _AccordionState extends State<Accordion> {
+class _AccordionState extends ConsumerState<Accordion> {
   // Show or hide the content
   bool _showContent = false;
 
