@@ -16,15 +16,15 @@ part 'app_router.g.dart';
 
 // shell routes, appear in the bottom navigation
 // see https://pub.dev/documentation/go_router/latest/go_router/ShellRoute-class.html
-enum TopLevelDestinations { people, counter }
+enum TopLevelDestinations { home, menu }
 
 // GlobalKey is a factory, hence each call creates a key
 //this is root, even if it navigates to people, it needs a separate key!!!
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _peopleNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.people.name);
-final _counterNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.counter.name);
+final _homeNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.home.name);
+final _menuNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.menu.name);
 
 // other destinations, reachable from a top level destination
 enum SubRoutes { details }
@@ -36,7 +36,7 @@ enum Parameter { id }
 @Riverpod(keepAlive: true)
 GoRouter goRouter(GoRouterRef ref) {
   return GoRouter(
-    initialLocation: '/${TopLevelDestinations.people.name}',
+    initialLocation: '/${TopLevelDestinations.home.name}',
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
@@ -48,44 +48,30 @@ GoRouter goRouter(GoRouterRef ref) {
         },
         branches: [
           StatefulShellBranch(
-            navigatorKey: _peopleNavigatorKey,
+            navigatorKey: _homeNavigatorKey,
             routes: [
-              // base route people
+              // base route home
               GoRoute(
-                path: '/${TopLevelDestinations.people.name}', // path: /people
-                name: TopLevelDestinations.people.name,
+                path: '/${TopLevelDestinations.home.name}', // path: /people
+                name: TopLevelDestinations.home.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const MyHomePage(),
-                ),
-                routes: <RouteBase>[
-                  // The details screen to display stacked on navigator of the
-                  // first tab. This will cover screen A but not the application
-                  // shell (bottom navigation bar).
-                  GoRoute(
-                    path: '${SubRoutes.details.name}/:${Parameter.id.name}',
-                    name: SubRoutes.details.name,
-                    builder: (BuildContext context, GoRouterState state) {
-                      // alternatively use https://pub.dev/documentation/go_router/latest/topics/Type-safe%20routes-topic.html
-                      final id =
-                          int.parse(state.pathParameters[Parameter.id.name]!);
-                      final person = _extractPersonFromExtra(state.extra);
-                      return DetailsScreen(id: id, person: person);
-                    },
+                  child: const MyPageView(
+                    initialPageIndex: 1,
                   ),
-                ],
+                ),
               ),
             ],
           ),
           StatefulShellBranch(
-            navigatorKey: _counterNavigatorKey,
+            navigatorKey: _menuNavigatorKey,
             routes: [
               GoRoute(
-                path: '/${TopLevelDestinations.counter.name}',
-                name: TopLevelDestinations.counter.name,
+                path: '/${TopLevelDestinations.menu.name}',
+                name: TopLevelDestinations.menu.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const CounterScreen(),
+                  child: const MyPageView(initialPageIndex: 0),
                 ),
               ),
             ],

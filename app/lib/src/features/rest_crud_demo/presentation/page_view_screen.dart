@@ -3,14 +3,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/home_screen.dart';
 import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/menu_screen.dart';
 
-class MyHomePage extends ConsumerStatefulWidget {
-  const MyHomePage({super.key});
+class MyPageView extends ConsumerStatefulWidget {
+  const MyPageView({
+    super.key,
+    required this.initialPageIndex,
+  });
+
+  final int initialPageIndex;
 
   @override
-  ConsumerState<MyHomePage> createState() => _MyHomePageState();
+  ConsumerState<MyPageView> createState() => _MyPageViewState();
 }
 
-class _MyHomePageState extends ConsumerState<MyHomePage> {
+class _MyPageViewState extends ConsumerState<MyPageView> {
   final _controller = PageController(
     initialPage: 1,
   );
@@ -21,7 +26,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
     super.dispose();
   }
 
-  var selectedIndex = 0;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

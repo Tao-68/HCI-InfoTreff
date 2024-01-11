@@ -37,24 +37,16 @@ class ScaffoldWithNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    if (size.width < Breakpoint.tablet) {
-      return ScaffoldWithNavigationBar(
-        body: navigationShell,
-        currentIndex: navigationShell.currentIndex,
-        onDestinationSelected: _goBranch,
-      );
-    } else {
-      return ScaffoldWithNavigationRail(
-        body: navigationShell,
-        currentIndex: navigationShell.currentIndex,
-        onDestinationSelected: _goBranch,
-      );
-    }
+    return ScaffoldWithAppBar(
+      body: navigationShell,
+      currentIndex: navigationShell.currentIndex,
+      onDestinationSelected: _goBranch,
+    );
   }
 }
 
-class ScaffoldWithNavigationBar extends StatelessWidget {
-  const ScaffoldWithNavigationBar({
+class ScaffoldWithAppBar extends StatelessWidget {
+  const ScaffoldWithAppBar({
     required this.body,
     required this.currentIndex,
     required this.onDestinationSelected,
@@ -69,10 +61,6 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
     return Scaffold(
       body: body,
       appBar: AppBar(
-        //leading: Padding(
-        //  padding: const EdgeInsets.all(5),
-        //  child: AppLogo(),
-        //),
         title: Text(
           'InfoTreff',
         ),
@@ -84,66 +72,6 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
           IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
           IconButton(onPressed: () {}, icon: Icon(Icons.comment)),
           IconButton(onPressed: () {}, icon: Icon(Icons.favorite))
-        ],
-      ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: currentIndex,
-        destinations: [
-          NavigationDestination(
-            icon: Icon(_navigationList.people.icon),
-            selectedIcon: Icon(_navigationList.people.selectedIcon),
-            label: context.loc.home,
-          ),
-          NavigationDestination(
-            icon: Icon(_navigationList.counter.icon),
-            selectedIcon: Icon(_navigationList.counter.selectedIcon),
-            label: context.loc.counter,
-          ),
-        ],
-        onDestinationSelected: onDestinationSelected,
-      ),
-    );
-  }
-}
-
-class ScaffoldWithNavigationRail extends StatelessWidget {
-  const ScaffoldWithNavigationRail({
-    required this.body,
-    required this.currentIndex,
-    required this.onDestinationSelected,
-    super.key,
-  });
-  final Widget body;
-  final int currentIndex;
-  final ValueChanged<int> onDestinationSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: [
-          NavigationRail(
-            selectedIndex: currentIndex,
-            onDestinationSelected: onDestinationSelected,
-            labelType: NavigationRailLabelType.all,
-            destinations: <NavigationRailDestination>[
-              NavigationRailDestination(
-                icon: Icon(_navigationList.people.icon),
-                selectedIcon: Icon(_navigationList.people.selectedIcon),
-                label: Text(context.loc.home),
-              ),
-              NavigationRailDestination(
-                icon: Icon(_navigationList.counter.icon),
-                selectedIcon: Icon(_navigationList.counter.selectedIcon),
-                label: Text(context.loc.counter),
-              ),
-            ],
-          ),
-          const VerticalDivider(thickness: 1, width: 1),
-          // This is the main content.
-          Expanded(
-            child: body,
-          ),
         ],
       ),
     );
