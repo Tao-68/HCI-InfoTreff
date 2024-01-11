@@ -26,25 +26,6 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        //leading: Padding(
-        //  padding: const EdgeInsets.all(5),
-        //  child: AppLogo(),
-        //),
-        title: Text(
-          'InfoTreff',
-          selectionColor: theme.colorScheme.onTertiary,
-        ),
-        backgroundColor: Colors.amber,
-        shadowColor: theme.colorScheme.primary,
-        surfaceTintColor: theme.colorScheme.onPrimary,
-        elevation: 4,
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.comment)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.favorite))
-        ],
-      ),
       body: PageView(
         controller: _controller,
         children: [

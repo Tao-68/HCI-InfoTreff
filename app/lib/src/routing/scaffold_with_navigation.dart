@@ -68,6 +68,24 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: body,
+      appBar: AppBar(
+        //leading: Padding(
+        //  padding: const EdgeInsets.all(5),
+        //  child: AppLogo(),
+        //),
+        title: Text(
+          'InfoTreff',
+        ),
+        backgroundColor: Colors.amber,
+        //shadowColor: theme.colorScheme.primary,
+        //surfaceTintColor: theme.colorScheme.onPrimary,
+        elevation: 4,
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.comment)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.favorite))
+        ],
+      ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentIndex,
         destinations: [
