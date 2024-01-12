@@ -11,12 +11,12 @@ class HomePageNew extends ConsumerWidget {
         child: Stack(
       children: [
         Container(
-          color: Colors.black,
+          color: Colors.grey,
         ),
         ClipPath(
           clipper: WaveClipper(),
           child: FractionallySizedBox(
-            heightFactor: 0.66,
+            heightFactor: 0.73,
             widthFactor: 1,
             child: Container(
               color: Colors.blue,
@@ -26,11 +26,80 @@ class HomePageNew extends ConsumerWidget {
         ClipPath(
           clipper: WaveClipper(),
           child: FractionallySizedBox(
-            heightFactor: 0.64,
+            heightFactor: 0.72,
             widthFactor: 1,
             child: Container(
               color: Colors.red,
             ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              //Menue Headline
+              Row(
+                children: [
+                  Icon(
+                    Icons.coffee_rounded,
+                    color: Colors.white,
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    'Menu',
+                    style: TextStyle(color: Colors.white, fontSize: 30),
+                  ),
+                ],
+              ),
+
+              //Navigation and Logo
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.arrow_back_ios_new_rounded),
+                    iconSize: 65,
+                    color: Colors.amber,
+                  ),
+                  CircleAvatar(
+                    child: Image.asset('assets/InfoTreffLogo.png'),
+                    backgroundColor: Colors.transparent,
+                    radius: 75,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fitWidth,
+                        image: AssetImage('assets/InfoTreffLogo.png'),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.arrow_forward_ios_rounded),
+                    iconSize: 65,
+                    color: Colors.amber,
+                  ),
+                ],
+              ),
+              //Event Headline
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.celebration_rounded,
+                    color: Colors.white,
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    'Events',
+                    style: TextStyle(color: Colors.white, fontSize: 30),
+                  ),
+                ],
+              ),
+            ],
           ),
         )
       ],
