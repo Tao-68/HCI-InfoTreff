@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/home_screen.dart';
 import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/home_screen_new.dart';
 import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/menu_screen.dart';
+import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/menu_screen_new.dart';
 
 class MyPageView extends ConsumerStatefulWidget {
   const MyPageView({
@@ -37,6 +38,7 @@ class _MyPageViewState extends ConsumerState<MyPageView> {
         children: [
           MenuePage(),
           HomePage(),
+          MenuPageNew(),
           HomePageNew(),
         ],
       ),

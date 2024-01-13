@@ -14,7 +14,7 @@ class HomePageNew extends ConsumerWidget {
           color: Colors.grey,
         ),
         ClipPath(
-          clipper: WaveClipper(),
+          clipper: WaveClipperHomePage(),
           child: FractionallySizedBox(
             heightFactor: 0.73,
             widthFactor: 1,
@@ -24,7 +24,7 @@ class HomePageNew extends ConsumerWidget {
           ),
         ),
         ClipPath(
-          clipper: WaveClipper(),
+          clipper: WaveClipperHomePage(),
           child: FractionallySizedBox(
             heightFactor: 0.72,
             widthFactor: 1,
@@ -107,7 +107,7 @@ class HomePageNew extends ConsumerWidget {
   }
 }
 
-class WaveClipper extends CustomClipper<Path> {
+class WaveClipperHomePage extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     debugPrint(size.width.toString());

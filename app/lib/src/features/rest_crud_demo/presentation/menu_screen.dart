@@ -19,11 +19,12 @@ class MenuePage extends ConsumerWidget {
         child: MenueCategories(),
       ),
       Center(
-          child: IconButton(
-        onPressed: () {},
-        icon: Icon(Icons.filter_list_rounded),
-        iconSize: 50,
-      )),
+        child: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.filter_list_rounded),
+          iconSize: 50,
+        ),
+      ),
     ]);
   }
 }
@@ -70,16 +71,19 @@ class MenueItems extends ConsumerWidget {
       );
     }
 
-    return Stack(alignment: const Alignment(0.6, 0.6), children: [
-      ListView(
-        children: [
-          for (var item in items)
-            ListTile(
-              title: Text(item),
-            ),
-        ],
-      ),
-    ]);
+    return Stack(
+      alignment: const Alignment(0.6, 0.6),
+      children: [
+        ListView(
+          children: [
+            for (var item in items)
+              ListTile(
+                title: Text(item),
+              ),
+          ],
+        ),
+      ],
+    );
   }
 }
 
