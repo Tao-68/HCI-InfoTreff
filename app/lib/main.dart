@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'src/routing/app_router.dart';
 import 'src/utils/localization.dart';
 
@@ -13,30 +14,30 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final goRouter = ref.watch(goRouterProvider);
+
+    //Colors
+
+    final primaryLight = Color(0xFFFFF2E3);
+    final primaryDark = Color(0xFF401E11);
+
+    final secondaryLight = Color(0xFFC19B7A);
+    final secondaryDark = Color(0xFF734217);
     return MaterialApp.router(
       routerConfig: goRouter,
       debugShowCheckedModeBanner: false,
       onGenerateTitle: (context) => context.loc.appTitle,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Color(0xFF734217),
-          brightness: Brightness.light,
-          primary: Color(0xFF734217),
-          onPrimary: Color(0xFFFFF2E3),
-          primaryContainer: Color(0xFFFFF2E3),
-          onPrimaryContainer: Color(0xFF401E11),
-          secondary: Color(0xFF734217),
-          onSecondary: Color(0xFFFFF2E3),
-          secondaryContainer: Color(0xFF734217),
-          onSecondaryContainer: Color(0xFFFFF2E3),
-          tertiary: Color(0xFFC19B7A),
-          onTertiary: Color(0xFF401E11),
-          tertiaryContainer: Color(0xFFC19B7A),
-        ),
-        useMaterial3: true,
-      ),
+
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      theme: ThemeData(
+        textTheme: GoogleFonts.averiaSerifLibreTextTheme(),
+        colorScheme: ColorScheme.light(
+          primary: primaryLight,
+          onPrimary: primaryDark,
+          secondary: secondaryLight,
+          onSecondary: secondaryDark,
+        ),
+      ),
       // use to find missing semantics
       // showSemanticsDebugger: true,
     );

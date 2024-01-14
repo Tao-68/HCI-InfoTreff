@@ -58,20 +58,38 @@ class ScaffoldWithAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       body: body,
       appBar: AppBar(
         title: Text(
           'InfoTreff',
+          style: TextStyle(
+              color: theme.colorScheme.onPrimary, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.amber,
-        //shadowColor: theme.colorScheme.primary,
-        //surfaceTintColor: theme.colorScheme.onPrimary,
+        backgroundColor: theme.colorScheme.primary,
+        shadowColor: theme.colorScheme.onSecondary,
         elevation: 4,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.comment)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.favorite))
+          IconButton(
+            onPressed: () {
+              //TODO: open Settings PopUp
+            },
+            icon: Icon(Icons.settings_outlined),
+            color: theme.colorScheme.onPrimary,
+          ),
+          IconButton(
+              onPressed: () {
+                //TODO: open feedback PopUp
+              },
+              icon: Icon(
+                Icons.comment_outlined,
+              ),
+              color: theme.colorScheme.onPrimary),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.favorite_outline),
+              color: theme.colorScheme.onPrimary),
         ],
       ),
     );

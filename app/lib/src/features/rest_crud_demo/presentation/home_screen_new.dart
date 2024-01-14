@@ -7,8 +7,131 @@ class HomePageNew extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
     return Container(
         child: Stack(
+      children: [
+        //BackgroundAsClipPath(),
+        BackgroundAsImage(),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              //Menue Headline
+              Row(
+                children: [
+                  Icon(
+                    Icons.coffee_rounded,
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    'Menu',
+                    style: TextStyle(
+                      color: theme.colorScheme.onPrimary,
+                      fontSize: 30,
+                    ),
+                  ),
+                ],
+              ),
+
+              //Navigation and Logo
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      //TODO: implement switch menu screen
+                    },
+                    icon: Icon(Icons.arrow_back_ios_new_rounded),
+                    iconSize: 65,
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 3,
+                        color: theme.colorScheme.onSecondary,
+                      ),
+                      shape: BoxShape.circle,
+                      color: theme.colorScheme.primary.withOpacity(0.5),
+                    ),
+                    child: CircleAvatar(
+                      child: Image.asset('assets/InfoTreffLogo.png'),
+                      backgroundColor: Colors.transparent,
+                      radius: 75,
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fitWidth,
+                        image: AssetImage('assets/InfoTreffLogo.png'),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      //TODO: implement switch to event screen
+                    },
+                    icon: Icon(Icons.arrow_forward_ios_rounded),
+                    iconSize: 65,
+                    color: theme.colorScheme.primary,
+                  ),
+                ],
+              ),
+              //Event Headline
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.celebration_rounded,
+                    color: theme.colorScheme.primary,
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    'Events',
+                    style: TextStyle(
+                        color: theme.colorScheme.primary, fontSize: 30),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        )
+      ],
+    ));
+  }
+}
+
+class BackgroundAsImage extends StatelessWidget {
+  const BackgroundAsImage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/home_background.png"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: null /* add child content here */,
+    );
+  }
+}
+
+class BackgroundAsClipPath extends StatelessWidget {
+  const BackgroundAsClipPath({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
       children: [
         Container(
           color: Colors.grey,
@@ -33,77 +156,8 @@ class HomePageNew extends ConsumerWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              //Menue Headline
-              Row(
-                children: [
-                  Icon(
-                    Icons.coffee_rounded,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    'Menu',
-                    style: TextStyle(color: Colors.white, fontSize: 30),
-                  ),
-                ],
-              ),
-
-              //Navigation and Logo
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_back_ios_new_rounded),
-                    iconSize: 65,
-                    color: Colors.amber,
-                  ),
-                  CircleAvatar(
-                    child: Image.asset('assets/InfoTreffLogo.png'),
-                    backgroundColor: Colors.transparent,
-                    radius: 75,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.fitWidth,
-                        image: AssetImage('assets/InfoTreffLogo.png'),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_forward_ios_rounded),
-                    iconSize: 65,
-                    color: Colors.amber,
-                  ),
-                ],
-              ),
-              //Event Headline
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.celebration_rounded,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    'Events',
-                    style: TextStyle(color: Colors.white, fontSize: 30),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        )
       ],
-    ));
+    );
   }
 }
 

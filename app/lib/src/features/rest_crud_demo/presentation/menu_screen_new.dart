@@ -5,6 +5,7 @@ import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/menu_screen.
 class MenuPageNew extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
     return Stack(
       children: [
         //BackgoundAsClipPath(),
@@ -20,22 +21,38 @@ class MenuPageNew extends ConsumerWidget {
         Container(
           padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           alignment: Alignment.bottomRight,
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(width: 2, color: Colors.amber),
-                color: Colors.white),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.filter_list_rounded,
-                color: Colors.amber,
-              ),
-              iconSize: 50,
-            ),
-          ),
+          child: FilterButton(theme: theme),
         ),
       ],
+    );
+  }
+}
+
+class FilterButton extends StatelessWidget {
+  const FilterButton({
+    super.key,
+    required this.theme,
+  });
+
+  final ThemeData theme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(width: 2, color: theme.colorScheme.primary),
+          color: theme.colorScheme.onSecondary),
+      child: IconButton(
+        onPressed: () {
+          //TODO: open Filter PopUp
+        },
+        icon: Icon(
+          Icons.filter_list_rounded,
+          color: theme.colorScheme.primary,
+        ),
+        iconSize: 40,
+      ),
     );
   }
 }
@@ -110,9 +127,14 @@ class Category extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
     if (items.isEmpty)
       return Accordion(
-          title: categoryTitle, childWidget: Text('No items in this category'));
+        title: categoryTitle,
+        childWidget: Text(
+          'No items in this category',
+        ),
+      );
 
     return Accordion(
       title: categoryTitle,
@@ -120,8 +142,21 @@ class Category extends ConsumerWidget {
         children: [
           for (var item in items)
             ListTile(
-              leading: Text(item),
-              trailing: Icon(Icons.open_in_new),
+              leading: Text(
+                item,
+                style: TextStyle(
+                  color: theme.colorScheme.onPrimary,
+                  fontSize: 16,
+                ),
+              ),
+              trailing: Icon(
+                Icons.open_in_new,
+                size: 18,
+                color: theme.colorScheme.onPrimary,
+              ),
+              onTap: () {
+                //TODO: implement open Detail PopUp
+              },
             ),
         ],
       ),
@@ -144,23 +179,32 @@ class _AccordionState extends ConsumerState<Accordion> {
 
   @override
   Widget build(BuildContext context) {
-    //final theme = Theme.of(context);
+    final theme = Theme.of(context);
     return Card(
+      shape: RoundedRectangleBorder(
+          side: BorderSide(width: 2, color: theme.colorScheme.onPrimary),
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       margin: const EdgeInsets.all(10),
       elevation: 4,
+      color: theme.colorScheme.primary,
+      shadowColor: theme.colorScheme.onSecondary,
       child: Column(
         children: [
           // The title
           ListTile(
-            title: Text(widget.title),
-            trailing: IconButton(
-              icon: Icon(
-                  _showContent ? Icons.arrow_drop_up : Icons.arrow_drop_down),
-              onPressed: () {
-                setState(() {
-                  _showContent = !_showContent;
-                });
-              },
+            title: Text(
+              widget.title,
+              style:
+                  TextStyle(color: theme.colorScheme.onPrimary, fontSize: 20),
+            ),
+            onTap: () {
+              setState(() {
+                _showContent = !_showContent;
+              });
+            },
+            trailing: Icon(
+              _showContent ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+              color: theme.colorScheme.onPrimary,
             ),
           ),
           // Show or hide the content based on the state
