@@ -1,6 +1,6 @@
-// https://api-generator.retool.com/grQMFP/crud-demo/
+// https://retoolapi.dev/khwaiu/events
 abstract class Api {
   static const String schema = 'https';
-  static const String host = 'api-generator.retool.com';
-  static const String path = 'grQMFP/crud-demo/';
+  static const String host = 'retoolapi.dev';
+  static const String path = 'khwaiu/events/';
 }

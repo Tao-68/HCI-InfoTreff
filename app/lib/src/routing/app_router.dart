@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/features/events/presentation/events_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../features/rest_crud_demo/presentation/page_view_screen.dart';
 import 'scaffold_with_navigation.dart';
