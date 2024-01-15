@@ -65,7 +65,9 @@ class ScaffoldWithAppBar extends StatelessWidget {
         title: Text(
           'InfoTreff',
           style: TextStyle(
-              color: theme.colorScheme.onPrimary, fontWeight: FontWeight.bold),
+            color: theme.colorScheme.onPrimary,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         backgroundColor: theme.colorScheme.primary,
         shadowColor: theme.colorScheme.onSecondary,
@@ -73,23 +75,25 @@ class ScaffoldWithAppBar extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              //TODO: open Settings PopUp
+              // TODO(Emil): open Settings PopUp
             },
-            icon: Icon(Icons.settings_outlined),
+            icon: const Icon(Icons.settings_outlined),
             color: theme.colorScheme.onPrimary,
           ),
           IconButton(
-              onPressed: () {
-                //TODO: open feedback PopUp
-              },
-              icon: Icon(
-                Icons.comment_outlined,
-              ),
-              color: theme.colorScheme.onPrimary),
+            onPressed: () {
+              // TODO(Emil): open feedback PopUp
+            },
+            icon: const Icon(
+              Icons.comment_outlined,
+            ),
+            color: theme.colorScheme.onPrimary,
+          ),
           IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.favorite_outline),
-              color: theme.colorScheme.onPrimary),
+            onPressed: () {},
+            icon: const Icon(Icons.favorite_outline),
+            color: theme.colorScheme.onPrimary,
+          ),
         ],
       ),
     );

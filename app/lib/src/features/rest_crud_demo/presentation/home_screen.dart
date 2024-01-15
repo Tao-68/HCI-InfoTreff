@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -8,11 +7,10 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    return Container(
-        child: Stack(
+    return Stack(
       children: [
         //BackgroundAsClipPath(),
-        BackgroundAsImage(),
+        const BackgroundAsImage(),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: Column(
@@ -26,7 +24,7 @@ class HomePage extends ConsumerWidget {
                     color: theme.colorScheme.onPrimary,
                     size: 25,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Text(
                     'Menu',
                     style: TextStyle(
@@ -43,9 +41,9 @@ class HomePage extends ConsumerWidget {
                 children: [
                   IconButton(
                     onPressed: () {
-                      //TODO: implement switch menu screen
+                      // TODO(Emil): implement switch menu screen.
                     },
-                    icon: Icon(Icons.arrow_back_ios_new_rounded),
+                    icon: const Icon(Icons.arrow_back_ios_new_rounded),
                     iconSize: 65,
                     color: theme.colorScheme.onPrimary,
                   ),
@@ -59,13 +57,13 @@ class HomePage extends ConsumerWidget {
                       color: theme.colorScheme.primary.withOpacity(0.5),
                     ),
                     child: CircleAvatar(
-                      child: Image.asset('assets/InfoTreffLogo.png'),
                       backgroundColor: Colors.transparent,
                       radius: 75,
+                      child: Image.asset('assets/InfoTreffLogo.png'),
                     ),
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.fitWidth,
                         image: AssetImage('assets/InfoTreffLogo.png'),
@@ -74,9 +72,9 @@ class HomePage extends ConsumerWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      //TODO: implement switch to event screen
+                      // TODO(Emil): implement switch to event screen
                     },
-                    icon: Icon(Icons.arrow_forward_ios_rounded),
+                    icon: const Icon(Icons.arrow_forward_ios_rounded),
                     iconSize: 65,
                     color: theme.colorScheme.primary,
                   ),
@@ -91,19 +89,21 @@ class HomePage extends ConsumerWidget {
                     color: theme.colorScheme.primary,
                     size: 25,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Text(
                     'Events',
                     style: TextStyle(
-                        color: theme.colorScheme.primary, fontSize: 30),
+                      color: theme.colorScheme.primary,
+                      fontSize: 30,
+                    ),
                   ),
                 ],
               ),
             ],
           ),
-        )
+        ),
       ],
-    ));
+    );
   }
 }
 
@@ -115,13 +115,12 @@ class BackgroundAsImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/home_background.png"),
+          image: AssetImage('assets/home_background.png'),
           fit: BoxFit.cover,
         ),
-      ),
-      child: null /* add child content here */,
+      ) /* add child content here */,
     );
   }
 }
@@ -167,27 +166,35 @@ class WaveClipperHomePage extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     debugPrint(size.width.toString());
-    var path = new Path();
+    final path = Path();
     path.lineTo(0, size.height);
-    var firstPointContol = Offset(size.width / 3, size.height);
-    var secondPoint = Offset(size.width / 2, size.height - (size.height / 3));
-    path.quadraticBezierTo(firstPointContol.dx, firstPointContol.dy,
-        secondPoint.dx, secondPoint.dy);
+    final firstPointContol = Offset(size.width / 3, size.height);
+    final secondPoint = Offset(size.width / 2, size.height - (size.height / 3));
+    path.quadraticBezierTo(
+      firstPointContol.dx,
+      firstPointContol.dy,
+      secondPoint.dx,
+      secondPoint.dy,
+    );
 
-    var pointThreeContorol =
+    final pointThreeContorol =
         Offset(size.width - (size.width / 3), size.height / 3);
-    var fourthPoint = Offset(size.width, size.height / 3);
+    final fourthPoint = Offset(size.width, size.height / 3);
 
-    path.quadraticBezierTo(pointThreeContorol.dx, pointThreeContorol.dy,
-        fourthPoint.dx, fourthPoint.dy);
-    path.lineTo(size.width, 0);
-    path.close();
+    path
+      ..quadraticBezierTo(
+        pointThreeContorol.dx,
+        pointThreeContorol.dy,
+        fourthPoint.dx,
+        fourthPoint.dy,
+      )
+      ..lineTo(size.width, 0)
+      ..close();
     return path;
   }
 
   @override
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
     return true;
   }
 }

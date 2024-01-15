@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MenuPage extends ConsumerWidget {
+  const MenuPage({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     return Stack(
       children: [
         //BackgoundAsClipPath(),
-        BackgroundAsImage(),
+        const BackgroundAsImage(),
 
         //Menu
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: CategoryList(),
         ),
 
         //Filter Button
         Container(
-          padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           alignment: Alignment.bottomRight,
           child: FilterButton(theme: theme),
         ),
@@ -29,8 +31,8 @@ class MenuPage extends ConsumerWidget {
 
 class FilterButton extends StatelessWidget {
   const FilterButton({
-    super.key,
     required this.theme,
+    super.key,
   });
 
   final ThemeData theme;
@@ -39,12 +41,13 @@ class FilterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(width: 2, color: theme.colorScheme.primary),
-          color: theme.colorScheme.onSecondary),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(width: 2, color: theme.colorScheme.primary),
+        color: theme.colorScheme.onSecondary,
+      ),
       child: IconButton(
         onPressed: () {
-          //TODO: open Filter PopUp
+          // TODO(Emil): open Filter PopUp
         },
         icon: Icon(
           Icons.filter_list_rounded,
@@ -64,13 +67,12 @@ class BackgroundAsImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/menu_background.png"),
+          image: AssetImage('assets/menu_background.png'),
           fit: BoxFit.cover,
         ),
-      ),
-      child: null /* add child content here */,
+      ) /* add child content here */,
     );
   }
 }
@@ -82,22 +84,22 @@ class CategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var categories = <String>['Snacks', 'Cofé', 'Tee'];
-    var snackItems = <String>[];
-    var cofeItems = <String>[
+    final categories = <String>['Snacks', 'Cofé', 'Tee'];
+    final snackItems = <String>[];
+    final cofeItems = <String>[
       'Late',
       'Espreso',
     ];
-    var teeItems = <String>[
+    final teeItems = <String>[
       'Black',
       'Roibush',
       'Green',
       'Earl Grey',
-      'Chamomile'
+      'Chamomile',
     ];
 
     if (categories.isEmpty) {
-      return Center(
+      return const Center(
         child: Text('No Menu found.'),
       );
     } //end of if
@@ -115,31 +117,31 @@ class CategoryList extends StatelessWidget {
 }
 
 class Category extends ConsumerWidget {
-  final String categoryTitle;
-  final List<String> items;
-
   const Category(
     this.categoryTitle,
     this.items, {
     super.key,
   });
+  final String categoryTitle;
+  final List<String> items;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    if (items.isEmpty)
+    if (items.isEmpty) {
       return Accordion(
         title: categoryTitle,
-        childWidget: Text(
+        childWidget: const Text(
           'No items in this category',
         ),
       );
+    }
 
     return Accordion(
       title: categoryTitle,
       childWidget: Column(
         children: [
-          for (var item in items)
+          for (final item in items)
             ListTile(
               leading: Text(
                 item,
@@ -154,7 +156,7 @@ class Category extends ConsumerWidget {
                 color: theme.colorScheme.onPrimary,
               ),
               onTap: () {
-                //TODO: implement open Detail PopUp
+                // TODO(Emil): implement open Detail PopUp
               },
             ),
         ],
@@ -181,8 +183,9 @@ class _AccordionState extends ConsumerState<Accordion> {
     final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(
-          side: BorderSide(width: 2, color: theme.colorScheme.onPrimary),
-          borderRadius: BorderRadius.all(Radius.circular(10))),
+        side: BorderSide(width: 2, color: theme.colorScheme.onPrimary),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+      ),
       margin: const EdgeInsets.all(10),
       elevation: 4,
       color: theme.colorScheme.primary,
@@ -207,13 +210,13 @@ class _AccordionState extends ConsumerState<Accordion> {
             ),
           ),
           // Show or hide the content based on the state
-          _showContent
-              ? Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                  child: widget.childWidget,
-                )
-              : Container()
+          if (_showContent)
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              child: widget.childWidget,
+            )
+          else
+            Container(),
         ],
       ),
     );
@@ -261,27 +264,38 @@ class WaveClipperMenuPage extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     debugPrint(size.width.toString());
-    var path = new Path();
+    final path = Path();
     path.lineTo(0, size.height);
-    var firstPointContol = Offset(size.width / 3, size.height);
-    var secondPoint = Offset(size.width / 2, size.height - (size.height / 10));
-    path.quadraticBezierTo(firstPointContol.dx, firstPointContol.dy,
-        secondPoint.dx, secondPoint.dy);
+    final firstPointContol = Offset(size.width / 3, size.height);
+    final secondPoint =
+        Offset(size.width / 2, size.height - (size.height / 10));
+    path.quadraticBezierTo(
+      firstPointContol.dx,
+      firstPointContol.dy,
+      secondPoint.dx,
+      secondPoint.dy,
+    );
 
-    var pointThreeContorol = Offset(
-        size.width - (size.width / 3), size.height - (size.height / 5.2));
-    var fourthPoint = Offset(size.width, size.height - (size.height / 5.2));
+    final pointThreeContorol = Offset(
+      size.width - (size.width / 3),
+      size.height - (size.height / 5.2),
+    );
+    final fourthPoint = Offset(size.width, size.height - (size.height / 5.2));
 
-    path.quadraticBezierTo(pointThreeContorol.dx, pointThreeContorol.dy,
-        fourthPoint.dx, fourthPoint.dy);
-    path.lineTo(size.width, 0);
-    path.close();
+    path
+      ..quadraticBezierTo(
+        pointThreeContorol.dx,
+        pointThreeContorol.dy,
+        fourthPoint.dx,
+        fourthPoint.dy,
+      )
+      ..lineTo(size.width, 0)
+      ..close();
     return path;
   }
 
   @override
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    // TODO: implement shouldReclip
     return true;
   }
 }
