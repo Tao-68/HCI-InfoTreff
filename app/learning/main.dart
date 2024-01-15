@@ -30,7 +30,7 @@ Future<http.Response> likeEvent(Event event, bool like) async {
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON
-    var eventData = jsonDecode(response.body);
+    final eventData = jsonDecode(response.body);
     int likeVal = 0;
     if (like) {
       likeVal = 1;
@@ -43,7 +43,7 @@ Future<http.Response> likeEvent(Event event, bool like) async {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode({"likes": eventData["likes"] + likeVal}),
+      body: jsonEncode({'likes': eventData['likes'] + likeVal}),
     );
   } else {
     // If the server did not return a 200 OK response,
@@ -53,17 +53,16 @@ Future<http.Response> likeEvent(Event event, bool like) async {
 }
 
 class Event {
-  final int eventID;
-  final String title;
-  final String date;
-  int likes = 0;
-
   Event({
     required this.eventID,
     required this.title,
     required this.date,
     this.likes = 0,
   });
+  final int eventID;
+  final String title;
+  final String date;
+  int likes = 0;
 
   @override
   bool operator ==(covariant Event other) => other.eventID == eventID;
@@ -71,30 +70,32 @@ class Event {
   int get hashCode => eventID.hashCode;
   @override
   String toString() {
-    return "Titel: $title\nDate: $date\nLikes: $likes\n";
+    return 'Titel: $title\nDate: $date\nLikes: $likes\n';
   }
 }
 
 class EventList {
-  List<Event> eventList;
-
   EventList({required this.eventList});
 
   factory EventList.fromJson(json) {
-    List<Event> list = List.empty(growable: true);
-    for (var event in json) {
-      list.add(Event(
-          eventID: event["id"],
-          title: event["title"],
-          date: event["date"],
-          likes: event["likes"]));
+    final List<Event> list = List.empty(growable: true);
+    for (final event in list) {
+      list.add(
+        Event(
+          eventID: 1, //event["id"],
+          title: 'Title', //event["title"],
+          date: '01.01.2000', //event["date"],
+          likes: 1,
+        ),
+      ); //event["likes"]));
     }
     return EventList(eventList: list);
   }
+  List<Event> eventList;
 
   String getDetails() {
-    String ret = "";
-    for (Event event in eventList) {
+    String ret = '';
+    for (final Event event in eventList) {
       ret += event.toString();
     }
     return ret;
@@ -122,7 +123,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   dynamic toggleFavourite(Event event) {
-    print("toggle favourite ${event}");
+    print('toggle favourite $event');
     setState(() {
       if (favourites.eventList.contains(event)) {
         favourites.eventList.remove(event);
@@ -132,7 +133,7 @@ class _MyAppState extends State<MyApp> {
         likeEvent(event, true);
       }
     });
-    print("Favourites: ${favourites.eventList}");
+    print('Favourites: ${favourites.eventList}');
   }
 
   IconData getIcon(Event event) {
@@ -146,7 +147,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     futureEventList = getEventList();
-    print("BUILD");
+    print('BUILD');
     return MaterialApp(
       title: 'Fetch Data Example',
       theme: ThemeData(
@@ -161,23 +162,29 @@ class _MyAppState extends State<MyApp> {
             future: futureEventList,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return DataTable(columns: const <DataColumn>[
-                  DataColumn(label: Text("Event")),
-                  DataColumn(label: Text("Like")),
-                ], rows: [
-                  for (Event event in snapshot.data!.eventList)
-                    DataRow(
-                      cells: [
-                        DataCell(Text(event.toString())),
-                        DataCell(ElevatedButton.icon(
-                            onPressed: () {
-                              toggleFavourite(event);
-                            },
-                            icon: Icon(getIcon(event)),
-                            label: Text("Like")))
-                      ],
-                    )
-                ]);
+                return DataTable(
+                  columns: const <DataColumn>[
+                    DataColumn(label: Text('Event')),
+                    DataColumn(label: Text('Like')),
+                  ],
+                  rows: [
+                    for (final Event event in snapshot.data!.eventList)
+                      DataRow(
+                        cells: [
+                          DataCell(Text(event.toString())),
+                          DataCell(
+                            ElevatedButton.icon(
+                              onPressed: () {
+                                toggleFavourite(event);
+                              },
+                              icon: Icon(getIcon(event)),
+                              label: const Text('Like'),
+                            ),
+                          ),
+                        ],
+                      ),
+                  ],
+                );
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
