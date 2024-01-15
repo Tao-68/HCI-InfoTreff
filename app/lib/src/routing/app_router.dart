@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../features/counter/presentation/counter_screen.dart';
-import '../features/rest_crud_demo/domain/person.dart';
-import '../features/rest_crud_demo/presentation/details_screen.dart';
-import '../features/rest_crud_demo/presentation/people_screen.dart';
 import '../features/rest_crud_demo/presentation/page_view_screen.dart';
 import 'scaffold_with_navigation.dart';
 
@@ -79,18 +74,4 @@ GoRouter goRouter(GoRouterRef ref) {
       ),
     ],
   );
-}
-
-Person? _extractPersonFromExtra(Object? extra) {
-  return extra == null
-      ? null
-      : extra is Person
-          ? extra
-          : extra is Map // if you come back from bottom navigation, e.g. look
-              // at details of a person, go to counter via bottom navigation,
-              // use bottom navigation to go to people/home
-              ? Person.fromJson(
-                  extra as Map<String, Object?>,
-                )
-              : null;
 }

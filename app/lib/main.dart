@@ -17,11 +17,11 @@ class MyApp extends ConsumerWidget {
 
     //Colors
 
-    final primaryLight = Color(0xFFFFF2E3);
-    final primaryDark = Color(0xFF401E11);
+    const primaryLight = Color(0xFFFFF2E3);
+    const primaryDark = Color(0xFF401E11);
 
-    final secondaryLight = Color(0xFFC19B7A);
-    final secondaryDark = Color(0xFF734217);
+    const secondaryLight = Color(0xFFC19B7A);
+    const secondaryDark = Color(0xFF734217);
     return MaterialApp.router(
       routerConfig: goRouter,
       debugShowCheckedModeBanner: false,
@@ -31,7 +31,7 @@ class MyApp extends ConsumerWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         textTheme: GoogleFonts.averiaSerifLibreTextTheme(),
-        colorScheme: ColorScheme.light(
+        colorScheme: const ColorScheme.light(
           primary: primaryLight,
           onPrimary: primaryDark,
           secondary: secondaryLight,

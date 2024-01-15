@@ -5,8 +5,8 @@ import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/menu_screen.
 
 class MyPageView extends ConsumerStatefulWidget {
   const MyPageView({
-    super.key,
     required this.initialPageIndex,
+    super.key,
   });
 
   final int initialPageIndex;
@@ -29,11 +29,10 @@ class _MyPageViewState extends ConsumerState<MyPageView> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Scaffold(
       body: PageView(
         controller: _controller,
-        children: [
+        children: const [
           MenuPage(),
           HomePage(),
         ],

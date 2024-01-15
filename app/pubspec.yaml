@@ -25,6 +25,7 @@ dependencies:
   gap: ^3.0.1
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
+  google_fonts:
 
 dev_dependencies:
   flutter_test:
@@ -40,7 +41,7 @@ dev_dependencies:
   very_good_analysis: ^5.1.0
   freezed: ^2.4.5
   json_serializable: ^6.7.1
-  google_fonts:
+  
 
 flutter:
   uses-material-design: true

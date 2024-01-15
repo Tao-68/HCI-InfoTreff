@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../constants/breakpoint.dart';
-import '../utils/localization.dart';
+//mport '../constants/breakpoint.dart';
+//import '../utils/localization.dart';
 
 // see https://github.com/flutter/packages/blob/main/packages/go_router/example/lib/stateful_shell_route.dart
 // and https://github.com/bizz84/tmdb_movie_app_riverpod/blob/main/lib/src/routing/scaffold_with_nested_navigation.dart
@@ -11,14 +11,6 @@ class NavigationItem {
   final IconData icon;
   final IconData selectedIcon;
 }
-
-final _navigationList = (
-  people: NavigationItem(icon: Icons.home_outlined, selectedIcon: Icons.home),
-  counter: NavigationItem(
-    icon: Icons.plus_one_outlined,
-    selectedIcon: Icons.plus_one,
-  ),
-);
 
 class ScaffoldWithNavigation extends StatelessWidget {
   const ScaffoldWithNavigation({
@@ -36,7 +28,7 @@ class ScaffoldWithNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
+    //final size = MediaQuery.sizeOf(context);
     return ScaffoldWithAppBar(
       body: navigationShell,
       currentIndex: navigationShell.currentIndex,
