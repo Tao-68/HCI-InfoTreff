@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class HomePageNew extends ConsumerWidget {
-  const HomePageNew({super.key});
+class HomePage extends ConsumerWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,6 +24,7 @@ class HomePageNew extends ConsumerWidget {
                   Icon(
                     Icons.coffee_rounded,
                     color: theme.colorScheme.onPrimary,
+                    size: 25,
                   ),
                   SizedBox(width: 10),
                   Text(
@@ -88,6 +89,7 @@ class HomePageNew extends ConsumerWidget {
                   Icon(
                     Icons.celebration_rounded,
                     color: theme.colorScheme.primary,
+                    size: 25,
                   ),
                   SizedBox(width: 10),
                   Text(

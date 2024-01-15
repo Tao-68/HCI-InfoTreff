@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ri_go_demo/src/features/rest_crud_demo/presentation/menu_screen.dart';
 
-class MenuPageNew extends ConsumerWidget {
+class MenuPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
