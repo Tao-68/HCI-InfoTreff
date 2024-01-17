@@ -13,12 +13,8 @@ class NavigationItem {
 }
 
 final _navigationList = (
-  events: NavigationItem(icon: Icons.ac_unit, selectedIcon: Icons.ac_unit),
-  people: NavigationItem(icon: Icons.home_outlined, selectedIcon: Icons.home),
-  counter: NavigationItem(
-    icon: Icons.plus_one_outlined,
-    selectedIcon: Icons.plus_one,
-  ),
+  events: NavigationItem(icon: Icons.event, selectedIcon: Icons.event),
+  menu: NavigationItem(icon: Icons.menu_book_outlined, selectedIcon: Icons.menu_book),
 );
 
 class ScaffoldWithNavigation extends StatelessWidget {
@@ -75,17 +71,12 @@ class ScaffoldWithNavigationBar extends StatelessWidget {
           NavigationDestination(
             icon: Icon(_navigationList.events.icon),
             selectedIcon: Icon(_navigationList.events.selectedIcon),
-            label: context.loc.home,
+            label: "Events",
           ),
           NavigationDestination(
-            icon: Icon(_navigationList.people.icon),
-            selectedIcon: Icon(_navigationList.people.selectedIcon),
-            label: context.loc.home,
-          ),
-          NavigationDestination(
-            icon: Icon(_navigationList.counter.icon),
-            selectedIcon: Icon(_navigationList.counter.selectedIcon),
-            label: context.loc.counter,
+            icon: Icon(_navigationList.menu.icon),
+            selectedIcon: Icon(_navigationList.menu.selectedIcon),
+            label: "Menu",
           ),
         ],
         onDestinationSelected: onDestinationSelected,
@@ -118,17 +109,12 @@ class ScaffoldWithNavigationRail extends StatelessWidget {
               NavigationRailDestination(
                 icon: Icon(_navigationList.events.icon),
                 selectedIcon: Icon(_navigationList.events.selectedIcon),
-                label: Text(context.loc.home),
+                label: Text('Events'),
               ),
               NavigationRailDestination(
-                icon: Icon(_navigationList.people.icon),
-                selectedIcon: Icon(_navigationList.people.selectedIcon),
-                label: Text(context.loc.home),
-              ),
-              NavigationRailDestination(
-                icon: Icon(_navigationList.counter.icon),
-                selectedIcon: Icon(_navigationList.counter.selectedIcon),
-                label: Text(context.loc.counter),
+                icon: Icon(_navigationList.menu.icon),
+                selectedIcon: Icon(_navigationList.menu.selectedIcon),
+                label: Text("Menu"),
               ),
             ],
           ),
