@@ -16,7 +16,7 @@ class PeopleRepository {
 
   String _getUrl({int? id}) {
     final url =
-        Uri(scheme: Api.schema, host: Api.host, path: Api.path).toString();
+        Uri(scheme: Api.schema, host: Api.host, path: Api.eventsPath).toString();
     if (id != null) {
       return '$url$id';
     } else {
