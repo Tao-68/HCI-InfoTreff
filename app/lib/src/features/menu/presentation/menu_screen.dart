@@ -126,22 +126,42 @@ class Category extends ConsumerWidget {
       childWidget: Column(
         children: [
           for (final item in items)
-            ListTile(
-              leading: Text(
-                item.name,
-                style: TextStyle(
-                  color: theme.colorScheme.onPrimary,
-                  fontSize: 16,
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                      width: 1.5, color: theme.colorScheme.onPrimary),
                 ),
               ),
-              trailing: Icon(
-                Icons.open_in_new,
-                size: 18,
-                color: theme.colorScheme.onPrimary,
+              child: ListTile(
+                title: Text(
+                  item.name,
+                  style: TextStyle(
+                    color: theme.colorScheme.onPrimary,
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: Text(
+                  switch (item.diet) {
+                    1 => 'vegetarian',
+                    2 => 'vegan',
+                    _ => '',
+                  },
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      color: const Color.fromARGB(255, 38, 107, 40)),
+                ),
+                trailing: Text(
+                  'price',
+                  style: TextStyle(
+                    color: theme.colorScheme.onPrimary,
+                    fontSize: 16,
+                  ),
+                ),
+                onTap: () {
+                  // TODO(Emil): implement open Detail PopUp
+                },
               ),
-              onTap: () {
-                // TODO(Emil): implement open Detail PopUp
-              },
             ),
         ],
       ),
@@ -196,6 +216,12 @@ class _AccordionState extends ConsumerState<Accordion> {
           // Show or hide the content based on the state
           if (_showContent)
             Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                      width: 1.5, color: theme.colorScheme.onPrimary),
+                ),
+              ),
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               child: widget.childWidget,
             )
