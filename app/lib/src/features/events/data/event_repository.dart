@@ -44,8 +44,10 @@ class EventRepository {
     }
   }
 
-  Future<Event> likeEvent(Event event, bool like) async {
-    logger.d('event_repository.likeEvent');
+  //Könnte sein das das nicht funktioniert, jedenfalls nicht so wie gewollt
+  Future<bool> changeEventLike(
+      {required Event event, required bool like}) async {
+    logger.d('event_repository.changeEventLike');
     final url = _getUrl(id: event.id);
     final response = await dio.get<String>(url);
     if (response.statusCode == 200 && response.data != null) {
@@ -63,7 +65,7 @@ class EventRepository {
       if (responsePatch.statusCode == 200 && response.data != null) {
         final eventUpdated =
             Event.fromJson(json.decode(response.data!) as Map<String, Object?>);
-        return eventUpdated;
+        return true;
       } else {
         throw ApiException(
           responsePatch.statusCode ?? -1,
@@ -91,8 +93,9 @@ Future<List<Event>> fetchEvents(FetchEventsRef ref) async {
 }
 
 @riverpod
-Future<void> likeEvent(LikeEventsRef ref, Event event, bool like) async {
+Future<bool> likeEvent(LikeEventRef ref, Event event,
+    {required bool like}) async {
   logger.d('event_repository.likeEvent');
   final repo = ref.read(eventRepositoryProvider);
-  repo.likeEvent(event, like);
+  return repo.changeEventLike(event: event, like: like);
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ri_go_demo/src/features/events/presentation/events_screen.dart';
+import 'package:ri_go_demo/src/features/menu/presentation/menu_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'page_view_screen.dart';
 import 'scaffold_with_navigation.dart';
@@ -11,15 +12,17 @@ part 'app_router.g.dart';
 
 // shell routes, appear in the bottom navigation
 // see https://pub.dev/documentation/go_router/latest/go_router/ShellRoute-class.html
-enum TopLevelDestinations { home, menu }
+enum TopLevelDestinations { menu, home, events }
 
 // GlobalKey is a factory, hence each call creates a key
 //this is root, even if it navigates to people, it needs a separate key!!!
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _homeNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.home.name);
+final _eventsNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.events.name);
 final _menuNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.menu.name);
+final _homeNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.home.name);
 
 // other destinations, reachable from a top level destination
 enum SubRoutes { details }
@@ -67,6 +70,19 @@ GoRouter goRouter(GoRouterRef ref) {
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
                   child: const MyPageView(initialPageIndex: 0),
+                ),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _eventsNavigatorKey,
+            routes: [
+              GoRoute(
+                path: '/${TopLevelDestinations.events.name}', // path: /event
+                name: TopLevelDestinations.events.name,
+                pageBuilder: (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: const MyPageView(initialPageIndex: 2),
                 ),
               ),
             ],

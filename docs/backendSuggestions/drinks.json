@@ -1,43 +1,6 @@
 {
   "hotDrinks" : [
     {
-      "milk" : [
-        {
-          "name" : "cow's milk",
-          "allergens": "lactose",
-          "active" : true,
-          "ingredients" : "",
-          "nutrition" : "",
-          "diet" : 1,
-          "picture" : "",
-          "favorite" : false,
-          "likes" : 0
-        },
-        {
-          "name" : "oat milk",
-          "allergens": "gluten",
-          "active" : true,
-          "ingredients" : "",
-          "nutrition" : "",
-          "diet" : 2,
-          "picture" : "",
-          "favorite" : false,
-          "likes" : 0
-        },
-        {
-          "name" : "soy milk",
-          "allergens": "",
-          "active" : true,
-          "ingredients" : "",
-          "nutrition" : "",
-          "diet" : 2,
-          "picture" : "",
-          "favorite" : false,
-          "likes" : 0
-        }
-      ]
-    },
-    {
       "name" : "Coffee",
       "price" : "1.00€",
       "active" : true,
