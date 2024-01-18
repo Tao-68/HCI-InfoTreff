@@ -9,7 +9,6 @@ class HomePage extends ConsumerWidget {
     final theme = Theme.of(context);
     return Stack(
       children: [
-        //BackgroundAsClipPath(),
         const BackgroundAsImage(),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
@@ -122,79 +121,5 @@ class BackgroundAsImage extends StatelessWidget {
         ),
       ) /* add child content here */,
     );
-  }
-}
-
-class BackgroundAsClipPath extends StatelessWidget {
-  const BackgroundAsClipPath({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          color: Colors.grey,
-        ),
-        ClipPath(
-          clipper: WaveClipperHomePage(),
-          child: FractionallySizedBox(
-            heightFactor: 0.73,
-            widthFactor: 1,
-            child: Container(
-              color: Colors.blue,
-            ),
-          ),
-        ),
-        ClipPath(
-          clipper: WaveClipperHomePage(),
-          child: FractionallySizedBox(
-            heightFactor: 0.72,
-            widthFactor: 1,
-            child: Container(
-              color: Colors.red,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class WaveClipperHomePage extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    debugPrint(size.width.toString());
-    final path = Path();
-    path.lineTo(0, size.height);
-    final firstPointContol = Offset(size.width / 3, size.height);
-    final secondPoint = Offset(size.width / 2, size.height - (size.height / 3));
-    path.quadraticBezierTo(
-      firstPointContol.dx,
-      firstPointContol.dy,
-      secondPoint.dx,
-      secondPoint.dy,
-    );
-
-    final pointThreeContorol =
-        Offset(size.width - (size.width / 3), size.height / 3);
-    final fourthPoint = Offset(size.width, size.height / 3);
-
-    path
-      ..quadraticBezierTo(
-        pointThreeContorol.dx,
-        pointThreeContorol.dy,
-        fourthPoint.dx,
-        fourthPoint.dy,
-      )
-      ..lineTo(size.width, 0)
-      ..close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return true;
   }
 }

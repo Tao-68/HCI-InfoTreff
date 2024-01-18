@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ri_go_demo/src/utils/localization.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
 import '../data/menu_repository.dart';
@@ -14,7 +13,6 @@ class MenuPage extends ConsumerWidget {
     final theme = Theme.of(context);
     return Stack(
       children: [
-        //BackgoundAsClipPath(),
         const BackgroundAsImage(),
 
         //Menu
@@ -94,7 +92,7 @@ class CategoryList extends ConsumerWidget {
       data: (menu) => ListView(
         children: [
           //Accordion Liste
-          for (var category in menu)
+          for (final category in menu)
             Category(category.category, category.items),
         ],
       ),
@@ -206,82 +204,5 @@ class _AccordionState extends ConsumerState<Accordion> {
         ],
       ),
     );
-  }
-}
-
-class BackgoundAsClipPath extends StatelessWidget {
-  const BackgoundAsClipPath({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          color: Colors.grey,
-        ),
-        ClipPath(
-          clipper: WaveClipperMenuPage(),
-          child: FractionallySizedBox(
-            heightFactor: 0.90,
-            widthFactor: 1,
-            child: Container(
-              color: Colors.blue,
-            ),
-          ),
-        ),
-        ClipPath(
-          clipper: WaveClipperMenuPage(),
-          child: FractionallySizedBox(
-            heightFactor: 0.89,
-            widthFactor: 1,
-            child: Container(
-              color: Colors.red,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class WaveClipperMenuPage extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    debugPrint(size.width.toString());
-    final path = Path();
-    path.lineTo(0, size.height);
-    final firstPointContol = Offset(size.width / 3, size.height);
-    final secondPoint =
-        Offset(size.width / 2, size.height - (size.height / 10));
-    path.quadraticBezierTo(
-      firstPointContol.dx,
-      firstPointContol.dy,
-      secondPoint.dx,
-      secondPoint.dy,
-    );
-
-    final pointThreeContorol = Offset(
-      size.width - (size.width / 3),
-      size.height - (size.height / 5.2),
-    );
-    final fourthPoint = Offset(size.width, size.height - (size.height / 5.2));
-
-    path
-      ..quadraticBezierTo(
-        pointThreeContorol.dx,
-        pointThreeContorol.dy,
-        fourthPoint.dx,
-        fourthPoint.dy,
-      )
-      ..lineTo(size.width, 0)
-      ..close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return true;
   }
 }
