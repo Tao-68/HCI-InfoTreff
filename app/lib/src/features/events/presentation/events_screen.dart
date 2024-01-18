@@ -11,24 +11,42 @@ class EventsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(context.loc.appTitle),
-      ),
-      body: AsyncValueWidget<List<Event>>(
-        value: ref.watch(fetchEventsProvider),
-        //ListView müsste dann eventuell ersetzt werden mit dem Widget das genutzt wird
-        //eventliste in variable events
-        //jeder eintrag in liste ist ein event
-        //Eventklasse ist in domain/event.dart
-        data: (events) => ListView.builder(
-          itemCount: events.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(events[index].title),
-            );
-          },
+    final theme = Theme.of(context);
+    return Stack(
+      children: [
+        BackgroundAsImage(),
+        AsyncValueWidget<List<Event>>(
+          value: ref.watch(fetchEventsProvider),
+          //ListView müsste dann eventuell ersetzt werden mit dem Widget das genutzt wird
+          //eventliste in variable events
+          //jeder eintrag in liste ist ein event
+          //Eventklasse ist in domain/event.dart
+          data: (events) => ListView.builder(
+            itemCount: events.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(events[index].title),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class BackgroundAsImage extends ConsumerWidget {
+  const BackgroundAsImage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/events_background.png'),
+          fit: BoxFit.cover,
         ),
       ),
     );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ri_go_demo/src/features/events/presentation/events_screen.dart';
 import 'package:ri_go_demo/src/features/home/presentation/home_screen.dart';
-import 'package:ri_go_demo/src/features/menu/presentation/menu_screen_emil.dart';
+import 'package:ri_go_demo/src/features/menu/presentation/menu_screen.dart';
 
 class MyPageView extends ConsumerStatefulWidget {
   const MyPageView({

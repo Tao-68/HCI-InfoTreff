@@ -77,7 +77,7 @@ class BackgroundAsImage extends ConsumerWidget {
           image: AssetImage('assets/menu_background.png'),
           fit: BoxFit.cover,
         ),
-      ) /* add child content here */,
+      ),
     );
   }
 }
