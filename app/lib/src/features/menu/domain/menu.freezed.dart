@@ -28,6 +28,7 @@ mixin _$Item {
   String get picture => throw _privateConstructorUsedError;
   bool get favorite => throw _privateConstructorUsedError;
   int get likes => throw _privateConstructorUsedError;
+  String get price => throw _privateConstructorUsedError;
   String get allergens => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,6 +50,7 @@ abstract class $ItemCopyWith<$Res> {
       String picture,
       bool favorite,
       int likes,
+      String price,
       String allergens});
 }
 
@@ -73,6 +75,7 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
     Object? picture = null,
     Object? favorite = null,
     Object? likes = null,
+    Object? price = null,
     Object? allergens = null,
   }) {
     return _then(_value.copyWith(
@@ -108,6 +111,10 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String,
       allergens: null == allergens
           ? _value.allergens
           : allergens // ignore: cast_nullable_to_non_nullable
@@ -132,6 +139,7 @@ abstract class _$$ItemImplCopyWith<$Res> implements $ItemCopyWith<$Res> {
       String picture,
       bool favorite,
       int likes,
+      String price,
       String allergens});
 }
 
@@ -153,6 +161,7 @@ class __$$ItemImplCopyWithImpl<$Res>
     Object? picture = null,
     Object? favorite = null,
     Object? likes = null,
+    Object? price = null,
     Object? allergens = null,
   }) {
     return _then(_$ItemImpl(
@@ -188,6 +197,10 @@ class __$$ItemImplCopyWithImpl<$Res>
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String,
       allergens: null == allergens
           ? _value.allergens
           : allergens // ignore: cast_nullable_to_non_nullable
@@ -208,6 +221,7 @@ class _$ItemImpl with DiagnosticableTreeMixin implements _Item {
       required this.picture,
       required this.favorite,
       required this.likes,
+      required this.price,
       this.allergens = ''});
 
   factory _$ItemImpl.fromJson(Map<String, dynamic> json) =>
@@ -230,12 +244,14 @@ class _$ItemImpl with DiagnosticableTreeMixin implements _Item {
   @override
   final int likes;
   @override
+  final String price;
+  @override
   @JsonKey()
   final String allergens;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Item(name: $name, active: $active, ingredients: $ingredients, nutrition: $nutrition, diet: $diet, picture: $picture, favorite: $favorite, likes: $likes, allergens: $allergens)';
+    return 'Item(name: $name, active: $active, ingredients: $ingredients, nutrition: $nutrition, diet: $diet, picture: $picture, favorite: $favorite, likes: $likes, price: $price, allergens: $allergens)';
   }
 
   @override
@@ -251,6 +267,7 @@ class _$ItemImpl with DiagnosticableTreeMixin implements _Item {
       ..add(DiagnosticsProperty('picture', picture))
       ..add(DiagnosticsProperty('favorite', favorite))
       ..add(DiagnosticsProperty('likes', likes))
+      ..add(DiagnosticsProperty('price', price))
       ..add(DiagnosticsProperty('allergens', allergens));
   }
 
@@ -270,6 +287,7 @@ class _$ItemImpl with DiagnosticableTreeMixin implements _Item {
             (identical(other.favorite, favorite) ||
                 other.favorite == favorite) &&
             (identical(other.likes, likes) || other.likes == likes) &&
+            (identical(other.price, price) || other.price == price) &&
             (identical(other.allergens, allergens) ||
                 other.allergens == allergens));
   }
@@ -277,7 +295,7 @@ class _$ItemImpl with DiagnosticableTreeMixin implements _Item {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, active, ingredients,
-      nutrition, diet, picture, favorite, likes, allergens);
+      nutrition, diet, picture, favorite, likes, price, allergens);
 
   @JsonKey(ignore: true)
   @override
@@ -303,6 +321,7 @@ abstract class _Item implements Item {
       required final String picture,
       required final bool favorite,
       required final int likes,
+      required final String price,
       final String allergens}) = _$ItemImpl;
 
   factory _Item.fromJson(Map<String, dynamic> json) = _$ItemImpl.fromJson;
@@ -323,6 +342,8 @@ abstract class _Item implements Item {
   bool get favorite;
   @override
   int get likes;
+  @override
+  String get price;
   @override
   String get allergens;
   @override

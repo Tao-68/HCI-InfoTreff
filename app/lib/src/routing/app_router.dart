@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/features/events/presentation/events_screen.dart';
+import 'package:ri_go_demo/src/features/home/presentation/home_screen.dart';
+import 'package:ri_go_demo/src/features/menu/presentation/menu_screen.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/filter_popup.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'page_view_screen.dart';
 import 'scaffold_with_navigation.dart';
 
 part 'app_router.g.dart';
@@ -10,7 +13,11 @@ part 'app_router.g.dart';
 
 // shell routes, appear in the bottom navigation
 // see https://pub.dev/documentation/go_router/latest/go_router/ShellRoute-class.html
-enum TopLevelDestinations { menu, home, events }
+enum TopLevelDestinations {
+  menu,
+  home,
+  events,
+}
 
 // GlobalKey is a factory, hence each call creates a key
 //this is root, even if it navigates to people, it needs a separate key!!!
@@ -23,7 +30,15 @@ final _homeNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.home.name);
 
 // other destinations, reachable from a top level destination
-enum SubRoutes { details }
+enum SubRoutes {
+  details,
+  filter,
+  favorits,
+  settings,
+  feedback,
+  menuItemDetails,
+  eventDetails
+}
 
 enum Parameter { id }
 
@@ -48,14 +63,35 @@ GoRouter goRouter(GoRouterRef ref) {
             routes: [
               // base route home
               GoRoute(
-                path: '/${TopLevelDestinations.home.name}', // path: /people
+                path: '/${TopLevelDestinations.home.name}', // path: /home
                 name: TopLevelDestinations.home.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const MyPageView(
-                    initialPageIndex: 1,
-                  ),
+                  child: const HomePage(),
                 ),
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: SubRoutes.settings.name, //path: /menu/filter
+                    name: SubRoutes.settings.name,
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const FilterPopUp();
+                    },
+                  ),
+                  GoRoute(
+                    path: SubRoutes.feedback.name, //path: /menu/filter
+                    name: SubRoutes.feedback.name,
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const FilterPopUp();
+                    },
+                  ),
+                  GoRoute(
+                    path: SubRoutes.favorits.name, //path: /menu/filter
+                    name: SubRoutes.favorits.name,
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const FilterPopUp();
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -63,12 +99,21 @@ GoRouter goRouter(GoRouterRef ref) {
             navigatorKey: _menuNavigatorKey,
             routes: [
               GoRoute(
-                path: '/${TopLevelDestinations.menu.name}',
+                path: '/${TopLevelDestinations.menu.name}', //path: /menu
                 name: TopLevelDestinations.menu.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const MyPageView(initialPageIndex: 0),
+                  child: const MenuPage(),
                 ),
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: SubRoutes.filter.name, //path: /menu/filter
+                    name: SubRoutes.filter.name,
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const FilterPopUp();
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -80,7 +125,7 @@ GoRouter goRouter(GoRouterRef ref) {
                 name: TopLevelDestinations.events.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const MyPageView(initialPageIndex: 2),
+                  child: const EventsScreen(),
                 ),
               ),
             ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/routing/app_router.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
 import '../data/menu_repository.dart';
@@ -21,6 +23,13 @@ class MenuPage extends ConsumerWidget {
           child: CategoryList(),
         ),
 
+        //zurück zu Home
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          alignment: Alignment.topRight,
+          child: BackButton(theme: theme),
+        ),
+
         //Filter Button
         Container(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
@@ -28,6 +37,34 @@ class MenuPage extends ConsumerWidget {
           child: FilterButton(theme: theme),
         ),
       ],
+    );
+  }
+}
+
+class BackButton extends ConsumerWidget {
+  const BackButton({
+    required this.theme,
+    super.key,
+  });
+
+  final ThemeData theme;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(width: 2, color: theme.colorScheme.primary),
+        color: theme.colorScheme.onSecondary,
+      ),
+      child: IconButton(
+        onPressed: () => context.go('/${TopLevelDestinations.home.name}'),
+        icon: Icon(
+          Icons.arrow_forward_ios_rounded,
+          color: theme.colorScheme.primary,
+        ),
+        iconSize: 40,
+      ),
     );
   }
 }
@@ -49,9 +86,8 @@ class FilterButton extends ConsumerWidget {
         color: theme.colorScheme.onSecondary,
       ),
       child: IconButton(
-        onPressed: () {
-          // TODO(Emil): open Filter PopUp
-        },
+        onPressed: () =>
+            context.goNamed(SubRoutes.filter.name), //opens Filter PopUp,
         icon: Icon(
           Icons.filter_list_rounded,
           color: theme.colorScheme.primary,
@@ -126,22 +162,43 @@ class Category extends ConsumerWidget {
       childWidget: Column(
         children: [
           for (final item in items)
-            ListTile(
-              leading: Text(
-                item.name,
-                style: TextStyle(
-                  color: theme.colorScheme.onPrimary,
-                  fontSize: 16,
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    width: 1.5,
+                    color: theme.colorScheme.onPrimary,
+                  ),
                 ),
               ),
-              trailing: Icon(
-                Icons.open_in_new,
-                size: 18,
-                color: theme.colorScheme.onPrimary,
+              child: ListTile(
+                title: Text(
+                  item.name,
+                  style: TextStyle(
+                    color: theme.colorScheme.onPrimary,
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: Text(
+                  switch (item.diet) {
+                    1 => 'vegetarian',
+                    2 => 'vegan',
+                    _ => '',
+                  },
+                  style: const TextStyle(
+                    fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 38, 107, 40),
+                  ),
+                ),
+                trailing: Text(
+                  item.price,
+                  style: TextStyle(
+                    color: theme.colorScheme.onPrimary,
+                    fontSize: 16,
+                  ),
+                ),
+                onTap: () => context.goNamed(SubRoutes.menuItemDetails.name),
               ),
-              onTap: () {
-                // TODO(Emil): implement open Detail PopUp
-              },
             ),
         ],
       ),
@@ -196,6 +253,14 @@ class _AccordionState extends ConsumerState<Accordion> {
           // Show or hide the content based on the state
           if (_showContent)
             Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    width: 1.5,
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                ),
+              ),
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               child: widget.childWidget,
             )
