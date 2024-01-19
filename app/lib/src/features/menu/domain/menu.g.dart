@@ -15,6 +15,7 @@ _$ItemImpl _$$ItemImplFromJson(Map<String, dynamic> json) => _$ItemImpl(
       picture: json['picture'] as String,
       favorite: json['favorite'] as bool,
       likes: json['likes'] as int,
+      price: json['price'] as String,
       allergens: json['allergens'] as String? ?? '',
     );
 
@@ -28,5 +29,6 @@ Map<String, dynamic> _$$ItemImplToJson(_$ItemImpl instance) =>
       'picture': instance.picture,
       'favorite': instance.favorite,
       'likes': instance.likes,
+      'price': instance.price,
       'allergens': instance.allergens,
     };
