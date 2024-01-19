@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -16,8 +14,8 @@ class MenuRepository {
   final Dio dio;
 
   String _getUrl({int? id}) {
-    final url = Uri(scheme: Api.schema, host: Api.host, path: Api.menuPath)
-        .toString();
+    final url =
+        Uri(scheme: Api.schema, host: Api.host, path: Api.menuPath).toString();
     if (id != null) {
       return '$url$id';
     } else {
