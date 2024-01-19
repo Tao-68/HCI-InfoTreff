@@ -23,11 +23,13 @@ class MenuPage extends ConsumerWidget {
           child: CategoryList(),
         ),
 
+        //zurück zu Home
         Container(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           alignment: Alignment.topRight,
           child: BackButton(theme: theme),
         ),
+
         //Filter Button
         Container(
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),

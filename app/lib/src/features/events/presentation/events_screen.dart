@@ -28,10 +28,13 @@ class EventsScreen extends ConsumerWidget {
             itemBuilder: (context, index) {
               return ListTile(
                 title: Text(events[index].title),
+                // TODO(Events): Code für Event einfügen
               );
             },
           ),
         ),
+
+        //zurück zu Home
         Container(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           alignment: Alignment.topLeft,
