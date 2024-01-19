@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/features/events/presentation/events_screen.dart';
+import 'package:ri_go_demo/src/features/home/presentation/home_screen.dart';
+import 'package:ri_go_demo/src/features/menu/presentation/menu_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'page_view_screen.dart';
 import 'scaffold_with_navigation.dart';
@@ -48,13 +51,11 @@ GoRouter goRouter(GoRouterRef ref) {
             routes: [
               // base route home
               GoRoute(
-                path: '/${TopLevelDestinations.home.name}', // path: /people
+                path: '/${TopLevelDestinations.home.name}', // path: /home
                 name: TopLevelDestinations.home.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const MyPageView(
-                    initialPageIndex: 1,
-                  ),
+                  child: const HomePage(), //MyPageView(initialPageIndex: 1, ),
                 ),
               ),
             ],
@@ -63,11 +64,11 @@ GoRouter goRouter(GoRouterRef ref) {
             navigatorKey: _menuNavigatorKey,
             routes: [
               GoRoute(
-                path: '/${TopLevelDestinations.menu.name}',
+                path: '/${TopLevelDestinations.menu.name}', //path: /menu
                 name: TopLevelDestinations.menu.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const MyPageView(initialPageIndex: 0),
+                  child: const MenuPage(), //MyPageView(initialPageIndex: 0),
                 ),
               ),
             ],
@@ -80,7 +81,8 @@ GoRouter goRouter(GoRouterRef ref) {
                 name: TopLevelDestinations.events.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const MyPageView(initialPageIndex: 2),
+                  child:
+                      const EventsScreen(), //const MyPageView(initialPageIndex: 2),
                 ),
               ),
             ],

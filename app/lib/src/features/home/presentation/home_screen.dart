@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/routing/app_router.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -39,9 +41,9 @@ class HomePage extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    onPressed: () {
-                      // TODO(Emil): implement switch menu screen.
-                    },
+                    onPressed: () => context.go(
+                      '/${TopLevelDestinations.menu.name}',
+                    ),
                     icon: const Icon(Icons.arrow_back_ios_new_rounded),
                     iconSize: 65,
                     color: theme.colorScheme.onPrimary,
@@ -61,18 +63,10 @@ class HomePage extends ConsumerWidget {
                       child: Image.asset('assets/InfoTreffLogo.png'),
                     ),
                   ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.fitWidth,
-                        image: AssetImage('assets/InfoTreffLogo.png'),
-                      ),
-                    ),
-                  ),
                   IconButton(
-                    onPressed: () {
-                      // TODO(Emil): implement switch to event screen
-                    },
+                    onPressed: () => context.go(
+                      '/${TopLevelDestinations.events.name}',
+                    ),
                     icon: const Icon(Icons.arrow_forward_ios_rounded),
                     iconSize: 65,
                     color: theme.colorScheme.primary,
