@@ -82,7 +82,9 @@ class ScaffoldWithAppBar extends StatelessWidget {
             color: theme.colorScheme.onPrimary,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              // TODO(Emil): open favorite Popup
+            },
             icon: const Icon(Icons.favorite_outline),
             color: theme.colorScheme.onPrimary,
           ),

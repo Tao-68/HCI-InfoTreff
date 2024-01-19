@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:ri_go_demo/src/features/events/presentation/events_screen.dart';
 import 'package:ri_go_demo/src/features/home/presentation/home_screen.dart';
 import 'package:ri_go_demo/src/features/menu/presentation/menu_screen.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/filter_popup.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'page_view_screen.dart';
 import 'scaffold_with_navigation.dart';
 
 part 'app_router.g.dart';
@@ -13,7 +13,11 @@ part 'app_router.g.dart';
 
 // shell routes, appear in the bottom navigation
 // see https://pub.dev/documentation/go_router/latest/go_router/ShellRoute-class.html
-enum TopLevelDestinations { menu, home, events }
+enum TopLevelDestinations {
+  menu,
+  home,
+  events,
+}
 
 // GlobalKey is a factory, hence each call creates a key
 //this is root, even if it navigates to people, it needs a separate key!!!
@@ -26,7 +30,15 @@ final _homeNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: TopLevelDestinations.home.name);
 
 // other destinations, reachable from a top level destination
-enum SubRoutes { details }
+enum SubRoutes {
+  details,
+  filter,
+  favorits,
+  settings,
+  feedback,
+  menuDetails,
+  eventDetails
+}
 
 enum Parameter { id }
 
@@ -55,7 +67,7 @@ GoRouter goRouter(GoRouterRef ref) {
                 name: TopLevelDestinations.home.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const HomePage(), //MyPageView(initialPageIndex: 1, ),
+                  child: const HomePage(),
                 ),
               ),
             ],
@@ -68,8 +80,19 @@ GoRouter goRouter(GoRouterRef ref) {
                 name: TopLevelDestinations.menu.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const MenuPage(), //MyPageView(initialPageIndex: 0),
+                  child: const MenuPage(),
                 ),
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: SubRoutes.filter.name, //path: /menu/filter ?
+                    name: SubRoutes.filter.name,
+                    builder: (BuildContext context, GoRouterState state) {
+                      // alternatively use https://pub.dev/documentation/go_router/latest/topics/Type-safe%20routes-topic.html
+
+                      return const FilterPopUp();
+                    },
+                  ),
+                ],
               ),
             ],
           ),

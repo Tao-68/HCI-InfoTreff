@@ -86,9 +86,8 @@ class FilterButton extends ConsumerWidget {
         color: theme.colorScheme.onSecondary,
       ),
       child: IconButton(
-        onPressed: () {
-          // TODO(Emil): open Filter PopUp
-        },
+        onPressed: () => context
+            .goNamed(SubRoutes.filter.name), // TODO(Emil): open Filter PopUp,
         icon: Icon(
           Icons.filter_list_rounded,
           color: theme.colorScheme.primary,

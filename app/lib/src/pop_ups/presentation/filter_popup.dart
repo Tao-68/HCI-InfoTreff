@@ -6,15 +6,18 @@ import 'package:ri_go_demo/src/routing/app_router.dart';
 class FilterPopUp extends ConsumerWidget {
   const FilterPopUp({super.key});
 
+  @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    return Stack(children: [
-      Container(
-        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-        alignment: Alignment.topRight,
-        child: CloseButton(theme: theme),
-      ),
-    ]);
+    return Stack(
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+          alignment: Alignment.topRight,
+          child: CloseButton(theme: theme),
+        ),
+      ],
+    );
   }
 }
 
