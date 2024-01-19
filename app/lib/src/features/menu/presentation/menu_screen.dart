@@ -130,7 +130,9 @@ class Category extends ConsumerWidget {
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                      width: 1.5, color: theme.colorScheme.onPrimary),
+                    width: 1.5,
+                    color: theme.colorScheme.onPrimary,
+                  ),
                 ),
               ),
               child: ListTile(
@@ -147,12 +149,13 @@ class Category extends ConsumerWidget {
                     2 => 'vegan',
                     _ => '',
                   },
-                  style: TextStyle(
-                      fontStyle: FontStyle.italic,
-                      color: const Color.fromARGB(255, 38, 107, 40)),
+                  style: const TextStyle(
+                    fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 38, 107, 40),
+                  ),
                 ),
                 trailing: Text(
-                  'price',
+                  item.price,
                   style: TextStyle(
                     color: theme.colorScheme.onPrimary,
                     fontSize: 16,
@@ -219,7 +222,9 @@ class _AccordionState extends ConsumerState<Accordion> {
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(
-                      width: 1.5, color: theme.colorScheme.onPrimary),
+                    width: 1.5,
+                    color: theme.colorScheme.onPrimary,
+                  ),
                 ),
               ),
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
