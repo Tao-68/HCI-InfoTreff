@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class FeddbackPopUp extends ConsumerWidget {
-  const FeddbackPopUp({super.key});
+class MenuItemDetailsPopUp extends ConsumerWidget {
+  const MenuItemDetailsPopUp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

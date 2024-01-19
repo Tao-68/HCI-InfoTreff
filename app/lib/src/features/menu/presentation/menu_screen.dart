@@ -86,8 +86,8 @@ class FilterButton extends ConsumerWidget {
         color: theme.colorScheme.onSecondary,
       ),
       child: IconButton(
-        onPressed: () => context
-            .goNamed(SubRoutes.filter.name), // TODO(Emil): open Filter PopUp,
+        onPressed: () =>
+            context.goNamed(SubRoutes.filter.name), //opens Filter PopUp,
         icon: Icon(
           Icons.filter_list_rounded,
           color: theme.colorScheme.primary,
@@ -197,9 +197,7 @@ class Category extends ConsumerWidget {
                     fontSize: 16,
                   ),
                 ),
-                onTap: () {
-                  // TODO(Emil): implement open Detail PopUp
-                },
+                onTap: () => context.goNamed(SubRoutes.menuItemDetails.name),
               ),
             ),
         ],

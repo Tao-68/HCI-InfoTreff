@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/routing/app_router.dart';
 
 //mport '../constants/breakpoint.dart';
 //import '../utils/localization.dart';
@@ -37,7 +39,7 @@ class ScaffoldWithNavigation extends StatelessWidget {
   }
 }
 
-class ScaffoldWithAppBar extends StatelessWidget {
+class ScaffoldWithAppBar extends ConsumerWidget {
   const ScaffoldWithAppBar({
     required this.body,
     required this.currentIndex,
@@ -49,7 +51,7 @@ class ScaffoldWithAppBar extends StatelessWidget {
   final ValueChanged<int> onDestinationSelected;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     return Scaffold(
       body: body,
@@ -66,25 +68,19 @@ class ScaffoldWithAppBar extends StatelessWidget {
         elevation: 4,
         actions: [
           IconButton(
-            onPressed: () {
-              // TODO(Emil): open Settings PopUp
-            },
+            onPressed: () => context.goNamed(SubRoutes.settings.name),
             icon: const Icon(Icons.settings_outlined),
             color: theme.colorScheme.onPrimary,
           ),
           IconButton(
-            onPressed: () {
-              // TODO(Emil): open feedback PopUp
-            },
+            onPressed: () => context.goNamed(SubRoutes.feedback.name),
             icon: const Icon(
               Icons.comment_outlined,
             ),
             color: theme.colorScheme.onPrimary,
           ),
           IconButton(
-            onPressed: () {
-              // TODO(Emil): open favorite Popup
-            },
+            onPressed: () => context.goNamed(SubRoutes.favorits.name),
             icon: const Icon(Icons.favorite_outline),
             color: theme.colorScheme.onPrimary,
           ),

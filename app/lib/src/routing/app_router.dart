@@ -36,7 +36,7 @@ enum SubRoutes {
   favorits,
   settings,
   feedback,
-  menuDetails,
+  menuItemDetails,
   eventDetails
 }
 
@@ -69,6 +69,29 @@ GoRouter goRouter(GoRouterRef ref) {
                   key: state.pageKey,
                   child: const HomePage(),
                 ),
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: SubRoutes.settings.name, //path: /menu/filter
+                    name: SubRoutes.settings.name,
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const FilterPopUp();
+                    },
+                  ),
+                  GoRoute(
+                    path: SubRoutes.feedback.name, //path: /menu/filter
+                    name: SubRoutes.feedback.name,
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const FilterPopUp();
+                    },
+                  ),
+                  GoRoute(
+                    path: SubRoutes.favorits.name, //path: /menu/filter
+                    name: SubRoutes.favorits.name,
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const FilterPopUp();
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -84,11 +107,9 @@ GoRouter goRouter(GoRouterRef ref) {
                 ),
                 routes: <RouteBase>[
                   GoRoute(
-                    path: SubRoutes.filter.name, //path: /menu/filter ?
+                    path: SubRoutes.filter.name, //path: /menu/filter
                     name: SubRoutes.filter.name,
                     builder: (BuildContext context, GoRouterState state) {
-                      // alternatively use https://pub.dev/documentation/go_router/latest/topics/Type-safe%20routes-topic.html
-
                       return const FilterPopUp();
                     },
                   ),
@@ -104,8 +125,7 @@ GoRouter goRouter(GoRouterRef ref) {
                 name: TopLevelDestinations.events.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child:
-                      const EventsScreen(), //const MyPageView(initialPageIndex: 2),
+                  child: const EventsScreen(),
                 ),
               ),
             ],
