@@ -122,6 +122,8 @@ class EventList extends ConsumerWidget {
       data: (events) => ListView.builder(
         itemCount: events.length,
         itemBuilder: (context, index) {
+          //ab hier ersetzten mit schönerer Eventliste
+          //variable events hat die eventliste
           return Row(
           children: <Widget>[
             Expanded(
