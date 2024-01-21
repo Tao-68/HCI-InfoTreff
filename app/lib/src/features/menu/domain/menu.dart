@@ -27,6 +27,7 @@ class Category with _$Category {
   const factory Category({
     required String category,
     required List<Item> items,
+    required int id,
   }) = _Category;
 
   factory Category.fromJson(Map<String, Object?> json) {
@@ -34,6 +35,24 @@ class Category with _$Category {
     for (final element in json['items']! as List<Object?>) {
       items.add(Item.fromJson(element! as Map<String, Object?>));
     }
-    return Category(category: json['category']! as String, items: items);
+    return Category(
+      category: json['category']! as String, 
+      items: items, 
+      id: json['id']! as int,);
+  }
+}
+
+@freezed
+class Menu with _$Menu {
+  const factory Menu({
+    required List<Category> categories,
+  }) = _Menu;
+
+  factory Menu.fromJson(List<dynamic> json) {
+    final List<Category> categories = [];
+    for (final element in json) {
+      categories.add(Category.fromJson(element !as Map<String, Object?>));
+  }
+  return Menu(categories: categories);
   }
 }

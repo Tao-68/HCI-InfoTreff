@@ -65,6 +65,8 @@ class EventRepository {
       final responsePatch =
           await dio.patch<String>(url, data: json.encode({'likes': likeVal}));
       if (responsePatch.statusCode == 200 && response.data != null) {
+        final eventUpdated =
+            Event.fromJson(json.decode(response.data!) as Map<String, Object?>);
         return true;
       } else {
         throw ApiException(

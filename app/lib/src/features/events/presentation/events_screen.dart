@@ -7,8 +7,15 @@ import '../../../common_widgets/async_value_widget.dart';
 import '../data/event_repository.dart';
 import '../domain/event.dart';
 
-class EventsScreen extends ConsumerWidget {
+class EventsScreen extends ConsumerStatefulWidget {
   const EventsScreen({super.key});
+  @override
+  ConsumerState<EventsScreen> createState() => _EventsScreen();
+}
+
+class _EventsScreen extends ConsumerState<EventsScreen> {
+  late final LikeEventController _controller;
+  late final FavouritesRepository _favouriteController;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -88,5 +95,11 @@ class BackgroundAsImage extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  void likeEvent({required Event event, required bool like}) {
+    _controller.like(event: event, like: true);
+    _favouriteController.favouriteEvent(event: event, like: like);
+    ref.invalidate(favouritesRepositoryProvider); 
   }
 }

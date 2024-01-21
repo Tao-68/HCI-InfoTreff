@@ -21,11 +21,11 @@ final menuRepositoryProvider = AutoDisposeProvider<MenuRepository>.internal(
 );
 
 typedef MenuRepositoryRef = AutoDisposeProviderRef<MenuRepository>;
-String _$fetchMenuHash() => r'05cef96641353c3e5734e9f824bd22e0679c9939';
+String _$fetchMenuHash() => r'123e155318003b8c53c1bf70e2b2ae7ec60f32f4';
 
 /// See also [fetchMenu].
 @ProviderFor(fetchMenu)
-final fetchMenuProvider = AutoDisposeFutureProvider<List<Category>>.internal(
+final fetchMenuProvider = AutoDisposeFutureProvider<Menu>.internal(
   fetchMenu,
   name: r'fetchMenuProvider',
   debugGetCreateSourceHash:
@@ -34,6 +34,6 @@ final fetchMenuProvider = AutoDisposeFutureProvider<List<Category>>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef FetchMenuRef = AutoDisposeFutureProviderRef<List<Category>>;
+typedef FetchMenuRef = AutoDisposeFutureProviderRef<Menu>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
