@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ri_go_demo/src/routing/app_router.dart';
-import '../pop_ups/presentation/settings_popup.dart';
-import '../pop_ups/presentation/feedback_popup.dart';
 
 //import '../constants/breakpoint.dart';
 //import '../utils/localization.dart';
@@ -69,16 +67,11 @@ class ScaffoldWithAppBar extends ConsumerWidget {
         shadowColor: theme.colorScheme.onSecondary,
         elevation: 4,
         actions: [
-          OptionButton(),
-        /*
           IconButton(
             onPressed: () => context.goNamed(SubRoutes.settings.name),
             icon: const Icon(Icons.settings_outlined),
             color: theme.colorScheme.onPrimary,
           ),
-          */
-          FeedbackButton(),
-          /*
           IconButton(
             onPressed: () => context.goNamed(SubRoutes.feedback.name),
             icon: const Icon(
@@ -86,7 +79,6 @@ class ScaffoldWithAppBar extends ConsumerWidget {
             ),
             color: theme.colorScheme.onPrimary,
           ),
-          */
           IconButton(
             onPressed: () => context.goNamed(SubRoutes.favorits.name),
             icon: const Icon(Icons.favorite_outline),

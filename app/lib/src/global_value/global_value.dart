@@ -14,7 +14,8 @@ class likeViewNotifier extends StateNotifier<bool?> {
   }
 }
 
-final hideParticipantProvider = StateNotifierProvider<hideParticipantNotifier, bool?> ((ref) => hideParticipantNotifier());
+final hideParticipantProvider = StateNotifierProvider<hideParticipantNotifier, bool?> 
+  ((ref) => hideParticipantNotifier());
 
 class hideParticipantNotifier extends StateNotifier<bool?> {
   hideParticipantNotifier() : super(false);
