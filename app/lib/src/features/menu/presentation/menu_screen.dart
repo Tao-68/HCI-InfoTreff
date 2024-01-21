@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/filter_popup.dart';
 import 'package:ri_go_demo/src/routing/app_router.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
@@ -35,6 +36,17 @@ class MenuPage extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           alignment: Alignment.bottomRight,
           child: FilterButton(theme: theme),
+        ),
+
+        GestureDetector(
+          onHorizontalDragUpdate: (details) {
+            int senitivity = 8;
+            if (details.delta.dx > senitivity) {
+              context.go('/${TopLevelDestinations.events.name}');
+            } else if (details.delta.dx < -senitivity) {
+              context.go('/${TopLevelDestinations.home.name}');
+            }
+          },
         ),
       ],
     );
@@ -86,8 +98,14 @@ class FilterButton extends ConsumerWidget {
         color: theme.colorScheme.onSecondary,
       ),
       child: IconButton(
-        onPressed: () =>
-            context.goNamed(SubRoutes.filter.name), //opens Filter PopUp,
+        onPressed: () => showDialog(
+          context: context,
+          builder: (BuildContext context) => Dialog(
+            // TODO(Emil): Adjust PopUp Dimensions and alignment
+            child: FilterPopUp(),
+          ),
+        ),
+        //context.goNamed(SubRoutes.filter.name), //opens Filter PopUp,
         icon: Icon(
           Icons.filter_list_rounded,
           color: theme.colorScheme.primary,

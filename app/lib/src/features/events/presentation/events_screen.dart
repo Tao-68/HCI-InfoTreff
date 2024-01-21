@@ -48,19 +48,19 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
             itemCount: events.length,
             itemBuilder: (context, index) {
               return Row(
-              children: <Widget>[
-                Expanded(
-                  child: Text(events[index].title),
-                ),
-                Expanded(
-                  child: TextButton(
-                    child: Text('like'),
-                    onPressed: () =>
-                        _controller.like(event: events[index], like: true),
+                children: <Widget>[
+                  Expanded(
+                    child: Text(events[index].title),
                   ),
-                ),
-                Expanded(
-                  child: Text(events[index].likes.toString()),
+                  Expanded(
+                    child: TextButton(
+                      child: Text('like'),
+                      onPressed: () =>
+                          _controller.like(event: events[index], like: true),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(events[index].likes.toString()),
                   ),
                 ],
               );
@@ -74,6 +74,16 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
           alignment: Alignment.topLeft,
           child: BackButton(theme: theme),
         ),
+        GestureDetector(
+          onHorizontalDragUpdate: (details) {
+            int senitivity = 8;
+            if (details.delta.dx > senitivity) {
+              context.go('/${TopLevelDestinations.home.name}');
+            } else if (details.delta.dx < -senitivity) {
+              context.go('/${TopLevelDestinations.menu.name}');
+            }
+          },
+        ),
       ],
     );
   }
@@ -81,7 +91,7 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
   void likeEvent({required Event event, required bool like}) {
     _controller.like(event: event, like: true);
     _favouriteController.favouriteEvent(event: event, like: like);
-    ref.invalidate(favouritesRepositoryProvider); 
+    ref.invalidate(favouritesRepositoryProvider);
   }
 }
 
@@ -129,6 +139,4 @@ class BackgroundAsImage extends ConsumerWidget {
       ),
     );
   }
-
-
 }

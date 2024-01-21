@@ -11,6 +11,8 @@ import 'package:ri_go_demo/src/pop_ups/presentation/settings_popup.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'scaffold_with_navigation.dart';
 
+import 'dart:ui';
+
 part 'app_router.g.dart';
 
 // general ideas on navigation see https://m2.material.io/design/navigation/understanding-navigation.html#forward-navigation

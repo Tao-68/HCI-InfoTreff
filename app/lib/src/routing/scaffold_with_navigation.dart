@@ -68,11 +68,13 @@ class ScaffoldWithAppBar extends ConsumerWidget {
         elevation: 4,
         actions: [
           IconButton(
+            // TODO(Emil): Change to Dialog
             onPressed: () => context.goNamed(SubRoutes.settings.name),
             icon: const Icon(Icons.settings_outlined),
             color: theme.colorScheme.onPrimary,
           ),
           IconButton(
+            // TODO(Emil): Change to Dialog
             onPressed: () => context.goNamed(SubRoutes.feedback.name),
             icon: const Icon(
               Icons.comment_outlined,
@@ -80,6 +82,7 @@ class ScaffoldWithAppBar extends ConsumerWidget {
             color: theme.colorScheme.onPrimary,
           ),
           IconButton(
+            // TODO(Emil): Change to Dialog
             onPressed: () => context.goNamed(SubRoutes.favorits.name),
             icon: const Icon(Icons.favorite_outline),
             color: theme.colorScheme.onPrimary,
