@@ -93,14 +93,14 @@ class CloseButton extends ConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: theme.colorScheme.primary),
-        color: theme.colorScheme.onSecondary,
+        border: Border.all(width: 2, color: theme.colorScheme.onSecondary),
+        color: theme.colorScheme.secondary,
       ),
       child: IconButton(
         onPressed: () => context.pop(),
         icon: Icon(
           Icons.close,
-          color: theme.colorScheme.primary,
+          color: theme.colorScheme.onSecondary,
         ),
         iconSize: 40,
       ),

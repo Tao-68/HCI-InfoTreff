@@ -17,8 +17,9 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
     late final controller = ref.watch(menuRepositoryProvider);
     return Stack(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(16),
+        Container(
+          color: theme.colorScheme.primary,
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,7 +37,7 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                       item: item,
                       like: item.favorite,
                     ),
-                    backgroundColor: Colors.white,
+                    backgroundColor: Colors.transparent,
                     elevation: 0,
                     child: Icon(
                       item.favorite
@@ -95,14 +96,14 @@ class CloseButton extends ConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: theme.colorScheme.primary),
-        color: theme.colorScheme.onSecondary,
+        border: Border.all(width: 2, color: theme.colorScheme.onSecondary),
+        color: theme.colorScheme.secondary,
       ),
       child: IconButton(
         onPressed: () => context.pop(),
         icon: Icon(
           Icons.close,
-          color: theme.colorScheme.primary,
+          color: theme.colorScheme.onSecondary,
         ),
         iconSize: 40,
       ),
