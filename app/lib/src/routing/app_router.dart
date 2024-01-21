@@ -3,7 +3,11 @@ import 'package:go_router/go_router.dart';
 import 'package:ri_go_demo/src/features/events/presentation/events_screen.dart';
 import 'package:ri_go_demo/src/features/home/presentation/home_screen.dart';
 import 'package:ri_go_demo/src/features/menu/presentation/menu_screen.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/favorits_popup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/feedback_popup.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/filter_popup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/menu_item_details_pupup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/settings_popup.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'scaffold_with_navigation.dart';
 
@@ -74,21 +78,21 @@ GoRouter goRouter(GoRouterRef ref) {
                     path: SubRoutes.settings.name, //path: /menu/filter
                     name: SubRoutes.settings.name,
                     builder: (BuildContext context, GoRouterState state) {
-                      return const FilterPopUp();
+                      return const SettingsPopUp();
                     },
                   ),
                   GoRoute(
                     path: SubRoutes.feedback.name, //path: /menu/filter
                     name: SubRoutes.feedback.name,
                     builder: (BuildContext context, GoRouterState state) {
-                      return const FilterPopUp();
+                      return const FeddbackPopUp();
                     },
                   ),
                   GoRoute(
                     path: SubRoutes.favorits.name, //path: /menu/filter
                     name: SubRoutes.favorits.name,
                     builder: (BuildContext context, GoRouterState state) {
-                      return const FilterPopUp();
+                      return const FavoritsPopUp();
                     },
                   ),
                 ],
@@ -111,6 +115,13 @@ GoRouter goRouter(GoRouterRef ref) {
                     name: SubRoutes.filter.name,
                     builder: (BuildContext context, GoRouterState state) {
                       return const FilterPopUp();
+                    },
+                  ),
+                  GoRoute(
+                    path: SubRoutes.menuItemDetails.name, //path: /menu/filter
+                    name: SubRoutes.menuItemDetails.name,
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const MenuItemDetailsPopUp();
                     },
                   ),
                 ],
