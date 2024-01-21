@@ -131,7 +131,7 @@ class EventList extends ConsumerWidget {
             ),
             Expanded(
               child: TextButton(
-                child: Text('like'),
+                child: const Text('like'),
                 onPressed: () =>
                     controller.like(event: events[index], like: true),
               ),
