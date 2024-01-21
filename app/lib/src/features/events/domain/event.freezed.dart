@@ -24,6 +24,8 @@ mixin _$Event {
   String get title => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   int get likes => throw _privateConstructorUsedError;
+  List<Item> get specials => throw _privateConstructorUsedError;
+  String get picture => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +37,13 @@ abstract class $EventCopyWith<$Res> {
   factory $EventCopyWith(Event value, $Res Function(Event) then) =
       _$EventCopyWithImpl<$Res, Event>;
   @useResult
-  $Res call({int id, String title, String date, int likes});
+  $Res call(
+      {int id,
+      String title,
+      String date,
+      int likes,
+      List<Item> specials,
+      String picture});
 }
 
 /// @nodoc
@@ -55,6 +63,8 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
     Object? title = null,
     Object? date = null,
     Object? likes = null,
+    Object? specials = null,
+    Object? picture = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -73,6 +83,14 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
+      specials: null == specials
+          ? _value.specials
+          : specials // ignore: cast_nullable_to_non_nullable
+              as List<Item>,
+      picture: null == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -84,7 +102,13 @@ abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
       __$$EventImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String title, String date, int likes});
+  $Res call(
+      {int id,
+      String title,
+      String date,
+      int likes,
+      List<Item> specials,
+      String picture});
 }
 
 /// @nodoc
@@ -102,6 +126,8 @@ class __$$EventImplCopyWithImpl<$Res>
     Object? title = null,
     Object? date = null,
     Object? likes = null,
+    Object? specials = null,
+    Object? picture = null,
   }) {
     return _then(_$EventImpl(
       id: null == id
@@ -120,6 +146,14 @@ class __$$EventImplCopyWithImpl<$Res>
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as int,
+      specials: null == specials
+          ? _value._specials
+          : specials // ignore: cast_nullable_to_non_nullable
+              as List<Item>,
+      picture: null == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -131,7 +165,10 @@ class _$EventImpl with DiagnosticableTreeMixin implements _Event {
       {required this.id,
       required this.title,
       required this.date,
-      required this.likes});
+      required this.likes,
+      required final List<Item> specials,
+      required this.picture})
+      : _specials = specials;
 
   factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
       _$$EventImplFromJson(json);
@@ -144,10 +181,20 @@ class _$EventImpl with DiagnosticableTreeMixin implements _Event {
   final String date;
   @override
   final int likes;
+  final List<Item> _specials;
+  @override
+  List<Item> get specials {
+    if (_specials is EqualUnmodifiableListView) return _specials;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_specials);
+  }
+
+  @override
+  final String picture;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Event(id: $id, title: $title, date: $date, likes: $likes)';
+    return 'Event(id: $id, title: $title, date: $date, likes: $likes, specials: $specials, picture: $picture)';
   }
 
   @override
@@ -158,7 +205,9 @@ class _$EventImpl with DiagnosticableTreeMixin implements _Event {
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('date', date))
-      ..add(DiagnosticsProperty('likes', likes));
+      ..add(DiagnosticsProperty('likes', likes))
+      ..add(DiagnosticsProperty('specials', specials))
+      ..add(DiagnosticsProperty('picture', picture));
   }
 
   @override
@@ -169,12 +218,15 @@ class _$EventImpl with DiagnosticableTreeMixin implements _Event {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.likes, likes) || other.likes == likes));
+            (identical(other.likes, likes) || other.likes == likes) &&
+            const DeepCollectionEquality().equals(other._specials, _specials) &&
+            (identical(other.picture, picture) || other.picture == picture));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, date, likes);
+  int get hashCode => Object.hash(runtimeType, id, title, date, likes,
+      const DeepCollectionEquality().hash(_specials), picture);
 
   @JsonKey(ignore: true)
   @override
@@ -195,7 +247,9 @@ abstract class _Event implements Event {
       {required final int id,
       required final String title,
       required final String date,
-      required final int likes}) = _$EventImpl;
+      required final int likes,
+      required final List<Item> specials,
+      required final String picture}) = _$EventImpl;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
 
@@ -207,6 +261,10 @@ abstract class _Event implements Event {
   String get date;
   @override
   int get likes;
+  @override
+  List<Item> get specials;
+  @override
+  String get picture;
   @override
   @JsonKey(ignore: true)
   _$$EventImplCopyWith<_$EventImpl> get copyWith =>
