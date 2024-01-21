@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ri_go_demo/src/routing/app_router.dart';
 
-//mport '../constants/breakpoint.dart';
+//import '../constants/breakpoint.dart';
 //import '../utils/localization.dart';
 
 // see https://github.com/flutter/packages/blob/main/packages/go_router/example/lib/stateful_shell_route.dart

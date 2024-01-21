@@ -7,6 +7,7 @@ import 'package:ri_go_demo/src/features/menu/presentation/menu_screen.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/favorites_popup.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/feedback_popup.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/filter_popup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/feedback_popup.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/menu_item_details_pupup.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/settings_popup.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -86,7 +87,7 @@ GoRouter goRouter(GoRouterRef ref) {
                     path: SubRoutes.feedback.name, //path: /menu/filter
                     name: SubRoutes.feedback.name,
                     builder: (BuildContext context, GoRouterState state) {
-                      return const FeedbackPopUp();
+                      return const FeedbackPopup();
                     },
                   ),
                   GoRoute(

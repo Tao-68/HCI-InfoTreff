@@ -6,7 +6,9 @@ import 'src/routing/app_router.dart';
 import 'src/utils/localization.dart';
 
 Future<void> main() async {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    const ProviderScope(child: MyApp()),
+  );
 }
 
 class MyApp extends ConsumerWidget {
