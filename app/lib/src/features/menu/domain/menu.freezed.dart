@@ -356,6 +356,7 @@ abstract class _Item implements Item {
 mixin _$Category {
   String get category => throw _privateConstructorUsedError;
   List<Item> get items => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryCopyWith<Category> get copyWith =>
@@ -367,7 +368,7 @@ abstract class $CategoryCopyWith<$Res> {
   factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
       _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
-  $Res call({String category, List<Item> items});
+  $Res call({String category, List<Item> items, int id});
 }
 
 /// @nodoc
@@ -385,6 +386,7 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
   $Res call({
     Object? category = null,
     Object? items = null,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
       category: null == category
@@ -395,6 +397,10 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<Item>,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -407,7 +413,7 @@ abstract class _$$CategoryImplCopyWith<$Res>
       __$$CategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String category, List<Item> items});
+  $Res call({String category, List<Item> items, int id});
 }
 
 /// @nodoc
@@ -423,6 +429,7 @@ class __$$CategoryImplCopyWithImpl<$Res>
   $Res call({
     Object? category = null,
     Object? items = null,
+    Object? id = null,
   }) {
     return _then(_$CategoryImpl(
       category: null == category
@@ -433,6 +440,10 @@ class __$$CategoryImplCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<Item>,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -441,7 +452,9 @@ class __$$CategoryImplCopyWithImpl<$Res>
 
 class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
   const _$CategoryImpl(
-      {required this.category, required final List<Item> items})
+      {required this.category,
+      required final List<Item> items,
+      required this.id})
       : _items = items;
 
   @override
@@ -455,8 +468,11 @@ class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
   }
 
   @override
+  final int id;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Category(category: $category, items: $items)';
+    return 'Category(category: $category, items: $items, id: $id)';
   }
 
   @override
@@ -465,7 +481,8 @@ class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
     properties
       ..add(DiagnosticsProperty('type', 'Category'))
       ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('items', items));
+      ..add(DiagnosticsProperty('items', items))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -475,12 +492,13 @@ class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
             other is _$CategoryImpl &&
             (identical(other.category, category) ||
                 other.category == category) &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, category, const DeepCollectionEquality().hash(_items));
+      runtimeType, category, const DeepCollectionEquality().hash(_items), id);
 
   @JsonKey(ignore: true)
   @override
@@ -492,14 +510,146 @@ class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
 abstract class _Category implements Category {
   const factory _Category(
       {required final String category,
-      required final List<Item> items}) = _$CategoryImpl;
+      required final List<Item> items,
+      required final int id}) = _$CategoryImpl;
 
   @override
   String get category;
   @override
   List<Item> get items;
   @override
+  int get id;
+  @override
   @JsonKey(ignore: true)
   _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Menu {
+  List<Category> get categories => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $MenuCopyWith<Menu> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MenuCopyWith<$Res> {
+  factory $MenuCopyWith(Menu value, $Res Function(Menu) then) =
+      _$MenuCopyWithImpl<$Res, Menu>;
+  @useResult
+  $Res call({List<Category> categories});
+}
+
+/// @nodoc
+class _$MenuCopyWithImpl<$Res, $Val extends Menu>
+    implements $MenuCopyWith<$Res> {
+  _$MenuCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categories = null,
+  }) {
+    return _then(_value.copyWith(
+      categories: null == categories
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<Category>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$MenuImplCopyWith<$Res> implements $MenuCopyWith<$Res> {
+  factory _$$MenuImplCopyWith(
+          _$MenuImpl value, $Res Function(_$MenuImpl) then) =
+      __$$MenuImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<Category> categories});
+}
+
+/// @nodoc
+class __$$MenuImplCopyWithImpl<$Res>
+    extends _$MenuCopyWithImpl<$Res, _$MenuImpl>
+    implements _$$MenuImplCopyWith<$Res> {
+  __$$MenuImplCopyWithImpl(_$MenuImpl _value, $Res Function(_$MenuImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? categories = null,
+  }) {
+    return _then(_$MenuImpl(
+      categories: null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<Category>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MenuImpl with DiagnosticableTreeMixin implements _Menu {
+  const _$MenuImpl({required final List<Category> categories})
+      : _categories = categories;
+
+  final List<Category> _categories;
+  @override
+  List<Category> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Menu(categories: $categories)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Menu'))
+      ..add(DiagnosticsProperty('categories', categories));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MenuImpl &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_categories));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MenuImplCopyWith<_$MenuImpl> get copyWith =>
+      __$$MenuImplCopyWithImpl<_$MenuImpl>(this, _$identity);
+}
+
+abstract class _Menu implements Menu {
+  const factory _Menu({required final List<Category> categories}) = _$MenuImpl;
+
+  @override
+  List<Category> get categories;
+  @override
+  @JsonKey(ignore: true)
+  _$$MenuImplCopyWith<_$MenuImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

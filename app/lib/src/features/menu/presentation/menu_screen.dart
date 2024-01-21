@@ -128,7 +128,7 @@ class CategoryList extends ConsumerWidget {
       data: (menu) => ListView(
         children: [
           //Accordion Liste
-          for (final category in menu)
+          for (final category in menu.categories)
             Category(category.category, category.items),
         ],
       ),
@@ -197,7 +197,8 @@ class Category extends ConsumerWidget {
                     fontSize: 16,
                   ),
                 ),
-                onTap: () => context.goNamed(SubRoutes.menuItemDetails.name),
+                onTap: () => context.goNamed(SubRoutes.menuItemDetails.name,
+                    extra: item,),
               ),
             ),
         ],
