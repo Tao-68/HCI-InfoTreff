@@ -57,7 +57,12 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                   ),
               ],
               ),
-              Text('Diet: ${item.diet}'),
+                  Text(
+                  switch (item.diet) {
+                  1 => 'vegetarian',
+                  2 => 'vegan',
+                  _ => '',
+                  },),
 
               Text('Allergens: ${item.allergens}'),
 
