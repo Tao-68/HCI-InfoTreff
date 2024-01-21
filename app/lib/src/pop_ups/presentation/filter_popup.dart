@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -12,10 +10,11 @@ class FilterPopUp extends ConsumerWidget {
     final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
-          color: theme.colorScheme.primary,
-          border: Border.all(width: 2),
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-      padding: EdgeInsets.all(10),
+        color: theme.colorScheme.primary,
+        border: Border.all(width: 2),
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+      ),
+      padding: const EdgeInsets.all(10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -47,6 +46,7 @@ class FilterPopUp extends ConsumerWidget {
           MenuFilter(title: 'Vegetarian', theme: theme),
           MenuFilter(title: 'Gluten free', theme: theme),
           MenuFilter(title: 'Lactose free', theme: theme),
+          ApplyButton(theme: theme),
         ],
       ),
     );
@@ -85,8 +85,40 @@ class _MenuFilterState extends ConsumerState<MenuFilter> {
               _checked = value;
             });
           },
-        )
+        ),
       ],
+    );
+  }
+}
+
+class ApplyButton extends ConsumerWidget {
+  const ApplyButton({
+    required this.theme,
+    super.key,
+  });
+
+  final ThemeData theme;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(width: 2, color: theme.colorScheme.onSecondary),
+        color: theme.colorScheme.secondary,
+      ),
+      child: TextButton(
+        child: Text(
+          'Apply',
+          style: TextStyle(
+            color: theme.colorScheme.onPrimary,
+            fontSize: 16,
+          ),
+        ),
+        onPressed: () {
+          // TODO(Filter): filter anwenden
+        },
+      ),
     );
   }
 }
