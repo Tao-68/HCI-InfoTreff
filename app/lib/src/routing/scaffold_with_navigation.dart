@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ri_go_demo/src/routing/app_router.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/favorites_popup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/feedback_popup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/settings_popup.dart';
 
 //import '../constants/breakpoint.dart';
 //import '../utils/localization.dart';
@@ -68,19 +70,34 @@ class ScaffoldWithAppBar extends ConsumerWidget {
         elevation: 4,
         actions: [
           IconButton(
-            onPressed: () => context.goNamed(SubRoutes.settings.name),
+            onPressed: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => const Dialog(
+                child: SettingsPopUp(),
+              ),
+            ),
             icon: const Icon(Icons.settings_outlined),
             color: theme.colorScheme.onPrimary,
           ),
           IconButton(
-            onPressed: () => context.goNamed(SubRoutes.feedback.name),
+            onPressed: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => const Dialog(
+                child: FeedbackPopup(),
+              ),
+            ),
             icon: const Icon(
               Icons.comment_outlined,
             ),
             color: theme.colorScheme.onPrimary,
           ),
           IconButton(
-            onPressed: () => context.goNamed(SubRoutes.favorites.name),
+            onPressed: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => const Dialog(
+                child: FavoritesPopup(),
+              ),
+            ),
             icon: const Icon(Icons.favorite_outline),
             color: theme.colorScheme.onPrimary,
           ),

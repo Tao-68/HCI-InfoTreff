@@ -47,7 +47,15 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
           padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 20),
           alignment: Alignment.topLeft,
           child: EventList(theme: theme, controller: _controller),
-          ),        
+        ),
+        GestureDetector(
+          onHorizontalDragUpdate: (details) {
+            const int senitivity = 8;
+            if (details.delta.dx > senitivity) {
+              context.go('/${TopLevelDestinations.home.name}');
+            }
+          },
+        ),
       ],
     );
   }
@@ -55,7 +63,7 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
   void likeEvent({required Event event, required bool like}) {
     _controller.like(event: event, like: true);
     _favouriteController.favouriteEvent(event: event, like: like);
-    //ref.invalidate(favouritesControllerProvider); 
+    //ref.invalidate(favouritesControllerProvider);
   }
 }
 
@@ -110,8 +118,8 @@ class EventList extends ConsumerWidget {
     required this.theme,
     required this.controller,
     super.key,
-    });
-  
+  });
+
   final ThemeData theme;
   final LikeEventController controller;
 
@@ -125,19 +133,19 @@ class EventList extends ConsumerWidget {
           //ab hier ersetzten mit schönerer Eventliste
           //variable events hat die eventliste
           return Row(
-          children: <Widget>[
-            Expanded(
-              child: Text(events[index].title),
-            ),
-            Expanded(
-              child: TextButton(
-                child: const Text('like'),
-                onPressed: () =>
-                    controller.like(event: events[index], like: true),
+            children: <Widget>[
+              Expanded(
+                child: Text(events[index].title),
               ),
-            ),
-            Expanded(
-              child: Text(events[index].likes.toString()),
+              Expanded(
+                child: TextButton(
+                  child: const Text('like'),
+                  onPressed: () =>
+                      controller.like(event: events[index], like: true),
+                ),
+              ),
+              Expanded(
+                child: Text(events[index].likes.toString()),
               ),
             ],
           );

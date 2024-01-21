@@ -27,36 +27,55 @@ class _FavoritesPopup extends ConsumerState<FavoritesPopup> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return ListView(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-          alignment: Alignment.topRight,
-          child: CloseButton(theme: theme),
-        ),
-        const ListTile(
-          title: Text('Events'),
-        ),
-        if (_favouriteController.getEventList().isEmpty)
+    return Container(
+      decoration: BoxDecoration(
+        color: theme.colorScheme.primary,
+        border: Border.all(width: 2),
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+      ),
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Favorites',
+                style: TextStyle(
+                  color: theme.colorScheme.onPrimary,
+                  fontSize: 25,
+                ),
+              ),
+              CloseButton(theme: theme),
+            ],
+          ),
           const ListTile(
-            title: Text('No liked events'),
-          )
-        else
-          for (final event in _favouriteController.getEventList())
-            ListTile(title: Text(event.title),
-            ),
-        const ListTile(
-          title: Text('Drinks & Snacks'),
-        ),
-        if (_favouriteController.getItemList().isEmpty)
+            title: Text('Events'),
+          ),
+          if (_favouriteController.getEventList().isEmpty)
+            const ListTile(
+              title: Text('No liked events'),
+            )
+          else
+            for (final event in _favouriteController.getEventList())
+              ListTile(
+                title: Text(event.title),
+              ),
           const ListTile(
-            title: Text('No liked events'),
-          )
-        else
-          for (final item in _favouriteController.getItemList()) 
-            ListTile(title: Text(item.name),
-            ),
-      ],
+            title: Text('Drinks & Snacks'),
+          ),
+          if (_favouriteController.getItemList().isEmpty)
+            const ListTile(
+              title: Text('No liked events'),
+            )
+          else
+            for (final item in _favouriteController.getItemList())
+              ListTile(
+                title: Text(item.name),
+              ),
+        ],
+      ),
     );
   }
 }
@@ -74,14 +93,14 @@ class CloseButton extends ConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: theme.colorScheme.primary),
-        color: theme.colorScheme.onSecondary,
+        border: Border.all(width: 2, color: theme.colorScheme.onSecondary),
+        color: theme.colorScheme.secondary,
       ),
       child: IconButton(
         onPressed: () => context.pop(),
         icon: Icon(
           Icons.close,
-          color: theme.colorScheme.primary,
+          color: theme.colorScheme.onSecondary,
         ),
         iconSize: 40,
       ),

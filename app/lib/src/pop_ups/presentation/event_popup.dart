@@ -5,29 +5,31 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:share/share.dart';
 
-
 class EventDetailsPopUp extends ConsumerWidget {
   const EventDetailsPopUp({super.key});
 
+  @override
   Widget build(BuildContext context, WidgetRef ref) {
-  final theme = Theme.of(context);
-  return Stack(
-    children: [
-      Positioned(
-        top: 30,
-        right: 20,
-        child: CloseButton(theme: theme),
-      ),
-      ListView(  // Or use Column if you don't need scrolling
-        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-        children: <Widget>[
-          EventCard(
-            title: 'Halloween',
-            dateTime: '2024-10-31T21:00:00',
-            attendeeCount: 14,
-            imagePath: 'assets/events-assets/halloween.jpg',
-            description: 'This is a description for an extremely awesome event',
-          ),
+    final theme = Theme.of(context);
+    return Stack(
+      children: [
+        Positioned(
+          top: 30,
+          right: 20,
+          child: CloseButton(theme: theme),
+        ),
+        ListView(
+          // Or use Column if you don't need scrolling
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+          children: <Widget>[
+            EventCard(
+              title: 'Halloween',
+              dateTime: '2024-10-31T21:00:00',
+              attendeeCount: 14,
+              imagePath: 'assets/events-assets/halloween.jpg',
+              description:
+                  'This is a description for an extremely awesome event',
+            ),
             EventCard(
               title: 'Christmas',
               dateTime: '2024-12-25T20:00:00',
@@ -40,7 +42,8 @@ class EventDetailsPopUp extends ConsumerWidget {
               dateTime: '2024-12-31T21:00:00',
               attendeeCount: 25,
               imagePath: 'assets/events-assets/newyear.jpg',
-              description: 'Join us to welcome the New Year with a grand celebration',
+              description:
+                  'Join us to welcome the New Year with a grand celebration',
             ),
             // ... Add more EventCard widgets as needed
           ],
@@ -50,7 +53,8 @@ class EventDetailsPopUp extends ConsumerWidget {
   }
 }
 
-final specialsExpandedProvider = StateProvider.family<bool, String>((ref, eventId) => false);
+final specialsExpandedProvider =
+    StateProvider.family<bool, String>((ref, eventId) => false);
 
 class CloseButton extends ConsumerWidget {
   const CloseButton({
@@ -93,15 +97,15 @@ class EventCard extends ConsumerWidget {
     required this.attendeeCount,
     required this.imagePath,
     required this.description,
-  }
-);
+  });
 
-@override
+  @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isSpecialsExpanded = ref.watch(specialsExpandedProvider(title).state);
     // Parse the ISO 8601 date string and format it for display
     DateTime parsedDateTime = DateTime.parse(dateTime);
-    String formattedDateTime = DateFormat('yyyy-MM-dd  HH:mm').format(parsedDateTime);
+    String formattedDateTime =
+        DateFormat('yyyy-MM-dd  HH:mm').format(parsedDateTime);
 
     return Card(
       color: Color(0xFF401E11), // Card background color
@@ -172,7 +176,9 @@ class EventCard extends ConsumerWidget {
               ref.read(specialsExpandedProvider(title).state).state = expanded;
             },
             trailing: Icon(
-              isSpecialsExpanded.state ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+              isSpecialsExpanded.state
+                  ? Icons.arrow_drop_up
+                  : Icons.arrow_drop_down,
               color: Color(0xFFFFF2E3),
             ),
             children: <Widget>[
@@ -184,34 +190,39 @@ class EventCard extends ConsumerWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF734217),
                     ),
-                    child: Text("I'm coming!", style: TextStyle(color: Color(0xFFFFF2E3))),
+                    child: Text("I'm coming!",
+                        style: TextStyle(color: Color(0xFFFFF2E3))),
                   ),
                   ElevatedButton(
-                    onPressed: () 
-                    {
+                    onPressed: () {
                       final event = Event(
                         title: title,
                         description: description,
-                        location: 'Event Location', // Optional: Add event location
+                        location:
+                            'Event Location', // Optional: Add event location
                         startDate: DateTime.parse(dateTime),
-                        endDate: DateTime.parse(dateTime).add(Duration(hours: 2)), // Adjust duration as needed
-                    );
-                    Add2Calendar.addEvent2Cal(event);
+                        endDate: DateTime.parse(dateTime).add(
+                            Duration(hours: 2)), // Adjust duration as needed
+                      );
+                      Add2Calendar.addEvent2Cal(event);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF734217),
                     ),
-                    child: Text("Export Date", style: TextStyle(color: Color(0xFFFFF2E3))),
+                    child: Text("Export Date",
+                        style: TextStyle(color: Color(0xFFFFF2E3))),
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      final content = 'Check out this event: $title on $dateTime';
+                      final content =
+                          'Check out this event: $title on $dateTime';
                       Share.share(content);
-                      },
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF734217),
                     ),
-                    child: Text("Share", style: TextStyle(color: Color(0xFFFFF2E3))),
+                    child: Text("Share",
+                        style: TextStyle(color: Color(0xFFFFF2E3))),
                   ),
                 ],
               ),
@@ -229,11 +240,14 @@ class EventCard extends ConsumerWidget {
                 ),
                 trailing: IconButton(
                   icon: Icon(
-                    isSpecialsExpanded.state ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+                    isSpecialsExpanded.state
+                        ? Icons.arrow_drop_up
+                        : Icons.arrow_drop_down,
                     color: Color(0xFFFFF2E3),
                   ),
                   onPressed: () {
-                    ref.read(specialsExpandedProvider(title).state).state = !isSpecialsExpanded.state;
+                    ref.read(specialsExpandedProvider(title).state).state =
+                        !isSpecialsExpanded.state;
                   },
                 ),
               ),
@@ -266,7 +280,9 @@ class EventCard extends ConsumerWidget {
                     ],
                   ),
                 ),
-                crossFadeState: isSpecialsExpanded.state ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+                crossFadeState: isSpecialsExpanded.state
+                    ? CrossFadeState.showSecond
+                    : CrossFadeState.showFirst,
                 duration: Duration(milliseconds: 300),
               ),
             ],

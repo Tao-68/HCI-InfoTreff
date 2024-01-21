@@ -17,35 +17,36 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
     late final controller = ref.watch(menuRepositoryProvider);
     return Stack(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(16),
+        Container(
+          color: theme.colorScheme.primary,
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                Text(
-                item.name,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-                  Container(
-                    child: FloatingActionButton(
-                      onPressed: () => controller.changeMenuLike(item: item,
-                          like: item.favorite,),
-                      backgroundColor: Colors.white,
-                      elevation: 0,
-                      child:Icon(
-                        item.favorite
-                            ? Icons.favorite
-                            : Icons.favorite_border_outlined,
-                        color: item.favorite
-                            ? const Color.fromRGBO(115, 66, 23, 1)
-                            : null,
-                      ),
+                  Text(
+                    item.name,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  FloatingActionButton(
+                    onPressed: () => controller.changeMenuLike(
+                      item: item,
+                      like: item.favorite,
+                    ),
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    child: Icon(
+                      item.favorite
+                          ? Icons.favorite
+                          : Icons.favorite_border_outlined,
+                      color: item.favorite
+                          ? const Color.fromRGBO(115, 66, 23, 1)
+                          : null,
+                    ),
                   ),
                   Icon(
                     item.active
@@ -55,17 +56,16 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                         ? const Color.fromRGBO(115, 66, 23, 1)
                         : null,
                   ),
-              ],
+                ],
               ),
-                  Text(
-                  switch (item.diet) {
+              Text(
+                switch (item.diet) {
                   1 => 'vegetarian',
                   2 => 'vegan',
                   _ => '',
-                  },),
-
+                },
+              ),
               Text('Allergens: ${item.allergens}'),
-
               Text('Nutrition: ${item.nutrition}'),
               Text('Price: ${item.price}'),
               Text('Likes: ${item.likes}'),
@@ -96,14 +96,14 @@ class CloseButton extends ConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: theme.colorScheme.primary),
-        color: theme.colorScheme.onSecondary,
+        border: Border.all(width: 2, color: theme.colorScheme.onSecondary),
+        color: theme.colorScheme.secondary,
       ),
       child: IconButton(
         onPressed: () => context.pop(),
         icon: Icon(
           Icons.close,
-          color: theme.colorScheme.primary,
+          color: theme.colorScheme.onSecondary,
         ),
         iconSize: 40,
       ),

@@ -95,6 +95,16 @@ class HomePage extends ConsumerWidget {
             ],
           ),
         ),
+        GestureDetector(
+          onHorizontalDragUpdate: (details) {
+            const int senitivity = 8;
+            if (details.delta.dx > senitivity) {
+              context.go('/${TopLevelDestinations.menu.name}');
+            } else if (details.delta.dx < -senitivity) {
+              context.go('/${TopLevelDestinations.events.name}');
+            }
+          },
+        ),
       ],
     );
   }
