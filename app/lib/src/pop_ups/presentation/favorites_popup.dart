@@ -4,13 +4,29 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/favourites/data/favourites_repository.dart';
 
-class FavoritesPopup extends ConsumerWidget {
+class FavoritesPopup extends ConsumerStatefulWidget {
   const FavoritesPopup({super.key});
+  @override
+  ConsumerState<FavoritesPopup> createState() => _FavoritesPopup();
+}
+
+class _FavoritesPopup extends ConsumerState<FavoritesPopup> {
+  late final FavouritesController _favouriteController;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  void initState() {
+    super.initState();
+    _favouriteController = ref.read(favouritesControllerProvider.notifier);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final favourites = ref.watch(favouritesControllerProvider);
     return ListView(
       children: [
         Container(
@@ -21,23 +37,23 @@ class FavoritesPopup extends ConsumerWidget {
         const ListTile(
           title: Text('Events'),
         ),
-        if (favourites.events.isEmpty)
+        if (_favouriteController.getEventList().isEmpty)
           const ListTile(
             title: Text('No liked events'),
           )
         else
-          for (final event in favourites.events)
+          for (final event in _favouriteController.getEventList())
             ListTile(title: Text(event.title),
             ),
         const ListTile(
           title: Text('Drinks & Snacks'),
         ),
-        if (favourites.items.isEmpty)
+        if (_favouriteController.getItemList().isEmpty)
           const ListTile(
             title: Text('No liked events'),
           )
         else
-          for (final item in favourites.items) 
+          for (final item in _favouriteController.getItemList()) 
             ListTile(title: Text(item.name),
             ),
       ],

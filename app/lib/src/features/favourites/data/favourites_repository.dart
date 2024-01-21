@@ -7,10 +7,18 @@ import '../domain/favourites.dart';
 
 part 'favourites_repository.g.dart';
 
+//https://riverpod.dev/docs/providers/notifier_provider
 @riverpod
-class FavouritesRepository extends _$FavouritesRepository {
+class FavouritesController extends _$FavouritesController {
   @override
-  Favourites build() => Favourites();
+  Favourites build() {
+    logger.d('FavouriteController.build()');
+    return Favourites(
+      events: stateOrNull?.events ?? {}, 
+      items: stateOrNull?.items ?? {},
+      );
+  }
+
   void favouriteEvent({required Event event, required bool like}) {
     if (like)
       {state.events.add(event);}

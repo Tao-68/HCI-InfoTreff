@@ -4,13 +4,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../events/domain/event.dart';
 import '../../menu/domain/menu.dart';
 
-//part 'favourites.freezed.dart';
+part 'favourites.freezed.dart';
 
-
-class Favourites  {
-  Favourites();
-
-  Set<Event> events = {};
-  Set<Item> items = {};
+@freezed
+class Favourites with _$Favourites{
+  const factory Favourites({
+    required Set<Event> events,
+    required Set<Item> items,
+  }) = _Favourites;
 
 }
