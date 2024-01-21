@@ -44,7 +44,6 @@ class EventRepository {
     }
   }
 
-  //Könnte sein das das nicht funktioniert, jedenfalls nicht so wie gewollt
   Future<bool> changeEventLike({
     required Event event,
     required bool like,
@@ -65,6 +64,8 @@ class EventRepository {
       final responsePatch =
           await dio.patch<String>(url, data: json.encode({'likes': likeVal}));
       if (responsePatch.statusCode == 200 && response.data != null) {
+        final eventUpdated =
+            Event.fromJson(json.decode(response.data!) as Map<String, Object?>);
         return true;
       } else {
         throw ApiException(
@@ -83,22 +84,13 @@ class EventRepository {
 
 @riverpod
 EventRepository eventRepository(EventRepositoryRef ref) =>
-    EventRepository(dio: ref.read(dioProvider));
+    EventRepository(
+      dio: ref.read(dioProvider), 
+    );
 
 @riverpod
 Future<List<Event>> fetchEvents(FetchEventsRef ref) async {
   logger.d('event_repository.fetchEvents');
   final repo = ref.read(eventRepositoryProvider);
   return repo.getEvents();
-}
-
-@riverpod
-Future<bool> likeEvent(
-  LikeEventRef ref,
-  Event event, {
-  required bool like,
-}) async {
-  logger.d('event_repository.likeEvent');
-  final repo = ref.read(eventRepositoryProvider);
-  return repo.changeEventLike(event: event, like: like);
 }
