@@ -80,7 +80,7 @@ class ScaffoldWithAppBar extends ConsumerWidget {
             color: theme.colorScheme.onPrimary,
           ),
           IconButton(
-            onPressed: () => context.goNamed(SubRoutes.favorits.name),
+            onPressed: () => context.goNamed(SubRoutes.favorites.name),
             icon: const Icon(Icons.favorite_outline),
             color: theme.colorScheme.onPrimary,
           ),
