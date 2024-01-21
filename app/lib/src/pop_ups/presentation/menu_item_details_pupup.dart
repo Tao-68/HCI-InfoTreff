@@ -24,28 +24,28 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
             children: [
               Row(
                 children: [
-                Text(
-                item.name,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-                  Container(
-                    child: FloatingActionButton(
-                      onPressed: () => controller.changeMenuLike(item: item,
-                          like: item.favorite,),
-                      backgroundColor: Colors.white,
-                      elevation: 0,
-                      child:Icon(
-                        item.favorite
-                            ? Icons.favorite
-                            : Icons.favorite_border_outlined,
-                        color: item.favorite
-                            ? const Color.fromRGBO(115, 66, 23, 1)
-                            : null,
-                      ),
+                  Text(
+                    item.name,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  FloatingActionButton(
+                    onPressed: () => controller.changeMenuLike(
+                      item: item,
+                      like: item.favorite,
+                    ),
+                    backgroundColor: Colors.white,
+                    elevation: 0,
+                    child: Icon(
+                      item.favorite
+                          ? Icons.favorite
+                          : Icons.favorite_border_outlined,
+                      color: item.favorite
+                          ? const Color.fromRGBO(115, 66, 23, 1)
+                          : null,
+                    ),
                   ),
                   Icon(
                     item.active
@@ -55,17 +55,16 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                         ? const Color.fromRGBO(115, 66, 23, 1)
                         : null,
                   ),
-              ],
+                ],
               ),
-                  Text(
-                  switch (item.diet) {
+              Text(
+                switch (item.diet) {
                   1 => 'vegetarian',
                   2 => 'vegan',
                   _ => '',
-                  },),
-
+                },
+              ),
               Text('Allergens: ${item.allergens}'),
-
               Text('Nutrition: ${item.nutrition}'),
               Text('Price: ${item.price}'),
               Text('Likes: ${item.likes}'),

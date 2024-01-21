@@ -5,79 +5,76 @@ import 'package:go_router/go_router.dart';
 class FeedbackPopup extends ConsumerWidget {
   const FeedbackPopup({super.key});
 
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    return Container(
-      color: theme.colorScheme.primary,
-      child: Stack(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-            alignment: Alignment.topRight,
-            child: HeadBar(theme: theme),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.primary,
+            border: Border.all(width: 2),
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 30),
-            alignment: Alignment.topRight,
-            child: FeedbackContent(theme: theme),
+          child: Column(
+            children: [
+              HeadBar(theme: theme),
+              FeedbackContent(theme: theme),
+              SendButton(theme: theme),
+            ],
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 340, horizontal: 30),
-            alignment: Alignment.topRight,
-            child: SendButton(theme: theme),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
 
 class HeadBar extends ConsumerWidget {
-  const HeadBar ({required this.theme, super.key});
+  const HeadBar({required this.theme, super.key});
   final ThemeData theme;
 
- @override
-  Widget build (BuildContext context, WidgetRef ref) {
-    return Row (
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Row(
       children: [
-        Expanded (
-          child: Text (
+        Expanded(
+          child: Text(
             'Feedback',
-            style: TextStyle (
+            style: TextStyle(
               fontWeight: FontWeight.bold,
               color: theme.colorScheme.onPrimary,
               fontSize: 35,
             ),
           ),
         ),
-        CloseButton(theme : theme),
+        CloseButton(theme: theme),
       ],
     );
   }
 }
 
 class FeedbackContent extends ConsumerWidget {
-  const FeedbackContent ({required this.theme, super.key});
+  const FeedbackContent({required this.theme, super.key});
   final ThemeData theme;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column (
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container (
+        Container(
           padding: const EdgeInsets.only(bottom: 15),
           alignment: Alignment.center,
-          child: Divider (
+          child: Divider(
             color: theme.colorScheme.secondary,
             thickness: 2,
           ),
         ),
-        Container (
+        Container(
           padding: const EdgeInsets.only(bottom: 15),
-          child: Text (
+          child: Text(
             'What would you like to tell us?',
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -91,10 +88,10 @@ class FeedbackContent extends ConsumerWidget {
           maxLines: 5,
           keyboardType: TextInputType.multiline,
           style: TextStyle(color: theme.colorScheme.onPrimary),
-          decoration: InputDecoration (
+          decoration: InputDecoration(
             filled: true,
             fillColor: Colors.white,
-            labelStyle: TextStyle (
+            labelStyle: TextStyle(
               color: theme.colorScheme.onPrimary,
             ),
             border: OutlineInputBorder(
@@ -113,15 +110,15 @@ class FeedbackContent extends ConsumerWidget {
 }
 
 class SendButton extends ConsumerWidget {
-  const SendButton ({required this.theme, super.key});
+  const SendButton({required this.theme, super.key});
   final ThemeData theme;
 
   @override
-  Widget build (BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>
-          (theme.colorScheme.secondary),
+        backgroundColor:
+            MaterialStateProperty.all<Color>(theme.colorScheme.secondary),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),

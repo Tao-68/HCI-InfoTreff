@@ -48,6 +48,14 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
           alignment: Alignment.topLeft,
           child: EventList(theme: theme, controller: _controller),
         ),
+        GestureDetector(
+          onHorizontalDragUpdate: (details) {
+            const int senitivity = 8;
+            if (details.delta.dx > senitivity) {
+              context.go('/${TopLevelDestinations.home.name}');
+            }
+          },
+        ),
       ],
     );
   }

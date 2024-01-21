@@ -40,10 +40,8 @@ class MenuPage extends ConsumerWidget {
 
         GestureDetector(
           onHorizontalDragUpdate: (details) {
-            int senitivity = 8;
-            if (details.delta.dx > senitivity) {
-              context.go('/${TopLevelDestinations.events.name}');
-            } else if (details.delta.dx < -senitivity) {
+            const int senitivity = 8;
+            if (details.delta.dx < -senitivity) {
               context.go('/${TopLevelDestinations.home.name}');
             }
           },
@@ -100,12 +98,10 @@ class FilterButton extends ConsumerWidget {
       child: IconButton(
         onPressed: () => showDialog(
           context: context,
-          builder: (BuildContext context) => Dialog(
-            // TODO(Emil): Adjust PopUp Dimensions and alignment
+          builder: (BuildContext context) => const Dialog(
             child: FilterPopUp(),
           ),
         ),
-        //context.goNamed(SubRoutes.filter.name), //opens Filter PopUp,
         icon: Icon(
           Icons.filter_list_rounded,
           color: theme.colorScheme.primary,
@@ -215,8 +211,10 @@ class Category extends ConsumerWidget {
                     fontSize: 16,
                   ),
                 ),
-                onTap: () => context.goNamed(SubRoutes.menuItemDetails.name,
-                    extra: item,),
+                onTap: () => context.goNamed(
+                  SubRoutes.menuItemDetails.name,
+                  extra: item,
+                ),
               ),
             ),
         ],

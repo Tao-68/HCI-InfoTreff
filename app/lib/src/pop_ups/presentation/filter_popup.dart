@@ -8,47 +8,53 @@ class FilterPopUp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    return Container(
-      decoration: BoxDecoration(
-        color: theme.colorScheme.primary,
-        border: Border.all(width: 2),
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
-      ),
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: theme.colorScheme.primary,
+            border: Border.all(width: 2),
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+          ),
+          padding: const EdgeInsets.all(20),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Filter',
-                style: TextStyle(
-                  color: theme.colorScheme.onPrimary,
-                  fontSize: 25,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Filter',
+                    style: TextStyle(
+                      color: theme.colorScheme.onPrimary,
+                      fontSize: 25,
+                    ),
+                  ),
+                  CloseButton(theme: theme),
+                ],
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(
+                      width: 1.5,
+                      color: theme.colorScheme.onPrimary,
+                    ),
+                  ),
                 ),
               ),
-              CloseButton(theme: theme),
+              // TODO(Filter): MenuFilter should be generated based on a list
+              MenuFilter(title: 'New', theme: theme),
+              MenuFilter(title: 'Vegan', theme: theme),
+              MenuFilter(title: 'Vegetarian', theme: theme),
+              MenuFilter(title: 'Gluten free', theme: theme),
+              MenuFilter(title: 'Lactose free', theme: theme),
+              ApplyButton(theme: theme),
             ],
           ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(
-                  width: 1.5,
-                  color: theme.colorScheme.onPrimary,
-                ),
-              ),
-            ),
-          ),
-          MenuFilter(title: 'New', theme: theme),
-          MenuFilter(title: 'Vegan', theme: theme),
-          MenuFilter(title: 'Vegetarian', theme: theme),
-          MenuFilter(title: 'Gluten free', theme: theme),
-          MenuFilter(title: 'Lactose free', theme: theme),
-          ApplyButton(theme: theme),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
