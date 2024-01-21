@@ -356,6 +356,7 @@ abstract class _Item implements Item {
 mixin _$Category {
   String get category => throw _privateConstructorUsedError;
   List<Item> get items => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryCopyWith<Category> get copyWith =>
@@ -367,7 +368,7 @@ abstract class $CategoryCopyWith<$Res> {
   factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
       _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
-  $Res call({String category, List<Item> items});
+  $Res call({String category, List<Item> items, int id});
 }
 
 /// @nodoc
@@ -385,6 +386,7 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
   $Res call({
     Object? category = null,
     Object? items = null,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
       category: null == category
@@ -395,6 +397,10 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<Item>,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -407,7 +413,7 @@ abstract class _$$CategoryImplCopyWith<$Res>
       __$$CategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String category, List<Item> items});
+  $Res call({String category, List<Item> items, int id});
 }
 
 /// @nodoc
@@ -423,6 +429,7 @@ class __$$CategoryImplCopyWithImpl<$Res>
   $Res call({
     Object? category = null,
     Object? items = null,
+    Object? id = null,
   }) {
     return _then(_$CategoryImpl(
       category: null == category
@@ -433,6 +440,10 @@ class __$$CategoryImplCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<Item>,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -441,7 +452,9 @@ class __$$CategoryImplCopyWithImpl<$Res>
 
 class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
   const _$CategoryImpl(
-      {required this.category, required final List<Item> items})
+      {required this.category,
+      required final List<Item> items,
+      required this.id})
       : _items = items;
 
   @override
@@ -455,8 +468,11 @@ class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
   }
 
   @override
+  final int id;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Category(category: $category, items: $items)';
+    return 'Category(category: $category, items: $items, id: $id)';
   }
 
   @override
@@ -465,7 +481,8 @@ class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
     properties
       ..add(DiagnosticsProperty('type', 'Category'))
       ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('items', items));
+      ..add(DiagnosticsProperty('items', items))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -475,12 +492,13 @@ class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
             other is _$CategoryImpl &&
             (identical(other.category, category) ||
                 other.category == category) &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, category, const DeepCollectionEquality().hash(_items));
+      runtimeType, category, const DeepCollectionEquality().hash(_items), id);
 
   @JsonKey(ignore: true)
   @override
@@ -492,12 +510,15 @@ class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
 abstract class _Category implements Category {
   const factory _Category(
       {required final String category,
-      required final List<Item> items}) = _$CategoryImpl;
+      required final List<Item> items,
+      required final int id}) = _$CategoryImpl;
 
   @override
   String get category;
   @override
   List<Item> get items;
+  @override
+  int get id;
   @override
   @JsonKey(ignore: true)
   _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>

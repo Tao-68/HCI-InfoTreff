@@ -128,7 +128,7 @@ class CategoryList extends ConsumerWidget {
       data: (menu) => ListView(
         children: [
           //Accordion Liste
-          for (final category in menu)
+          for (final category in menu.categories)
             Category(category.category, category.items),
         ],
       ),

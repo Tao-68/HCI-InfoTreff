@@ -4,8 +4,10 @@ import 'package:go_router/go_router.dart';
 import 'package:ri_go_demo/src/routing/app_router.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
+import '../../favourites/data/favourites_repository.dart';
 import '../data/event_repository.dart';
 import '../domain/event.dart';
+import '../presentation/like_event_controller.dart';
 
 class EventsScreen extends ConsumerStatefulWidget {
   const EventsScreen({super.key});
@@ -18,7 +20,19 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
   late final FavouritesRepository _favouriteController;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  void initState() {
+    super.initState();
+    _controller = ref.read(likeEventControllerProvider.notifier);
+    _favouriteController = ref.read(favouritesRepositoryProvider.notifier);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Stack(
       children: [
@@ -33,9 +47,22 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
           data: (events) => ListView.builder(
             itemCount: events.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(events[index].title),
-                // TODO(Events): Code für Event einfügen
+              return Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text(events[index].title),
+                ),
+                Expanded(
+                  child: TextButton(
+                    child: Text('like'),
+                    onPressed: () =>
+                        _controller.like(event: events[index], like: true),
+                  ),
+                ),
+                Expanded(
+                  child: Text(events[index].likes.toString()),
+                  ),
+                ],
               );
             },
           ),
@@ -49,6 +76,12 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
         ),
       ],
     );
+  }
+
+  void likeEvent({required Event event, required bool like}) {
+    _controller.like(event: event, like: true);
+    _favouriteController.favouriteEvent(event: event, like: like);
+    ref.invalidate(favouritesRepositoryProvider); 
   }
 }
 
@@ -97,9 +130,5 @@ class BackgroundAsImage extends ConsumerWidget {
     );
   }
 
-  void likeEvent({required Event event, required bool like}) {
-    _controller.like(event: event, like: true);
-    _favouriteController.favouriteEvent(event: event, like: like);
-    ref.invalidate(favouritesRepositoryProvider); 
-  }
+
 }
