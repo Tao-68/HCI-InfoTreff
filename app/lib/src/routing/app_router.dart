@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ri_go_demo/src/features/events/presentation/events_screen.dart';
 import 'package:ri_go_demo/src/features/home/presentation/home_screen.dart';
+import 'package:ri_go_demo/src/features/menu/domain/menu.dart';
 import 'package:ri_go_demo/src/features/menu/presentation/menu_screen.dart';
-import 'package:ri_go_demo/src/pop_ups/presentation/favorits_popup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/favorites_popup.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/feedback_popup.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/filter_popup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/feedback_popup.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/menu_item_details_pupup.dart';
 import 'package:ri_go_demo/src/pop_ups/presentation/settings_popup.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -39,7 +41,7 @@ final _homeNavigatorKey =
 enum SubRoutes {
   details,
   filter,
-  favorits,
+  favorites,
   settings,
   feedback,
   menuItemDetails,
@@ -87,14 +89,14 @@ GoRouter goRouter(GoRouterRef ref) {
                     path: SubRoutes.feedback.name, //path: /menu/filter
                     name: SubRoutes.feedback.name,
                     builder: (BuildContext context, GoRouterState state) {
-                      return const FeddbackPopUp();
+                      return const FeedbackPopup();
                     },
                   ),
                   GoRoute(
-                    path: SubRoutes.favorits.name, //path: /menu/filter
-                    name: SubRoutes.favorits.name,
+                    path: SubRoutes.favorites.name, //path: /menu/filter
+                    name: SubRoutes.favorites.name,
                     builder: (BuildContext context, GoRouterState state) {
-                      return const FavoritsPopUp();
+                      return const FavoritesPopup();
                     },
                   ),
                 ],
@@ -120,10 +122,12 @@ GoRouter goRouter(GoRouterRef ref) {
                     },
                   ),
                   GoRoute(
-                    path: SubRoutes.menuItemDetails.name, //path: /menu/filter
+                    path: SubRoutes
+                        .menuItemDetails.name, //path: /menu/menuItemDetails
                     name: SubRoutes.menuItemDetails.name,
                     builder: (BuildContext context, GoRouterState state) {
-                      return const MenuItemDetailsPopUp();
+                      final Item item = state.extra! as Item;
+                      return MenuItemDetailsPopUp(item: item);
                     },
                   ),
                 ],

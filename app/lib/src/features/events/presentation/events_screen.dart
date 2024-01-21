@@ -17,13 +17,13 @@ class EventsScreen extends ConsumerStatefulWidget {
 
 class _EventsScreen extends ConsumerState<EventsScreen> {
   late final LikeEventController _controller;
-  late final FavouritesRepository _favouriteController;
+  late final FavouritesController _favouriteController;
 
   @override
   void initState() {
     super.initState();
     _controller = ref.read(likeEventControllerProvider.notifier);
-    _favouriteController = ref.read(favouritesRepositoryProvider.notifier);
+    _favouriteController = ref.read(favouritesControllerProvider.notifier);
   }
 
   @override
@@ -37,52 +37,16 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
     return Stack(
       children: [
         const BackgroundAsImage(),
-        AsyncValueWidget<List<Event>>(
-          value: ref.watch(fetchEventsProvider),
-          //ListView müsste dann eventuell ersetzt werden
-          ////mit dem Widget das genutzt wird
-          //eventliste in variable events
-          //jeder eintrag in liste ist ein event
-          //Eventklasse ist in domain/event.dart
-          data: (events) => ListView.builder(
-            itemCount: events.length,
-            itemBuilder: (context, index) {
-              return Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(events[index].title),
-                  ),
-                  Expanded(
-                    child: TextButton(
-                      child: Text('like'),
-                      onPressed: () =>
-                          _controller.like(event: events[index], like: true),
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(events[index].likes.toString()),
-                  ),
-                ],
-              );
-            },
-          ),
-        ),
-
         //zurück zu Home
         Container(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           alignment: Alignment.topLeft,
           child: BackButton(theme: theme),
         ),
-        GestureDetector(
-          onHorizontalDragUpdate: (details) {
-            int senitivity = 8;
-            if (details.delta.dx > senitivity) {
-              context.go('/${TopLevelDestinations.home.name}');
-            } else if (details.delta.dx < -senitivity) {
-              context.go('/${TopLevelDestinations.menu.name}');
-            }
-          },
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 20),
+          alignment: Alignment.topLeft,
+          child: EventList(theme: theme, controller: _controller),
         ),
       ],
     );
@@ -91,7 +55,7 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
   void likeEvent({required Event event, required bool like}) {
     _controller.like(event: event, like: true);
     _favouriteController.favouriteEvent(event: event, like: like);
-    ref.invalidate(favouritesRepositoryProvider);
+    //ref.invalidate(favouritesControllerProvider);
   }
 }
 
@@ -136,6 +100,48 @@ class BackgroundAsImage extends ConsumerWidget {
           image: AssetImage('assets/events_background.png'),
           fit: BoxFit.cover,
         ),
+      ),
+    );
+  }
+}
+
+class EventList extends ConsumerWidget {
+  const EventList({
+    required this.theme,
+    required this.controller,
+    super.key,
+  });
+
+  final ThemeData theme;
+  final LikeEventController controller;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return AsyncValueWidget<List<Event>>(
+      value: ref.watch(fetchEventsProvider),
+      data: (events) => ListView.builder(
+        itemCount: events.length,
+        itemBuilder: (context, index) {
+          //ab hier ersetzten mit schönerer Eventliste
+          //variable events hat die eventliste
+          return Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(events[index].title),
+              ),
+              Expanded(
+                child: TextButton(
+                  child: const Text('like'),
+                  onPressed: () =>
+                      controller.like(event: events[index], like: true),
+                ),
+              ),
+              Expanded(
+                child: Text(events[index].likes.toString()),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
