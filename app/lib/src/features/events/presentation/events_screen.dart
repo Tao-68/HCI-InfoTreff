@@ -105,20 +105,13 @@ class BackButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: theme.colorScheme.primary),
-        color: theme.colorScheme.onSecondary,
+    return IconButton(
+      onPressed: () => context.go('/${TopLevelDestinations.home.name}'),
+      icon: Icon(
+        Icons.arrow_back_ios_rounded,
+        color: theme.colorScheme.onPrimary,
       ),
-      child: IconButton(
-        onPressed: () => context.go('/${TopLevelDestinations.home.name}'),
-        icon: Icon(
-          Icons.arrow_back_ios_rounded,
-          color: theme.colorScheme.primary,
-        ),
-        iconSize: 30,
-      ),
+      iconSize: 30,
     );
   }
 }
