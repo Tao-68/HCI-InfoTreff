@@ -17,18 +17,38 @@ class MenuPage extends ConsumerWidget {
     return Stack(
       children: [
         const BackgroundAsImage(),
-
         //Menu
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-          child: CategoryList(),
-        ),
-
-        //zurück zu Home
-        Container(
+        Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          alignment: Alignment.topRight,
-          child: BackButton(theme: theme),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'Menu',
+                        style: TextStyle(
+                          color: theme.colorScheme.onPrimary,
+                          fontSize: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                  BackButton(theme: theme),
+                ],
+              ),
+              const Expanded(
+                child: SizedBox(
+                  child: CategoryList(),
+                ),
+              ),
+            ],
+          ),
         ),
 
         //Filter Button
@@ -73,7 +93,7 @@ class BackButton extends ConsumerWidget {
           Icons.arrow_forward_ios_rounded,
           color: theme.colorScheme.primary,
         ),
-        iconSize: 40,
+        iconSize: 30,
       ),
     );
   }
@@ -244,7 +264,6 @@ class _AccordionState extends ConsumerState<Accordion> {
         side: BorderSide(width: 2, color: theme.colorScheme.onPrimary),
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
-      margin: const EdgeInsets.all(10),
       elevation: 4,
       color: theme.colorScheme.primary,
       shadowColor: theme.colorScheme.onSecondary,
