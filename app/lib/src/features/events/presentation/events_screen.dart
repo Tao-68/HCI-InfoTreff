@@ -10,6 +10,8 @@ import '../../favourites/data/favourites_repository.dart';
 import '../data/event_repository.dart';
 import '../domain/event.dart';
 import '../presentation/like_event_controller.dart';
+import '../../menu/data/menu_repository.dart';
+import '../../menu/domain/menu.dart';
 
 class EventsScreen extends ConsumerStatefulWidget {
   const EventsScreen({super.key});
@@ -175,6 +177,7 @@ class EventList extends ConsumerWidget {
                 'assets/events-assets/${events.elementAt(index).title.toLowerCase()}.jpg',
             description: 'This is a description for an extremely awesome event',
             controller: likeEventEontroller,
+            specials: events[index].specials,
           );
 
           //onPressed: () =>
@@ -196,6 +199,7 @@ class EventCard extends ConsumerWidget {
     required this.imagePath,
     required this.description,
     required this.controller,
+    required this.specials,
     super.key,
   });
 
@@ -205,6 +209,7 @@ class EventCard extends ConsumerWidget {
   final String imagePath;
   final String description;
   final LikeEventController controller;
+  final List<Item> specials;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -246,73 +251,164 @@ class EventCard extends ConsumerWidget {
             onExpansionChanged: (bool expanded) {
               ref.read(specialsExpandedProvider(title).state).state = expanded;
             },
-
             trailing: Icon(
               isSpecialsExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
               color: theme.colorScheme.primary,
             ),
             children: <Widget>[
-              EventMainBody(
-                theme: theme,
-                title: title,
-                description: description,
-                dateTime: dateTime,
-              ),
-
-              // TODO(Emil): reusm refactoring from here
-              ListTile(
-                title: Text(
-                  'Specials',
-                  style: TextStyle(color: theme.colorScheme.primary),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
                 ),
-                trailing: IconButton(
-                  icon: Icon(
-                    isSpecialsExpanded
-                        ? Icons.arrow_drop_up
-                        : Icons.arrow_drop_down,
+                child: Column(
+                  children: [
+                    EventMainBody(
+                      theme: theme,
+                      title: title,
+                      description: description,
+                      dateTime: dateTime,
+                    ),
+
+                    // TODO(Emil): resume refactoring from here
+                    Accordion(
+                      title: 'Specials',
+                      childWidget:
+                          SpecialsList(specials: specials, theme: theme),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SpecialsList extends StatelessWidget {
+  const SpecialsList({
+    super.key,
+    required this.specials,
+    required this.theme,
+  });
+
+  final List<Item> specials;
+  final ThemeData theme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        for (final item in specials)
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  width: 1.5,
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+            ),
+            child: ListTile(
+              title: Text(
+                item.name,
+                style: TextStyle(
+                  color: theme.colorScheme.primary,
+                  fontSize: 16,
+                ),
+              ),
+              subtitle: Text(
+                switch (item.diet) {
+                  1 => 'vegetarian',
+                  2 => 'vegan',
+                  _ => '',
+                },
+                style: const TextStyle(
+                  fontStyle: FontStyle.italic,
+                  color: Color.fromARGB(255, 41, 172, 45),
+                ),
+              ),
+              trailing: Text(
+                item.price,
+                style: TextStyle(
+                  color: theme.colorScheme.primary,
+                  fontSize: 16,
+                ),
+              ),
+              onTap: () => context.goNamed(
+                SubRoutes.menuItemDetails.name,
+                extra: item,
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class Accordion extends ConsumerStatefulWidget {
+  const Accordion({required this.title, required this.childWidget, super.key});
+  final String title;
+  final Widget childWidget;
+
+  @override
+  ConsumerState<Accordion> createState() => _AccordionState();
+}
+
+class _AccordionState extends ConsumerState<Accordion> {
+  // Show or hide the content
+  bool _showContent = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Card(
+      shape: RoundedRectangleBorder(
+        side: BorderSide(width: 2, color: theme.colorScheme.primary),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+      ),
+      elevation: 4,
+      color: theme.colorScheme.onSecondary,
+      shadowColor: Colors.black,
+      child: Column(
+        children: [
+          // The title
+          ListTile(
+            title: Text(
+              widget.title,
+              style: TextStyle(color: theme.colorScheme.primary, fontSize: 20),
+            ),
+            onTap: () {
+              setState(() {
+                _showContent = !_showContent;
+              });
+            },
+            trailing: Icon(
+              _showContent ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+              color: theme.colorScheme.primary,
+            ),
+          ),
+          // Show or hide the content based on the state
+          AnimatedCrossFade(
+            firstChild: Container(),
+            secondChild: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    width: 1.5,
                     color: theme.colorScheme.primary,
                   ),
-                  onPressed: () {
-                    ref.read(specialsExpandedProvider(title).state).state =
-                        !isSpecialsExpanded;
-                  },
                 ),
               ),
-              AnimatedCrossFade(
-                firstChild: const SizedBox.shrink(),
-                secondChild: Container(
-                  color: theme.colorScheme.onSecondary,
-                  child: Column(
-                    children: <Widget>[
-                      ListTile(
-                        title: Text(
-                          'Bloody Mary',
-                          style: TextStyle(color: theme.colorScheme.primary),
-                        ),
-                        trailing: Text(
-                          '3,30 Euro',
-                          style: TextStyle(color: theme.colorScheme.primary),
-                        ),
-                      ),
-                      ListTile(
-                        title: Text(
-                          'Pina Colada',
-                          style: TextStyle(color: theme.colorScheme.primary),
-                        ),
-                        trailing: Text(
-                          '5 Euro',
-                          style: TextStyle(color: theme.colorScheme.primary),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                crossFadeState: isSpecialsExpanded
-                    ? CrossFadeState.showSecond
-                    : CrossFadeState.showFirst,
-                duration: const Duration(milliseconds: 300),
-              ),
-            ],
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              child: widget.childWidget,
+            ),
+            crossFadeState: _showContent
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            duration: const Duration(milliseconds: 300),
           ),
         ],
       ),
@@ -322,7 +418,11 @@ class EventCard extends ConsumerWidget {
 
 class EventMainBody extends StatelessWidget {
   const EventMainBody({
-    required this.theme, required this.title, required this.description, required this.dateTime, super.key,
+    required this.theme,
+    required this.title,
+    required this.description,
+    required this.dateTime,
+    super.key,
   });
 
   final ThemeData theme;
@@ -340,10 +440,6 @@ class EventMainBody extends StatelessWidget {
             color: theme.colorScheme.onSecondary,
           ),
         ),
-      ),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 5,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -500,8 +596,8 @@ class ExportDateButton extends StatelessWidget {
           title: title,
           description: description,
           location: 'Event Location', // Optional: Add event location
-          startDate: DateTime.parse(dateTime),
-          endDate: DateTime.parse(dateTime)
+          startDate: DateTime.parse('${dateTime.replaceAll('.', '-')}:00'),
+          endDate: DateTime.parse('${dateTime.replaceAll('.', '-')}:00')
               .add(const Duration(hours: 2)), // Adjust duration as needed
         );
         calendar.Add2Calendar.addEvent2Cal(event);

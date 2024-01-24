@@ -294,8 +294,9 @@ class _AccordionState extends ConsumerState<Accordion> {
             ),
           ),
           // Show or hide the content based on the state
-          if (_showContent)
-            Container(
+          AnimatedCrossFade(
+            firstChild:  Container(),
+            secondChild: Container(
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(
@@ -306,9 +307,12 @@ class _AccordionState extends ConsumerState<Accordion> {
               ),
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               child: widget.childWidget,
-            )
-          else
-            Container(),
+            ),
+            crossFadeState: _showContent
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            duration: const Duration(milliseconds: 300),
+          ),
         ],
       ),
     );
