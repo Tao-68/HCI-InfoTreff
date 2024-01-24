@@ -2,6 +2,7 @@ import 'package:add_2_calendar/add_2_calendar.dart' as calendar;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:ri_go_demo/src/routing/app_router.dart';
 import 'package:share/share.dart';
 
@@ -587,17 +588,25 @@ class ExportDateButton extends StatelessWidget {
   final String description;
   final String dateTime;
   final ThemeData theme;
+  
+  //var parsedDateTime = DateTime.parse(dateTime);
+
+
+  
 
   @override
   Widget build(BuildContext context) {
+
+    var newFormat = DateFormat("dd.MM.yyyy H:m");
+
     return ElevatedButton(
       onPressed: () {
         final event = calendar.Event(
           title: title,
           description: description,
           location: 'Event Location', // Optional: Add event location
-          startDate: DateTime.parse('${dateTime.replaceAll('.', '-')}:00'),
-          endDate: DateTime.parse('${dateTime.replaceAll('.', '-')}:00')
+          startDate: newFormat.parse(dateTime),
+          endDate: newFormat.parse(dateTime)
               .add(const Duration(hours: 2)), // Adjust duration as needed
         );
         calendar.Add2Calendar.addEvent2Cal(event);
@@ -607,7 +616,7 @@ class ExportDateButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10),
       ),
       child: Text(
-        "Export Date",
+        'Export Date',
         style: TextStyle(color: theme.colorScheme.primary),
       ),
     );
