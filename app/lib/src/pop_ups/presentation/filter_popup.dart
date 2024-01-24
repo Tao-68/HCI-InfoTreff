@@ -151,7 +151,7 @@ class CloseButton extends ConsumerWidget {
           Icons.close,
           color: theme.colorScheme.onSecondary,
         ),
-        iconSize: 40,
+        iconSize: 30,
       ),
     );
   }

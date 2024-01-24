@@ -13,25 +13,19 @@ class SettingsPopUp extends ConsumerWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
+          padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: theme.colorScheme.primary,
-            border: Border.all(width: 2, color: theme.colorScheme.onPrimary,),
+            border: Border.all(
+              width: 2,
+              color: theme.colorScheme.onPrimary,
+            ),
             borderRadius: const BorderRadius.all(Radius.circular(20)),
           ),
-          child: Stack(
+          child: Column(
             children: [
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-                alignment: Alignment.topRight,
-                child: HeadBar(theme: theme),
-              ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 100, horizontal: 30),
-                alignment: Alignment.topRight,
-                child: OptionContent(theme: theme),
-              ),
+              HeadBar(theme: theme),
+              OptionContent(theme: theme),
             ],
           ),
         ),
@@ -215,7 +209,7 @@ class CloseButton extends ConsumerWidget {
           Icons.close,
           color: theme.colorScheme.onSecondary,
         ),
-        iconSize: 40,
+        iconSize: 30,
       ),
     );
   }
