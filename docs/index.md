@@ -12,11 +12,13 @@ Students get the chance to see the complete offerings and find more easily what 
 
 ## MVP
 
-App contains the cards for hot and cold drinks 
+The minimum requirements for this App are that the menue and event items are displayed on the related screen. The basic screen for menu and events shows only basic information like price and diet. If an item gets clicked on screen all additional information are shown. 
 
 ## possible Delighter
 
-The option to see special cards for events
+Events offer the option to be exported as calender item. In addition to that the events provide a feature to share them with others. 
+As a second delighter the app contains the option to give direct feedback to the InfoTreff crew.
+Features for likes and popularity of items can be switched of in the settings. 
 
 ## Project links    
 - link to [app](https://hcimo-4-huynh-lehr-reining-schultze-tan-hci-trap-5088c442cb8d4f.h-da.io/app/)
