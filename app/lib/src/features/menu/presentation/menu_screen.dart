@@ -54,8 +54,7 @@ class MenuPage extends ConsumerWidget {
 
 class Headline extends StatelessWidget {
   const Headline({
-    super.key,
-    required this.theme,
+    required this.theme, super.key,
   });
 
   final ThemeData theme;

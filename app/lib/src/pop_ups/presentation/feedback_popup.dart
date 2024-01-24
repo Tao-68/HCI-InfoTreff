@@ -15,7 +15,7 @@ class FeedbackPopup extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
           decoration: BoxDecoration(
             color: theme.colorScheme.primary,
-            border: Border.all(width: 2),
+            border: Border.all(width: 2,color: theme.colorScheme.onPrimary,),
             borderRadius: const BorderRadius.all(Radius.circular(20)),
           ),
           child: Column(

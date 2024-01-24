@@ -15,7 +15,7 @@ class SettingsPopUp extends ConsumerWidget {
         Container(
           decoration: BoxDecoration(
             color: theme.colorScheme.primary,
-            border: Border.all(width: 2),
+            border: Border.all(width: 2, color: theme.colorScheme.onPrimary,),
             borderRadius: const BorderRadius.all(Radius.circular(20)),
           ),
           child: Stack(
@@ -82,7 +82,7 @@ class OptionContent extends ConsumerWidget {
           ),
         ),
         Container(
-          padding: const EdgeInsets.only(),
+          padding: EdgeInsets.zero,
           child: const Text(
             'Menu',
             style: TextStyle(
@@ -148,7 +148,7 @@ class OptionContent extends ConsumerWidget {
 }
 
 class SettingCheckBox extends ConsumerStatefulWidget {
-  SettingCheckBox({
+  const SettingCheckBox({
     required this.theme,
     required this.provider,
     required this.onChanged,

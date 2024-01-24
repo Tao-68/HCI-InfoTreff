@@ -8,11 +8,10 @@ import 'package:share/share.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
 import '../../favourites/data/favourites_repository.dart';
+import '../../menu/domain/menu.dart';
 import '../data/event_repository.dart';
 import '../domain/event.dart';
 import '../presentation/like_event_controller.dart';
-import '../../menu/data/menu_repository.dart';
-import '../../menu/domain/menu.dart';
 
 class EventsScreen extends ConsumerStatefulWidget {
   const EventsScreen({super.key});
@@ -174,7 +173,6 @@ class EventList extends ConsumerWidget {
             dateTime: events[index].date,
             attendeeCount: 14,
             imagePath:
-                //Wird untern an ein ImageAsset übergeben, sollte also auch ohne relativen Pfad funktinoieren
                 'assets/events-assets/${events.elementAt(index).title.toLowerCase()}.jpg',
             description: 'This is a description for an extremely awesome event',
             controller: likeEventEontroller,
@@ -270,8 +268,6 @@ class EventCard extends ConsumerWidget {
                       description: description,
                       dateTime: dateTime,
                     ),
-
-                    // TODO(Emil): resume refactoring from here
                     Accordion(
                       title: 'Specials',
                       childWidget:
@@ -279,7 +275,7 @@ class EventCard extends ConsumerWidget {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ],
@@ -290,9 +286,9 @@ class EventCard extends ConsumerWidget {
 
 class SpecialsList extends StatelessWidget {
   const SpecialsList({
-    super.key,
     required this.specials,
     required this.theme,
+    super.key,
   });
 
   final List<Item> specials;
@@ -447,7 +443,7 @@ class EventMainBody extends StatelessWidget {
         children: [
           ButtonBar(
             alignment: MainAxisAlignment.spaceBetween,
-            buttonPadding: EdgeInsets.all(2),
+            buttonPadding: const EdgeInsets.all(2),
             children: [
               ImCommingButton(
                 theme: theme,
@@ -480,10 +476,10 @@ class EventMainBody extends StatelessWidget {
 
 class EventCover extends StatelessWidget {
   const EventCover({
-    super.key,
     required this.imagePath,
     required this.title,
     required this.theme,
+    super.key,
   });
 
   final String imagePath;
@@ -521,16 +517,16 @@ class EventCover extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Icon(
-                    Icons.thumb_up,
+                    Icons.thumb_up_outlined,
                     color: theme.colorScheme.primary,
                     size: 30,
                   ),
                   // Space between icons
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Icon(
-                    Icons.star,
+                    Icons.star_outline_rounded,
                     color: theme.colorScheme.primary,
                     size: 30,
                   ),
@@ -546,10 +542,10 @@ class EventCover extends StatelessWidget {
 
 class ShareButton extends StatelessWidget {
   const ShareButton({
-    super.key,
     required this.title,
     required this.dateTime,
     required this.theme,
+    super.key,
   });
 
   final String title;
@@ -565,10 +561,10 @@ class ShareButton extends StatelessWidget {
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: theme.colorScheme.onSecondary,
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
       ),
       child: Text(
-        "Share",
+        'Share',
         style: TextStyle(color: theme.colorScheme.primary),
       ),
     );
@@ -577,27 +573,23 @@ class ShareButton extends StatelessWidget {
 
 class ExportDateButton extends StatelessWidget {
   const ExportDateButton({
-    super.key,
     required this.title,
     required this.description,
     required this.dateTime,
     required this.theme,
+    super.key,
   });
 
   final String title;
   final String description;
   final String dateTime;
   final ThemeData theme;
-  
+
   //var parsedDateTime = DateTime.parse(dateTime);
-
-
-  
 
   @override
   Widget build(BuildContext context) {
-
-    var newFormat = DateFormat("dd.MM.yyyy H:m");
+    final newFormat = DateFormat('dd.MM.yyyy H:m');
 
     return ElevatedButton(
       onPressed: () {
@@ -606,14 +598,15 @@ class ExportDateButton extends StatelessWidget {
           description: description,
           location: 'Event Location', // Optional: Add event location
           startDate: newFormat.parse(dateTime),
-          endDate: newFormat.parse(dateTime)
+          endDate: newFormat
+              .parse(dateTime)
               .add(const Duration(hours: 2)), // Adjust duration as needed
         );
         calendar.Add2Calendar.addEvent2Cal(event);
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: theme.colorScheme.onSecondary,
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
       ),
       child: Text(
         'Export Date',
@@ -625,8 +618,8 @@ class ExportDateButton extends StatelessWidget {
 
 class ImCommingButton extends StatelessWidget {
   const ImCommingButton({
-    super.key,
     required this.theme,
+    super.key,
   });
 
   final ThemeData theme;
@@ -639,7 +632,7 @@ class ImCommingButton extends StatelessWidget {
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: theme.colorScheme.onSecondary,
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
       ),
       child: Text(
         "I'm coming!",
