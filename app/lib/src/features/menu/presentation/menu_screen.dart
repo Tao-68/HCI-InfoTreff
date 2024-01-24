@@ -22,26 +22,7 @@ class MenuPage extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        'Menu',
-                        style: TextStyle(
-                          color: theme.colorScheme.onPrimary,
-                          fontSize: 30,
-                        ),
-                      ),
-                    ],
-                  ),
-                  BackButton(theme: theme),
-                ],
-              ),
+              Headline(theme: theme),
               const Expanded(
                 child: SizedBox(
                   child: CategoryList(),
@@ -66,6 +47,39 @@ class MenuPage extends ConsumerWidget {
             }
           },
         ),
+      ],
+    );
+  }
+}
+
+class Headline extends StatelessWidget {
+  const Headline({
+    super.key,
+    required this.theme,
+  });
+
+  final ThemeData theme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            const SizedBox(
+              width: 20,
+            ),
+            Text(
+              'Menu',
+              style: TextStyle(
+                color: theme.colorScheme.onPrimary,
+                fontSize: 30,
+              ),
+            ),
+          ],
+        ),
+        BackButton(theme: theme),
       ],
     );
   }
