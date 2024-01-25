@@ -5,7 +5,8 @@ import 'package:ri_go_demo/src/common_widgets/async_value_widget.dart';
 import 'package:ri_go_demo/src/features/events/domain/event.dart';
 import 'package:ri_go_demo/src/features/events/presentation/event_card.dart';
 import 'package:ri_go_demo/src/features/events/presentation/like_event_controller.dart';
-
+import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/routing/app_router.dart';
 import '../../features/favourites/data/favourites_repository.dart';
 
 class FavoritesPopup extends ConsumerStatefulWidget {
@@ -71,6 +72,7 @@ class EventList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return AsyncValueWidget(
       value: ref.watch(fetchFavouritesProvider),
       data: (favourites) => ListView(
@@ -115,9 +117,47 @@ class EventList extends StatelessWidget {
             )
           else
             for (final item in favourites.items)
-              ListTile(
-                title: Text(item.name),
+                  Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    width: 1.5,
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                ),
               ),
+              child: ListTile(
+                title: Text(
+                  item.name,
+                  style: TextStyle(
+                    color: theme.colorScheme.onPrimary,
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: Text(
+                  switch (item.diet) {
+                    1 => 'vegetarian',
+                    2 => 'vegan',
+                    _ => '',
+                  },
+                  style: const TextStyle(
+                    fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 38, 107, 40),
+                  ),
+                ),
+                trailing: Text(
+                  item.price,
+                  style: TextStyle(
+                    color: theme.colorScheme.onPrimary,
+                    fontSize: 16,
+                  ),
+                ),
+                onTap: () => context.goNamed(
+                  SubRoutes.menuItemDetails.name,
+                  extra: item,
+                ),
+              ),
+            ),
         ],
       ),
     );
