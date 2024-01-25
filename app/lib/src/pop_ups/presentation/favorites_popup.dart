@@ -67,7 +67,7 @@ class _FavoritesPopup extends ConsumerState<FavoritesPopup> {
           ),
           if (_favouriteController.getItemList().isEmpty)
             const ListTile(
-              title: Text('No liked events'),
+              title: Text('No liked Drinks & Snacks'),
             )
           else
             for (final item in _favouriteController.getItemList())

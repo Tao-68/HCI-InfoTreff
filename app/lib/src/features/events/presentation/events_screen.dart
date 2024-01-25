@@ -521,24 +521,10 @@ class EventCover extends StatelessWidget {
                       color: theme.colorScheme.primary,
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Icon(
-                        Icons.thumb_up_outlined,
-                        color: theme.colorScheme.primary,
-                        size: 30,
-                      ),
-                      // Space between icons
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Icon(
-                        Icons.star_outline_rounded,
-                        color: theme.colorScheme.primary,
-                        size: 30,
-                      ),
-                    ],
+                  Icon(
+                    Icons.star_outline_rounded,
+                    color: theme.colorScheme.primary,
+                    size: 30,
                   ),
                 ],
               ),
