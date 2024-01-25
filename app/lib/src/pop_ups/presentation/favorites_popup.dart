@@ -30,7 +30,7 @@ class _FavoritesPopup extends ConsumerState<FavoritesPopup> {
     return Container(
       decoration: BoxDecoration(
         color: theme.colorScheme.primary,
-        border: Border.all(width: 2),
+        border: Border.all(width: 2, color: theme.colorScheme.onPrimary,),
         borderRadius: const BorderRadius.all(Radius.circular(20)),
       ),
       padding: const EdgeInsets.all(20),
@@ -102,7 +102,7 @@ class CloseButton extends ConsumerWidget {
           Icons.close,
           color: theme.colorScheme.onSecondary,
         ),
-        iconSize: 40,
+        iconSize: 30,
       ),
     );
   }
