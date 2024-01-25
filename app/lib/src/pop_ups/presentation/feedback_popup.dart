@@ -12,10 +12,10 @@ class FeedbackPopup extends ConsumerWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+          padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: theme.colorScheme.primary,
-            border: Border.all(width: 2),
+            border: Border.all(width: 2,color: theme.colorScheme.onPrimary,),
             borderRadius: const BorderRadius.all(Radius.circular(20)),
           ),
           child: Column(
@@ -161,7 +161,7 @@ class CloseButton extends ConsumerWidget {
           Icons.close,
           color: theme.colorScheme.onSecondary,
         ),
-        iconSize: 40,
+        iconSize: 30,
       ),
     );
   }

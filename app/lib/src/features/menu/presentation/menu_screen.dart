@@ -17,18 +17,19 @@ class MenuPage extends ConsumerWidget {
     return Stack(
       children: [
         const BackgroundAsImage(),
-
         //Menu
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-          child: CategoryList(),
-        ),
-
-        //zurück zu Home
-        Container(
+        Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          alignment: Alignment.topRight,
-          child: BackButton(theme: theme),
+          child: Column(
+            children: [
+              Headline(theme: theme),
+              const Expanded(
+                child: SizedBox(
+                  child: CategoryList(),
+                ),
+              ),
+            ],
+          ),
         ),
 
         //Filter Button
@@ -51,6 +52,38 @@ class MenuPage extends ConsumerWidget {
   }
 }
 
+class Headline extends StatelessWidget {
+  const Headline({
+    required this.theme, super.key,
+  });
+
+  final ThemeData theme;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            const SizedBox(
+              width: 20,
+            ),
+            Text(
+              'Menu',
+              style: TextStyle(
+                color: theme.colorScheme.onPrimary,
+                fontSize: 30,
+              ),
+            ),
+          ],
+        ),
+        BackButton(theme: theme),
+      ],
+    );
+  }
+}
+
 class BackButton extends ConsumerWidget {
   const BackButton({
     required this.theme,
@@ -61,20 +94,13 @@ class BackButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: theme.colorScheme.primary),
-        color: theme.colorScheme.onSecondary,
+    return IconButton(
+      onPressed: () => context.go('/${TopLevelDestinations.home.name}'),
+      icon: Icon(
+        Icons.arrow_forward_ios_rounded,
+        color: theme.colorScheme.onPrimary,
       ),
-      child: IconButton(
-        onPressed: () => context.go('/${TopLevelDestinations.home.name}'),
-        icon: Icon(
-          Icons.arrow_forward_ios_rounded,
-          color: theme.colorScheme.primary,
-        ),
-        iconSize: 40,
-      ),
+      iconSize: 30,
     );
   }
 }
@@ -244,7 +270,6 @@ class _AccordionState extends ConsumerState<Accordion> {
         side: BorderSide(width: 2, color: theme.colorScheme.onPrimary),
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
-      margin: const EdgeInsets.all(10),
       elevation: 4,
       color: theme.colorScheme.primary,
       shadowColor: theme.colorScheme.onSecondary,
@@ -268,8 +293,9 @@ class _AccordionState extends ConsumerState<Accordion> {
             ),
           ),
           // Show or hide the content based on the state
-          if (_showContent)
-            Container(
+          AnimatedCrossFade(
+            firstChild:  Container(),
+            secondChild: Container(
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(
@@ -280,9 +306,12 @@ class _AccordionState extends ConsumerState<Accordion> {
               ),
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               child: widget.childWidget,
-            )
-          else
-            Container(),
+            ),
+            crossFadeState: _showContent
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            duration: const Duration(milliseconds: 300),
+          ),
         ],
       ),
     );
