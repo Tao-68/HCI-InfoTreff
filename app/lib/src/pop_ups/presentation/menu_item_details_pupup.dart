@@ -34,15 +34,15 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                   ),
                   FloatingActionButton(
                     onPressed: () {
-                      controller.changeFavouriteItem(item); 
+                      controller.changeFavouriteItem(item);
                       ref.invalidate(favouritesRepositoryProvider);
                     },
                     backgroundColor: Colors.transparent,
                     elevation: 0,
                     child: Icon(
                       controller.isLikedItem(item)
-                          ? Icons.favorite
-                          : Icons.favorite_border_outlined,
+                          ? Icons.star_rounded
+                          : Icons.star_outline_rounded,
                       color: item.favorite
                           ? const Color.fromRGBO(115, 66, 23, 1)
                           : null,
@@ -56,6 +56,12 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                         ? const Color.fromRGBO(115, 66, 23, 1)
                         : null,
                   ),
+                  Text('          ${item.price}',
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
                 ],
               ),
               Text(
@@ -64,10 +70,23 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                   2 => 'vegan',
                   _ => '',
                 },
+                style: const TextStyle(
+                  fontStyle: FontStyle.italic,
+                  color: Color.fromARGB(255, 38, 107, 40),
+                ),
               ),
-              Text('Allergens: ${item.allergens}'),
-              Text('Nutrition: ${item.nutrition}'),
-              Text('Price: ${item.price}'),
+              Accordion(
+                title: 'Allergens:',
+                childWidget: Text(item.allergens,),
+              ),
+              Accordion(
+                title: 'Ingredients:',
+                childWidget: Text(item.ingredients,),
+              ),
+              Accordion(
+                title: 'Nutrition:',
+                childWidget: Text(item.nutrition,),
+              ),
               Text('Likes: ${item.likes}'),
               Text('Picture: ${item.picture}'),
             ],
@@ -105,7 +124,77 @@ class CloseButton extends ConsumerWidget {
           Icons.close,
           color: theme.colorScheme.onSecondary,
         ),
-        iconSize: 40,
+        iconSize: 30,
+      ),
+    );
+  }
+}
+
+
+class Accordion extends ConsumerStatefulWidget {
+  const Accordion({required this.title, required this.childWidget, super.key});
+  final String title;
+  final Widget childWidget;
+
+  @override
+  ConsumerState<Accordion> createState() => _AccordionState();
+}
+
+class _AccordionState extends ConsumerState<Accordion> {
+  // Show or hide the content
+  bool _showContent = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Card(
+      shape: RoundedRectangleBorder(
+        side: BorderSide(width: 2, color: theme.colorScheme.onPrimary),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+      ),
+      elevation: 4,
+      color: theme.colorScheme.primary,
+      shadowColor: theme.colorScheme.onSecondary,
+      child: Column(
+        children: [
+          // The title
+          ListTile(
+            title: Text(
+              widget.title,
+              style:
+              TextStyle(color: theme.colorScheme.onPrimary, fontSize: 20),
+            ),
+            onTap: () {
+              setState(() {
+                _showContent = !_showContent;
+              });
+            },
+            trailing: Icon(
+              _showContent ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+          // Show or hide the content based on the state
+          AnimatedCrossFade(
+            firstChild:  Container(),
+            secondChild: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    width: 1.5,
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              child: widget.childWidget,
+            ),
+            crossFadeState: _showContent
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            duration: const Duration(milliseconds: 300),
+          ),
+        ],
       ),
     );
   }
