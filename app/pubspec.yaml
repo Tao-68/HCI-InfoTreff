@@ -32,7 +32,6 @@ dependencies:
   share: ^2.0.4
   add_2_calendar: ^3.0.1
   shared_preferences_riverpod: ^0.3.0
-  shared_preferences:
   path_provider: ^2.1.2
 
 dev_dependencies:

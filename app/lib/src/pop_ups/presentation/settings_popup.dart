@@ -10,7 +10,7 @@ class SettingsPopUp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     return Column(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.max,
       children: [
         Container(
           padding: const EdgeInsets.all(20),
@@ -41,6 +41,7 @@ class HeadBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
           child: Text(
@@ -75,6 +76,7 @@ class OptionContent extends ConsumerWidget {
     = MainLanguagePreference();
 
     return Column (
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
@@ -85,17 +87,18 @@ class OptionContent extends ConsumerWidget {
             thickness: 2,
           ),
         ),
+        /*
         Container (
-              child: const Text (
-                'General',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
+          child: const Text (
+            'General',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
               ),
             ),
-            Container (
-              padding: const EdgeInsets.only(bottom: 7),
+          ),
+          Container (
+            padding: const EdgeInsets.only(bottom: 7),
               child: Row (
                 children: [
                   const Expanded(
@@ -113,6 +116,7 @@ class OptionContent extends ConsumerWidget {
                 ],
               ),
             ),
+            */
             Container (
               child: const Text (
                 'Menu',
@@ -315,22 +319,29 @@ class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
   @override
   Widget build (BuildContext context) 
   {
-    return DropdownMenu<LanguageSetting>(
-      initialSelection: LanguageSetting.getEnum(defaultLanguage),
-      requestFocusOnTap: false,
-      onSelected: (LanguageSetting? ls) {
-        if (ls != null) {
-          widget.pref.saveValue(value: ls.name);
-        } 
-      },
-      dropdownMenuEntries: LanguageSetting.values
-        .map<DropdownMenuEntry<LanguageSetting>>(
-        (LanguageSetting language) {
-          return DropdownMenuEntry<LanguageSetting>(
-            value: language,
-            label: language.name,
-          );
-      }).toList(),
+    return Container (
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(width: 2, color: theme.colorScheme.onSecondary),
+        color: theme.colorScheme.secondary,
+      ),
+      child: DropdownMenu<LanguageSetting>(
+        initialSelection: LanguageSetting.getEnum(defaultLanguage),
+        requestFocusOnTap: false,
+        onSelected: (LanguageSetting? ls) {
+          if (ls != null) {
+            widget.pref.saveValue(value: ls.name);
+          } 
+        },
+        dropdownMenuEntries: LanguageSetting.values
+          .map<DropdownMenuEntry<LanguageSetting>>(
+          (LanguageSetting language) {
+            return DropdownMenuEntry<LanguageSetting>(
+              value: language,
+              label: language.name,
+            );
+        }).toList(),
+      ),
     );
   }
 }

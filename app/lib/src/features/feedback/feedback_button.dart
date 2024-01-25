@@ -10,23 +10,7 @@ import '../../exceptions/api_exception.dart';
 import '../../utils/dio_provider.dart';
 import '../../utils/logger.dart';
 
-part 'feedback_provider.g.dart';
-
-class FeedbackRepository {
-  FeedbackRepository ({required this.dio});
-  final Dio dio;
-
-  String _getUrl({int? id}) {
-    final url = Uri(scheme: Api.schema, host: Api.host, path: Api.eventsPath)
-        .toString();
-    if (id != null) {
-      return '$url$id';
-    } else {
-      return url;
-    }
-  }
-}
-
+/*
 class FeedBackButton extends ConsumerStatefulWidget {
   const FeedBackButton({super.key});
 
@@ -117,3 +101,5 @@ class _FeedBackButtonState extends ConsumerState<FeedBackButton> {
     );
   }
 }
+
+*/
