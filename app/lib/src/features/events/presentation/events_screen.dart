@@ -166,14 +166,15 @@ class EventList extends ConsumerWidget {
       data: (events) => ListView.builder(
         itemCount: events.length,
         itemBuilder: (context, index) {
-          //ab hier ersetzten mit schönerer Eventliste
-          //variable events hat die eventliste
+        
+          String imageName = events[index].title.toLowerCase();
+          imageName = imageName.replaceAll(' ', '_');
           return EventCard(
             title: events[index].title,
             dateTime: events[index].date,
             attendeeCount: 14,
             imagePath:
-                'assets/events-assets/${events.elementAt(index).title.toLowerCase()}.jpg',
+                'assets/events-assets/${imageName}.jpg',
             description: 'This is a description for an extremely awesome event',
             controller: likeEventEontroller,
             specials: events[index].specials,
