@@ -43,36 +43,6 @@ class MenuRepository {
     }) async {
       logger.d('menu_repository.changeMenuLike');
 
-      // final url = _getUrl(id: item.id);
-      // final response = await dio.get<String>(url);
-      // if (response.statusCode == 200 && response.data != null) {
-      //   final itemServer =
-      //     Item.fromJson(json.decode(response.data!) as Map<String, Object?>);
-
-      //   int likeVal = itemServer.likes;
-      //   if (like) {
-      //     likeVal++;
-      //   } else {
-      //     likeVal--;
-      //   }
-      //   final responsePatch =
-      //    await dio.patch<String>(url, data: json.encode({'likes': likeVal}));
-      //   if (responsePatch.statusCode == 200 && response.data != null) {
-      //     final eventUpdated =
-      //     Item.fromJson(json.decode(response.data!) as Map<String, Object?>);
-      //     return true;
-      //   } else {
-      //     throw ApiException(
-      //       responsePatch.statusCode ?? -1,
-      //       'likeEvent ${responsePatch.statusCode}, data=${response.data}',
-      //     );
-      //   }
-      // } else {
-      //   throw ApiException(
-      //     response.statusCode ?? -1,
-      //     'getEvent ${response.statusCode}, data=${response.data}',
-      //   );
-      // }
     }
 }
 
