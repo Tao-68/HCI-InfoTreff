@@ -13,7 +13,7 @@ class SettingsPopUp extends ConsumerWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: theme.colorScheme.primary,
             border: Border.all(
