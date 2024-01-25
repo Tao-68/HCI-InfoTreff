@@ -7,10 +7,9 @@ import '../../menu/domain/menu.dart';
 part 'favourites.freezed.dart';
 
 @freezed
-class Favourites with _$Favourites{
+class Favourites with _$Favourites {
   const factory Favourites({
     required Set<Event> events,
     required Set<Item> items,
   }) = _Favourites;
-
 }
