@@ -64,7 +64,17 @@ class OptionContent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
+
+    final ShowNumberOfLikePreference showNumberOfLikePreference 
+    = ShowNumberOfLikePreference();
+    final HideNumberParticipantPreference hideNumberParticipantPreference 
+    = HideNumberParticipantPreference();
+    final ShowVeganOnlyPreference showVeganOnlyPreference 
+    = ShowVeganOnlyPreference();
+    final MainLanguagePreference mainLanguagePreference 
+    = MainLanguagePreference();
+
+    return Column (
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
@@ -75,38 +85,89 @@ class OptionContent extends ConsumerWidget {
             thickness: 2,
           ),
         ),
-        Container(
-          padding: EdgeInsets.zero,
-          child: const Text(
-            'Menu',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(bottom: 7),
-          child: Row(
-            children: [
-              const Expanded(
-                child: Text(
-                  'show Number of like',
-                  style: TextStyle(
-                    fontSize: 15,
-                  ),
+        Container (
+              child: const Text (
+                'General',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                 ),
               ),
-              SettingCheckBox(
-                provider: likeViewProvider,
-                theme: theme,
-                onChanged: (bool? value) {
-                  ref.read(likeViewProvider.notifier).changeValue(value);
-                },
+            ),
+            Container (
+              padding: const EdgeInsets.only(bottom: 7),
+              child: Row (
+                children: [
+                  const Expanded(
+                    child: Text (
+                      'language',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SettingDropDownMenu (
+                    pref: mainLanguagePreference,
+                    theme: theme,
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
+            ),
+            Container (
+              child: const Text (
+                'Menu',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Container (
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Row (
+                children: [
+                  const Expanded(
+                    child: Text (
+                      'show Number of like',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SettingCheckBox (
+                    theme: theme,
+                    pref: showNumberOfLikePreference,
+                    onChanged: (bool? value) async {
+                      await showNumberOfLikePreference
+                        .saveValue(value: value ?? false);
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Container (
+              padding: const EdgeInsets.only(bottom: 7),
+              child: Row (
+                children: [
+                  const Expanded(
+                    child: Text (
+                      'show Number of like',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SettingCheckBox (
+                    theme: theme,
+                    pref: showVeganOnlyPreference,
+                    onChanged: (bool? value) async {
+                      await showVeganOnlyPreference
+                        .saveValue(value: value ?? false);
+                    },
+                  ),
+                ],
+              ),
+            ),
         Container(
           padding: const EdgeInsets.only(bottom: 5),
           child: const Text(
@@ -127,12 +188,27 @@ class OptionContent extends ConsumerWidget {
                 ),
               ),
             ),
-            SettingCheckBox(
-              provider: hideParticipantProvider,
-              theme: theme,
-              onChanged: (bool? value) {
-                ref.read(hideParticipantProvider.notifier).changeValue(value);
-              },
+            Container (
+              child: Row (
+                children: [
+                  const Expanded( 
+                    child: Text (
+                      'Hide Number of participants',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SettingCheckBox ( 
+                    theme: theme,
+                    pref: hideNumberParticipantPreference,
+                    onChanged: (bool? value) async {
+                      await hideNumberParticipantPreference
+                      .saveValue(value: value ?? false);
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -144,36 +220,50 @@ class OptionContent extends ConsumerWidget {
 class SettingCheckBox extends ConsumerStatefulWidget {
   const SettingCheckBox({
     required this.theme,
-    required this.provider,
-    required this.onChanged,
+
+    required this.pref,
+    required this.onChanged, 
     super.key,
   });
-  final void Function(bool?) onChanged;
-  final StateNotifierProvider<StateNotifier<bool?>, bool?> provider;
+  final void Function (bool?) onChanged;
+  final SharedPreferencesBoolHelper pref;
   final ThemeData theme;
 
   @override
   _SettingCheckBoxState createState() => _SettingCheckBoxState(
-        theme: theme,
-        provider: provider,
-        onChanged: onChanged,
-      );
+    theme: theme, 
+    onChanged: onChanged,
+  );
 }
 
 class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
   _SettingCheckBoxState({
-    required this.theme,
-    required this.provider,
+    required this.theme, 
     required this.onChanged,
   });
+
   final ThemeData theme;
-  final StateNotifierProvider<StateNotifier<bool?>, bool?> provider;
-  final void Function(bool?) onChanged;
+
+  final void Function (bool?) onChanged;
+
+  bool isChecked = false;
+
+   @override
+  void initState() {
+    super.initState();
+    _loadValue();
+  }
+
+  Future<void> _loadValue() async {
+    bool fetchedData = await widget.pref.getStoredValue() ?? false;
+    setState(() {
+      isChecked = fetchedData;
+    });
+  }
 
   @override
-  Widget build(BuildContext context) {
-    final bool? isChecked = ref.watch(provider);
-    return Checkbox(
+  Widget build (BuildContext context) {
+    return Checkbox (
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(7),
         side: BorderSide(
@@ -182,7 +272,65 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
         ),
       ),
       value: isChecked,
-      onChanged: onChanged,
+      onChanged: (bool? value) {
+        onChanged(value);
+        _loadValue();
+      },
+    );
+  }
+}
+
+class SettingDropDownMenu extends ConsumerStatefulWidget {
+  const SettingDropDownMenu({
+    required this.theme, 
+    required this.pref, 
+    super.key,
+  });
+  final ThemeData theme;
+  final SharedPreferencesStringHelper pref;
+
+  SettingDropDownMenuState createState() => SettingDropDownMenuState(theme: theme);
+}
+
+class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
+  SettingDropDownMenuState({required this.theme});
+  final ThemeData theme;
+  late String defaultLanguage;
+
+  @override
+
+  void initState() {
+    super.initState();
+    _loadValue();
+  }
+
+  Future<void> _loadValue() async {
+    final String fetchData = await widget.pref.getStoredValue() ?? 'English';
+    setState(() {
+      defaultLanguage = fetchData;
+    });
+    print(defaultLanguage);
+  }
+
+  @override
+  Widget build (BuildContext context) 
+  {
+    return DropdownMenu<LanguageSetting>(
+      initialSelection: LanguageSetting.getEnum(defaultLanguage),
+      requestFocusOnTap: false,
+      onSelected: (LanguageSetting? ls) {
+        if (ls != null) {
+          widget.pref.saveValue(value: ls.name);
+        } 
+      },
+      dropdownMenuEntries: LanguageSetting.values
+        .map<DropdownMenuEntry<LanguageSetting>>(
+        (LanguageSetting language) {
+          return DropdownMenuEntry<LanguageSetting>(
+            value: language,
+            label: language.name,
+          );
+      }).toList(),
     );
   }
 }

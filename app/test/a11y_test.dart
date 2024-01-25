@@ -8,12 +8,12 @@ import 'package:ri_go_demo/src/utils/logger.dart';
 import 'fake_repository.dart';
 
 // see https://raw.githubusercontent.com/flutter/codelabs/main/namer/step_08/test/a11y_test.dart
-void main() {
+void main() async {
   testWidgets('Follows a11y guidelines for start screen',
       (WidgetTester tester) async {
     logger.d('test with provider, as they are');
     final SemanticsHandle handle = tester.ensureSemantics();
-    await tester.pumpWidget(const ProviderScope(child: MyApp()));
+    await tester.pumpWidget(ProviderScope(child: MyApp()));
     await _testA11y(tester);
     handle.dispose();
   });
@@ -27,7 +27,7 @@ void main() {
         overrides: [
           peopleRepositoryProvider.overrideWithValue(FakeRepository()),
         ],
-        child: const MyApp(),
+        child: MyApp(),
       ),
     );
     // The first frame is a loading state.

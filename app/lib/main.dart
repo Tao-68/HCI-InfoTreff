@@ -6,15 +6,18 @@ import 'src/routing/app_router.dart';
 import 'src/utils/localization.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    const ProviderScope(child: MyApp()),
+    ProviderScope(child: MyApp()),
   );
 }
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     final goRouter = ref.watch(goRouterProvider);
 
     //Colors
