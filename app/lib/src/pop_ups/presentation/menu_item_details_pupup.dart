@@ -14,7 +14,7 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    late final controller = ref.watch(menuRepositoryProvider);
+    late final controller = ref.watch(favouritesRepositoryProvider);
     return Stack(
       children: [
         Container(
@@ -33,14 +33,14 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                     ),
                   ),
                   FloatingActionButton(
-                    onPressed: () => controller.changeMenuLike(
-                      item: item,
-                      like: item.favorite,
-                    ),
+                    onPressed: () {
+                      controller.changeFavouriteItem(item); 
+                      ref.invalidate(favouritesRepositoryProvider);
+                    },
                     backgroundColor: Colors.transparent,
                     elevation: 0,
                     child: Icon(
-                      item.favorite
+                      controller.isLikedItem(item)
                           ? Icons.favorite
                           : Icons.favorite_border_outlined,
                       color: item.favorite
