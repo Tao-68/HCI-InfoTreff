@@ -31,10 +31,13 @@ We have opted for user interviews as user research. We chose to do partly standa
 7. what do you think of an overview for events?
    - related to hypotheses #4. We want to get more information on the acceptance for the event feature. Events are poorly displayed at the FBI right now and we want to improve this with this feature. If people don't want a feature in this app we have to scrap this part and move on without it.
 8. would you like to be able to integrate events into your calendar?
-   - 
+   - related to hypotheses #5. Is our hypotheses correct and do people actually want to add events to their calendar
 9. would you like to be able to share events with others? 
+   - in a addition to hypothes #5 we want to know if people want to share events with others without having to take a screenshot
 10. would you use such an application as an app or via the web?
+   - not related to any hypotheses. We want our design to fit the prefered type of app usage
 11. would social features, such as seeing which items are popular with students, influence your choice?
+   - we don't want to influence our users with their purchases. If many people answer they will be influenced we will make viewing likes optional
 
 ## Results of the interviews
 
