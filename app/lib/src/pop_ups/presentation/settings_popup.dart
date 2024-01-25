@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../global_value/global_value.dart';
 
 class SettingsPopUp extends ConsumerWidget {
@@ -54,8 +55,13 @@ class HeadBar extends ConsumerWidget {
 }
 
 class OptionContent extends ConsumerWidget {
-  const OptionContent ({required this.theme, super.key});
+  OptionContent ({required this.theme, super.key});
   final ThemeData theme;
+
+  ShowNumberOfLikePreference showNumberOfLikePreference 
+    = ShowNumberOfLikePreference();
+  HideNumberParticipantPreference hideNumberParticipantPreference 
+    = HideNumberParticipantPreference();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -93,10 +99,11 @@ class OptionContent extends ConsumerWidget {
                     ),
                   ),
                   SettingCheckBox (
-                    provider: likeViewProvider,
                     theme: theme,
-                    onChanged: (bool? value) {
-                      ref.read(likeViewProvider.notifier).changeValue(value);
+                    pref: showNumberOfLikePreference,
+                    onChanged: (bool? value) async {
+                      await showNumberOfLikePreference
+                        .saveValue(value: value ?? false);
                     },
                   ),
                 ],
@@ -123,12 +130,12 @@ class OptionContent extends ConsumerWidget {
                       ),
                     ),
                   ),
-                  SettingCheckBox (
-                    provider: hideParticipantProvider,
+                  SettingCheckBox ( 
                     theme: theme,
-                    onChanged: (bool? value) {
-                      ref.read(hideParticipantProvider.notifier)
-                        .changeValue(value);
+                    pref: hideNumberParticipantPreference,
+                    onChanged: (bool? value) async {
+                      await hideNumberParticipantPreference
+                      .saveValue(value: value ?? false);
                     },
                   ),
                 ],
@@ -140,20 +147,19 @@ class OptionContent extends ConsumerWidget {
 }
 
 class SettingCheckBox extends ConsumerStatefulWidget {
-  SettingCheckBox({
+  const SettingCheckBox({
     required this.theme,
-    required this.provider,
+    required this.pref,
     required this.onChanged, 
-    super.key,});
+    super.key,
+  });
   final void Function (bool?) onChanged;
-  final StateNotifierProvider<StateNotifier<bool?>, bool?> provider;
+  final SharedPreferencesHelper pref;
   final ThemeData theme;
 
   @override
   _SettingCheckBoxState createState() => _SettingCheckBoxState(
-    
     theme: theme, 
-    provider: provider,
     onChanged: onChanged,
   );
 }
@@ -161,16 +167,29 @@ class SettingCheckBox extends ConsumerStatefulWidget {
 class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
   _SettingCheckBoxState({
     required this.theme, 
-    required this.provider,
     required this.onChanged,
   });
+
   final ThemeData theme;
-  final StateNotifierProvider<StateNotifier<bool?>, bool?> provider;
   final void Function (bool?) onChanged;
+
+  bool isChecked = false;
+
+   @override
+  void initState() {
+    super.initState();
+    _loadValue();
+  }
+
+  Future<void> _loadValue() async {
+    bool fetchedData = await widget.pref.getStoredValue() ?? false;
+    setState(() {
+      isChecked = fetchedData;
+    });
+  }
 
   @override
   Widget build (BuildContext context) {
-    bool? isChecked = ref.watch(provider);
     return Checkbox (
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(7),
@@ -180,7 +199,10 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
         ),
       ),
       value: isChecked,
-      onChanged: onChanged,
+      onChanged: (bool? value) {
+        onChanged(value);
+        _loadValue();
+      },
     );
   }
 }
@@ -212,4 +234,3 @@ class CloseButton extends ConsumerWidget {
     );
   }
 }
-

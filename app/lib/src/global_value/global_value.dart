@@ -1,26 +1,35 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+abstract class SharedPreferencesHelper {
+  Future<bool?> getStoredValue() async {}
+  Future<void> saveValue({required bool value}) async {}
+}
 
 
-final likeViewProvider = StateNotifierProvider<likeViewNotifier, bool?> (
-  (ref) => likeViewNotifier(),
-  );
+class ShowNumberOfLikePreference extends SharedPreferencesHelper{
+  static const String _myTextKey = 'showNumberOfLikePreference';
 
-class likeViewNotifier extends StateNotifier<bool?> {
-  likeViewNotifier() : super(false);
+  Future<bool?> getStoredValue() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_myTextKey) ?? false;
+  }
 
-  void changeValue (bool? value) {
-    state = value;
+  Future<void> saveValue({required bool value}) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_myTextKey, value);
   }
 }
 
-final hideParticipantProvider = StateNotifierProvider<hideParticipantNotifier, bool?> 
-  ((ref) => hideParticipantNotifier());
+class HideNumberParticipantPreference extends SharedPreferencesHelper{
+  static const String _myTextKey = 'hideNumberParticipant';
+ 
+  Future<bool?> getStoredValue() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_myTextKey) ?? false;
+  }
 
-class hideParticipantNotifier extends StateNotifier<bool?> {
-  hideParticipantNotifier() : super(false);
-
-  void changeValue(bool? value) {
-    state = value;
+  Future<void> saveValue({required bool value}) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_myTextKey, value);
   }
 }
