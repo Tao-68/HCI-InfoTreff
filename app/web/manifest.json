@@ -1,11 +1,11 @@
 {
-    "name": "ri_go_demo",
-    "short_name": "ri_go_demo",
+    "name": "InfoTreff Connect",
+    "short_name": "InfoTreff",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "All InfoTreff News in one place",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
