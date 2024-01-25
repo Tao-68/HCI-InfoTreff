@@ -1,17 +1,10 @@
-import 'dart:async';
-import 'dart:ui';
 
-import 'package:add_2_calendar/add_2_calendar.dart' as calendar;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 import 'package:ri_go_demo/src/routing/app_router.dart';
-import 'package:share/share.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
-import '../../favourites/data/favourites_repository.dart';
-import '../../menu/domain/menu.dart';
 import '../data/event_repository.dart';
 import '../domain/event.dart';
 import '../presentation/like_event_controller.dart';
@@ -172,12 +165,12 @@ class EventList extends ConsumerWidget {
             dateTime: events[index].date,
             attendeeCount: events[index].likes,
             imagePath:
-                'assets/events-assets/${imageName}.jpg',
+                'assets/events-assets/$imageName.jpg',
             description: 'This is a description for an extremely awesome event',
             controller: likeEventController,
             specials: events[index].specials,
             event: events[index],
-            likeEventController: likeEventController
+            likeEventController: likeEventController,
           );
         },
       ),

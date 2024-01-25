@@ -18,7 +18,11 @@ class AsyncValueWidget<T> extends StatelessWidget {
       loading: () => SizedBox(
         width: 60,
         height: 60,
-        child: Center(child: CircularProgressIndicator(color: theme.colorScheme.onSecondary,)),
+        child: Center(
+          child: CircularProgressIndicator(
+            color: theme.colorScheme.onSecondary,
+          ),
+        ),
       ),
     );
   }

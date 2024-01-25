@@ -73,7 +73,10 @@ class ScaffoldWithAppBar extends ConsumerWidget {
             onPressed: () => showDialog(
               context: context,
               builder: (BuildContext context) => const Dialog(
-                insetPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15,),
+                insetPadding: EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 15,
+                ),
                 child: SettingsPopUp(),
               ),
             ),
@@ -84,7 +87,10 @@ class ScaffoldWithAppBar extends ConsumerWidget {
             onPressed: () => showDialog(
               context: context,
               builder: (BuildContext context) => const Dialog(
-                insetPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15,),
+                insetPadding: EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 15,
+                ),
                 child: FeedbackPopup(),
               ),
             ),
@@ -97,7 +103,10 @@ class ScaffoldWithAppBar extends ConsumerWidget {
             onPressed: () => showDialog(
               context: context,
               builder: (BuildContext context) => const Dialog(
-                insetPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15,),
+                insetPadding: EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 15,
+                ),
                 child: FavoritesPopup(),
               ),
             ),

@@ -1,11 +1,9 @@
 import 'dart:async';
-import 'dart:ui';
 import 'package:add_2_calendar/add_2_calendar.dart' as calendar;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 import 'package:ri_go_demo/src/features/events/domain/event.dart';
 import 'package:ri_go_demo/src/features/events/presentation/like_event_controller.dart';
 import 'package:ri_go_demo/src/features/favourites/data/favourites_repository.dart';
@@ -55,7 +53,12 @@ class EventCard extends ConsumerWidget {
       clipBehavior: Clip.antiAlias,
       child: Column(
         children: [
-          EventCover(imagePath: imagePath, title: title, theme: theme, event: event,),
+          EventCover(
+            imagePath: imagePath,
+            title: title,
+            theme: theme,
+            event: event,
+          ),
           ExpansionTile(
             initiallyExpanded: isSpecialsExpanded,
             backgroundColor: theme.colorScheme.onPrimary,
@@ -335,7 +338,6 @@ class EventCover extends ConsumerWidget {
     return Stack(
       children: [
         Container(
-        
           width: double.infinity,
           height: 150, // Set a fixed height for the image container
           decoration: BoxDecoration(
@@ -347,37 +349,40 @@ class EventCover extends ConsumerWidget {
           ),
         ),
         Container(
-          decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.black, Colors.transparent], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Colors.black, Colors.transparent],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,),),
           child: Padding(
-            padding: const EdgeInsets.only(top: 15, right: 15, left: 15,),
-            child: Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
-                    ),
-                  ),
-                  Icon(
-                    Icons.star_outline_rounded,
+            padding: const EdgeInsets.only(
+              top: 15,
+              right: 15,
+              left: 15,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                     color: theme.colorScheme.primary,
-                    size: 30,
                   ),
-                ],
-              ),
+                ),
+                Icon(
+                  Icons.star_outline_rounded,
+                  color: theme.colorScheme.primary,
+                  size: 30,
+                ),
+              ],
             ),
           ),
         ),
       ],
     );
   }
-
-
-
 }
 
 class ShareButton extends StatelessWidget {
@@ -468,14 +473,12 @@ class ImComingButton extends StatelessWidget {
   final ThemeData theme;
   final Event event;
   final WidgetRef ref;
-  final LikeEventController likeEventController; 
-
+  final LikeEventController likeEventController;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => likeEvent(event: event, ref: ref)
-      ,
+      onPressed: () => likeEvent(event: event, ref: ref),
       style: ElevatedButton.styleFrom(
         backgroundColor: theme.colorScheme.onSecondary,
         padding: const EdgeInsets.symmetric(horizontal: 10),
