@@ -13,9 +13,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_localization: ^0.1.13
+  provider: ^6.1.0
   intl: ^0.18.0
   # riverpod stuff
-  flutter_riverpod: ^2.4.3
+  flutter_riverpod: ^2.3.6
   riverpod_annotation: ^2.2.0
 
   dio: ^5.3.3
@@ -25,6 +26,13 @@ dependencies:
   gap: ^3.0.1
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
+  google_fonts:
+  # Event features
+  share: ^2.0.4
+  add_2_calendar: ^3.0.1
+  shared_preferences_riverpod: ^0.3.0
+  shared_preferences:
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
@@ -40,8 +48,16 @@ dev_dependencies:
   very_good_analysis: ^5.1.0
   freezed: ^2.4.5
   json_serializable: ^6.7.1
+  flutter_launcher_icons:
+
+flutter_launcher_icons:
+  image_path: "assets/InfoTreffLogo.png"
+  android: true  
 
 flutter:
   uses-material-design: true
   # for localization
   generate: true
+  assets:
+    - assets/
+    - assets/events-assets/

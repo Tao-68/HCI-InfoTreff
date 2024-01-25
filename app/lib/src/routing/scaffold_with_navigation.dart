@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/favorites_popup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/feedback_popup.dart';
+import 'package:ri_go_demo/src/pop_ups/presentation/settings_popup.dart';
 
-import '../constants/breakpoint.dart';
-import '../utils/localization.dart';
+//import '../constants/breakpoint.dart';
+//import '../utils/localization.dart';
 
 // see https://github.com/flutter/packages/blob/main/packages/go_router/example/lib/stateful_shell_route.dart
 // and https://github.com/bizz84/tmdb_movie_app_riverpod/blob/main/lib/src/routing/scaffold_with_nested_navigation.dart
@@ -11,11 +15,6 @@ class NavigationItem {
   final IconData icon;
   final IconData selectedIcon;
 }
-
-final _navigationList = (
-  events: NavigationItem(icon: Icons.event, selectedIcon: Icons.event),
-  menu: NavigationItem(icon: Icons.menu_book_outlined, selectedIcon: Icons.menu_book),
-);
 
 class ScaffoldWithNavigation extends StatelessWidget {
   const ScaffoldWithNavigation({
@@ -33,60 +32,17 @@ class ScaffoldWithNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-    if (size.width < Breakpoint.tablet) {
-      return ScaffoldWithNavigationBar(
-        body: navigationShell,
-        currentIndex: navigationShell.currentIndex,
-        onDestinationSelected: _goBranch,
-      );
-    } else {
-      return ScaffoldWithNavigationRail(
-        body: navigationShell,
-        currentIndex: navigationShell.currentIndex,
-        onDestinationSelected: _goBranch,
-      );
-    }
-  }
-}
-
-class ScaffoldWithNavigationBar extends StatelessWidget {
-  const ScaffoldWithNavigationBar({
-    required this.body,
-    required this.currentIndex,
-    required this.onDestinationSelected,
-    super.key,
-  });
-  final Widget body;
-  final int currentIndex;
-  final ValueChanged<int> onDestinationSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: body,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: currentIndex,
-        destinations: [
-          NavigationDestination(
-            icon: Icon(_navigationList.events.icon),
-            selectedIcon: Icon(_navigationList.events.selectedIcon),
-            label: "Events",
-          ),
-          NavigationDestination(
-            icon: Icon(_navigationList.menu.icon),
-            selectedIcon: Icon(_navigationList.menu.selectedIcon),
-            label: "Menu",
-          ),
-        ],
-        onDestinationSelected: onDestinationSelected,
-      ),
+    //final size = MediaQuery.sizeOf(context);
+    return ScaffoldWithAppBar(
+      body: navigationShell,
+      currentIndex: navigationShell.currentIndex,
+      onDestinationSelected: _goBranch,
     );
   }
 }
 
-class ScaffoldWithNavigationRail extends StatelessWidget {
-  const ScaffoldWithNavigationRail({
+class ScaffoldWithAppBar extends ConsumerWidget {
+  const ScaffoldWithAppBar({
     required this.body,
     required this.currentIndex,
     required this.onDestinationSelected,
@@ -97,31 +53,66 @@ class ScaffoldWithNavigationRail extends StatelessWidget {
   final ValueChanged<int> onDestinationSelected;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
     return Scaffold(
-      body: Row(
-        children: [
-          NavigationRail(
-            selectedIndex: currentIndex,
-            onDestinationSelected: onDestinationSelected,
-            labelType: NavigationRailLabelType.all,
-            destinations: <NavigationRailDestination>[
-              NavigationRailDestination(
-                icon: Icon(_navigationList.events.icon),
-                selectedIcon: Icon(_navigationList.events.selectedIcon),
-                label: Text('Events'),
-              ),
-              NavigationRailDestination(
-                icon: Icon(_navigationList.menu.icon),
-                selectedIcon: Icon(_navigationList.menu.selectedIcon),
-                label: Text("Menu"),
-              ),
-            ],
+      body: body,
+      appBar: AppBar(
+        title: Text(
+          'InfoTreff',
+          style: TextStyle(
+            color: theme.colorScheme.onPrimary,
+            fontWeight: FontWeight.bold,
           ),
-          const VerticalDivider(thickness: 1, width: 1),
-          // This is the main content.
-          Expanded(
-            child: body,
+        ),
+        backgroundColor: theme.colorScheme.primary,
+        shadowColor: theme.colorScheme.onSecondary,
+        elevation: 4,
+        actions: [
+          IconButton(
+            onPressed: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => const Dialog(
+                insetPadding: EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 15,
+                ),
+                child: SettingsPopUp(),
+              ),
+            ),
+            icon: const Icon(Icons.settings_outlined),
+            color: theme.colorScheme.onPrimary,
+          ),
+          IconButton(
+            onPressed: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => const Dialog(
+                insetPadding: EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 15,
+                ),
+                child: FeedbackPopup(),
+              ),
+            ),
+            icon: const Icon(
+              Icons.comment_outlined,
+            ),
+            color: theme.colorScheme.onPrimary,
+          ),
+          IconButton(
+            onPressed: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => const Dialog(
+                insetPadding: EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 15,
+                ),
+                child: FavoritesPopup(),
+              ),
+            ),
+            icon: const Icon(Icons.star_outline_rounded),
+            iconSize: 30,
+            color: theme.colorScheme.onPrimary,
           ),
         ],
       ),

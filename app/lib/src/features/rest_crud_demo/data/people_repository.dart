@@ -15,8 +15,8 @@ class PeopleRepository {
   final Dio dio;
 
   String _getUrl({int? id}) {
-    final url =
-        Uri(scheme: Api.schema, host: Api.host, path: Api.eventsPath).toString();
+    final url = Uri(scheme: Api.schema, host: Api.host, path: Api.eventsPath)
+        .toString();
     if (id != null) {
       return '$url$id';
     } else {
