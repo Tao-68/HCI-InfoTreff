@@ -272,7 +272,7 @@ class _$ItemImpl with DiagnosticableTreeMixin implements _Item {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ItemImpl &&
@@ -486,7 +486,7 @@ class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CategoryImpl &&
@@ -624,7 +624,7 @@ class _$MenuImpl with DiagnosticableTreeMixin implements _Menu {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MenuImpl &&

@@ -36,9 +36,10 @@ class Category with _$Category {
       items.add(Item.fromJson(element! as Map<String, Object?>));
     }
     return Category(
-      category: json['category']! as String, 
-      items: items, 
-      id: json['id']! as int,);
+      category: json['category']! as String,
+      items: items,
+      id: json['id']! as int,
+    );
   }
 }
 
@@ -51,8 +52,30 @@ class Menu with _$Menu {
   factory Menu.fromJson(List<dynamic> json) {
     final List<Category> categories = [];
     for (final element in json) {
-      categories.add(Category.fromJson(element !as Map<String, Object?>));
+      categories.add(Category.fromJson(element! as Map<String, Object?>));
+    }
+    return Menu(categories: categories);
   }
-  return Menu(categories: categories);
+
+  bool contains(String val) {
+    for (final category in categories) {
+      for (final item in category.items) {
+        if (item.name == val) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  Item getByName(String name) {
+    for (final category in categories) {
+      for (final item in category.items) {
+        if (item.name == name) {
+          return item;
+        }
+      }
+    }
+    throw Exception('No Item with name');
   }
 }

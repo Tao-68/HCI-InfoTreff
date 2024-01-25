@@ -1,4 +1,7 @@
+import 'package:ri_go_demo/src/features/events/data/event_repository.dart';
+import 'package:ri_go_demo/src/features/menu/data/menu_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../utils/logger.dart';
 import '../../events/domain/event.dart';
@@ -7,36 +10,76 @@ import '../domain/favourites.dart';
 
 part 'favourites_repository.g.dart';
 
-//https://riverpod.dev/docs/providers/notifier_provider
-@riverpod
-class FavouritesController extends _$FavouritesController {
-  @override
-  Favourites build() {
-    logger.d('FavouriteController.build()');
+late SharedPreferences prefs;
+
+class FavouritesRepository {
+  Future<Favourites> getFavourites(
+    AsyncValue<List<Event>> eventRepo,
+    AsyncValue<Menu> itemRepo,
+  ) async {
+    final List<Event>? eventList = eventRepo.value;
+    final Menu? itemList = itemRepo.value;
+    final prefs = await SharedPreferences.getInstance();
+    final eventFavs = prefs.getStringList('events') ?? [];
+    final Set<Event> events = {};
+    if (eventList != null) {
+      for (final element in eventFavs) {
+        final int index =
+            eventList.indexWhere((event) => event.id == int.parse(element));
+        if (index != -1) {
+          events.add(
+            eventList[index],
+          );
+        }
+      }
+    }
+    final itemFavs = prefs.getStringList('items') ?? [];
+    final Set<Item> items = {};
+    if (itemList != null) {
+      for (final element in itemFavs) {
+        if (itemList.contains(element)) {
+          items.add(itemList.getByName(element));
+        }
+      }
+    }
     return Favourites(
-      events: stateOrNull?.events ?? {}, 
-      items: stateOrNull?.items ?? {},
-      );
+      events: events,
+      items: items,
+    );
   }
 
-  void favouriteEvent({required Event event, required bool like}) {
-    if (like)
-      {state.events.add(event);}
-    else
-      {state.events.remove(event);}
-  }
-  void favouriteItem({required Item item, required bool like}) {
-    if (like)
-      {state.items.add(item);}
-    else
-      {state.items.remove(item);}
+  Future<void> changeFavouriteEvent(Event event) async {
+    final prefs = await SharedPreferences.getInstance();
+    final eventFavs = prefs.getStringList('events') ?? [];
+    if (eventFavs.contains(event.id.toString())) {
+      eventFavs.remove(event.id.toString());
+    } else {
+      eventFavs.add(event.id.toString());
+    }
+    await prefs.setStringList('events', eventFavs);
   }
 
-  Set<Event> getEventList(){
-    return state.events;
+  Future<void> changeFavouriteItem(Item item) async {
+    final prefs = await SharedPreferences.getInstance();
+    final itemFavs = prefs.getStringList('items') ?? [];
+    if (itemFavs.contains(item.name)) {
+      itemFavs.remove(item.name);
+    } else {
+      itemFavs.add(item.name);
+    }
+    await prefs.setStringList('items', itemFavs);
   }
-  Set<Item> getItemList(){
-    return state.items;
-  }
+}
 
+@riverpod
+FavouritesRepository favouritesRepository(FavouritesRepositoryRef ref) =>
+    FavouritesRepository();
+
+@riverpod
+Future<Favourites> fetchFavourites(FetchFavouritesRef ref) async {
+  logger.d('favourites_repository.fetchFavourites');
+  final repo = ref.read(favouritesRepositoryProvider);
+  final eventList = ref.read(fetchEventsProvider);
+  final itemList = ref.read(fetchMenuProvider);
+  return repo.getFavourites(eventList, itemList);
 }

@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ri_go_demo/src/routing/app_router.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
-import '../../favourites/data/favourites_repository.dart';
+import '../../favourites/data/favourites_controller.dart';
 import '../data/event_repository.dart';
 import '../domain/event.dart';
 import '../presentation/like_event_controller.dart';
