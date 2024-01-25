@@ -1,10 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/features/favourites/data/favourites_repository.dart';
 import 'package:ri_go_demo/src/routing/app_router.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
-import '../../favourites/data/favourites_controller.dart';
 import '../data/event_repository.dart';
 import '../domain/event.dart';
 import '../presentation/like_event_controller.dart';
@@ -17,13 +19,13 @@ class EventsScreen extends ConsumerStatefulWidget {
 
 class _EventsScreen extends ConsumerState<EventsScreen> {
   late final LikeEventController _controller;
-  late final FavouritesController _favouriteController;
+  late final FavouritesRepository _favouriteRepository;
 
   @override
   void initState() {
     super.initState();
     _controller = ref.read(likeEventControllerProvider.notifier);
-    _favouriteController = ref.read(favouritesControllerProvider.notifier);
+    _favouriteRepository = ref.read(favouritesRepositoryProvider);
   }
 
   @override
@@ -46,7 +48,7 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
         Container(
           padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 20),
           alignment: Alignment.topLeft,
-          child: EventList(theme: theme, controller: _controller),
+          child: EventList(theme: theme, controller: _controller, favourites: _favouriteRepository),
         ),
         GestureDetector(
           onHorizontalDragUpdate: (details) {
@@ -60,11 +62,6 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
     );
   }
 
-  void likeEvent({required Event event, required bool like}) {
-    _controller.like(event: event, like: true);
-    _favouriteController.favouriteEvent(event: event, like: like);
-    //ref.invalidate(favouritesControllerProvider);
-  }
 }
 
 class BackButton extends ConsumerWidget {
@@ -117,11 +114,13 @@ class EventList extends ConsumerWidget {
   const EventList({
     required this.theme,
     required this.controller,
+    required this.favourites,
     super.key,
   });
 
   final ThemeData theme;
   final LikeEventController controller;
+  final FavouritesRepository favourites;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -141,7 +140,7 @@ class EventList extends ConsumerWidget {
                 child: TextButton(
                   child: const Text('like'),
                   onPressed: () =>
-                      controller.like(event: events[index], like: true),
+                  likeEvent(event: events[index], ref: ref),
                 ),
               ),
               Expanded(
@@ -153,4 +152,11 @@ class EventList extends ConsumerWidget {
       ),
     );
   }
+
+  Future<void> likeEvent({required Event event, required WidgetRef ref}) async {
+    final bool like = await favourites.changeFavouriteEvent(event);
+    unawaited(controller.like(event: event, like: like));
+    ref.invalidate(favouritesRepositoryProvider);
+  }
+
 }

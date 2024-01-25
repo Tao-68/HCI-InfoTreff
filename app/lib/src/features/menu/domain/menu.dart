@@ -49,6 +49,8 @@ class Menu with _$Menu {
     required List<Category> categories,
   }) = _Menu;
 
+  const Menu._();
+
   factory Menu.fromJson(List<dynamic> json) {
     final List<Category> categories = [];
     for (final element in json) {

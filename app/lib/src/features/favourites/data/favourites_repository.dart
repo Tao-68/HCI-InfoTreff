@@ -48,27 +48,56 @@ class FavouritesRepository {
     );
   }
 
-  Future<void> changeFavouriteEvent(Event event) async {
+  Future<bool> changeFavouriteEvent(Event event) async {
+    final prefs = await SharedPreferences.getInstance();
+    final eventFavs = prefs.getStringList('events') ?? [];
+    bool isLiked;
+    if (eventFavs.contains(event.id.toString())) {
+      eventFavs.remove(event.id.toString());
+      isLiked = false;
+    } else {
+      eventFavs.add(event.id.toString());
+      isLiked = true;
+    }
+    await prefs.setStringList('events', eventFavs);
+    return isLiked;
+  }
+
+  Future<bool> changeFavouriteItem(Item item) async {
+    final prefs = await SharedPreferences.getInstance();
+    final itemFavs = prefs.getStringList('items') ?? [];
+    bool isLiked;
+    if (itemFavs.contains(item.name)) {
+      itemFavs.remove(item.name);
+      isLiked = false;
+    } else {
+      itemFavs.add(item.name);
+      isLiked = true;
+    }
+    await prefs.setStringList('items', itemFavs);
+    return isLiked;
+  }
+
+  Future<bool> isLikedEvent(Event event) async {    
     final prefs = await SharedPreferences.getInstance();
     final eventFavs = prefs.getStringList('events') ?? [];
     if (eventFavs.contains(event.id.toString())) {
-      eventFavs.remove(event.id.toString());
+      return true;
     } else {
-      eventFavs.add(event.id.toString());
+      return false;
     }
-    await prefs.setStringList('events', eventFavs);
   }
 
-  Future<void> changeFavouriteItem(Item item) async {
+  Future<bool> isLikedItem(Item item) async {
     final prefs = await SharedPreferences.getInstance();
     final itemFavs = prefs.getStringList('items') ?? [];
     if (itemFavs.contains(item.name)) {
-      itemFavs.remove(item.name);
+      return true;
     } else {
-      itemFavs.add(item.name);
+      return false;
     }
-    await prefs.setStringList('items', itemFavs);
   }
+
 }
 
 @riverpod
