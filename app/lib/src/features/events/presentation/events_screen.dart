@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:add_2_calendar/add_2_calendar.dart' as calendar;
@@ -23,13 +24,11 @@ class EventsScreen extends ConsumerStatefulWidget {
 
 class _EventsScreen extends ConsumerState<EventsScreen> {
   late final LikeEventController _controller;
-  late final FavouritesRepository _favouriteRepository;
 
   @override
   void initState() {
     super.initState();
     _controller = ref.read(likeEventControllerProvider.notifier);
-    _favouriteRepository = ref.read(favouritesRepositoryProvider);
   }
 
   @override
@@ -53,7 +52,9 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
               Expanded(
                 child: SizedBox(
                   child:
-                      EventList(theme: theme, likeEventEontroller: _controller),
+                      EventList(
+                        theme: theme, 
+                        likeEventController: _controller,),
                 ),
               ),
             ],
@@ -149,12 +150,12 @@ class BackgroundAsImage extends ConsumerWidget {
 class EventList extends ConsumerWidget {
   const EventList({
     required this.theme,
-    required this.likeEventEontroller,
+    required this.likeEventController,
     super.key,
   });
 
   final ThemeData theme;
-  final LikeEventController likeEventEontroller;
+  final LikeEventController likeEventController;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -169,27 +170,22 @@ class EventList extends ConsumerWidget {
           return EventCard(
             title: events[index].title,
             dateTime: events[index].date,
-            attendeeCount: 14,
+            attendeeCount: events[index].likes,
             imagePath:
                 'assets/events-assets/${imageName}.jpg',
             description: 'This is a description for an extremely awesome event',
-            controller: likeEventEontroller,
+            controller: likeEventController,
             specials: events[index].specials,
+            event: events[index],
+            likeEventController: likeEventController,
           );
 
           //onPressed: () =>
-          //   controller.like(event: events[index], like: true),
+          //   likeEvent(events[index], ref)),
         },
       ),
     );
   }
-
-  Future<void> likeEvent({required Event event, required WidgetRef ref}) async {
-    final bool like = await favourites.changeFavouriteEvent(event);
-    unawaited(controller.like(event: event, like: like));
-    ref.invalidate(favouritesRepositoryProvider);
-  }
-
 }
 
 final specialsExpandedProvider =
@@ -204,6 +200,8 @@ class EventCard extends ConsumerWidget {
     required this.description,
     required this.controller,
     required this.specials,
+    required this.event,
+    required this.likeEventController,
     super.key,
   });
 
@@ -214,6 +212,8 @@ class EventCard extends ConsumerWidget {
   final String description;
   final LikeEventController controller;
   final List<Item> specials;
+  final Event event;
+  final LikeEventController likeEventController;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -272,6 +272,9 @@ class EventCard extends ConsumerWidget {
                       title: title,
                       description: description,
                       dateTime: dateTime,
+                      event: event,
+                      ref: ref,
+                      likeEventController: likeEventController,
                     ),
                     Accordion(
                       title: 'Specials',
@@ -424,6 +427,9 @@ class EventMainBody extends StatelessWidget {
     required this.title,
     required this.description,
     required this.dateTime,
+    required this.event,
+    required this.ref,
+    required this.likeEventController,
     super.key,
   });
 
@@ -431,6 +437,9 @@ class EventMainBody extends StatelessWidget {
   final String title;
   final String description;
   final String dateTime;
+  final Event event;
+  final WidgetRef ref;
+  final LikeEventController likeEventController;
 
   @override
   Widget build(BuildContext context) {
@@ -450,8 +459,11 @@ class EventMainBody extends StatelessWidget {
             alignment: MainAxisAlignment.spaceBetween,
             buttonPadding: const EdgeInsets.all(2),
             children: [
-              ImCommingButton(
+              ImComingButton(
                 theme: theme,
+                event: event,
+                ref: ref,
+                likeEventController: likeEventController,
               ),
               ExportDateButton(
                 title: title,
@@ -628,20 +640,26 @@ class ExportDateButton extends StatelessWidget {
   }
 }
 
-class ImCommingButton extends StatelessWidget {
-  const ImCommingButton({
+class ImComingButton extends StatelessWidget {
+  const ImComingButton({
     required this.theme,
+    required this.event,
+    required this.ref,
+    required this.likeEventController,
     super.key,
   });
 
   final ThemeData theme;
+  final Event event;
+  final WidgetRef ref;
+  final LikeEventController likeEventController; 
+
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        //TODO(): add funtion for adding participant to event
-      },
+      onPressed: () => likeEvent(event: event, ref: ref)
+      ,
       style: ElevatedButton.styleFrom(
         backgroundColor: theme.colorScheme.onSecondary,
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -651,5 +669,12 @@ class ImCommingButton extends StatelessWidget {
         style: TextStyle(color: theme.colorScheme.primary),
       ),
     );
+  }
+
+  Future<void> likeEvent({required Event event, required WidgetRef ref}) async {
+    final favourites = ref.read(favouritesRepositoryProvider);
+    final bool like = await favourites.changeFavouriteEvent(event);
+    unawaited(likeEventController.like(event: event, like: like));
+    ref.invalidate(favouritesRepositoryProvider);
   }
 }
