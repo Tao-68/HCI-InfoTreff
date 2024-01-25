@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../global_value/global_value.dart';
 
 class SettingsPopUp extends ConsumerWidget {
@@ -55,16 +54,21 @@ class HeadBar extends ConsumerWidget {
 }
 
 class OptionContent extends ConsumerWidget {
-  OptionContent ({required this.theme, super.key});
+  const OptionContent ({required this.theme, super.key});
   final ThemeData theme;
-
-  ShowNumberOfLikePreference showNumberOfLikePreference 
-    = ShowNumberOfLikePreference();
-  HideNumberParticipantPreference hideNumberParticipantPreference 
-    = HideNumberParticipantPreference();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
+    final ShowNumberOfLikePreference showNumberOfLikePreference 
+    = ShowNumberOfLikePreference();
+    final HideNumberParticipantPreference hideNumberParticipantPreference 
+    = HideNumberParticipantPreference();
+    final ShowVeganOnlyPreference showVeganOnlyPreference 
+    = ShowVeganOnlyPreference();
+    final MainLanguagePreference mainLanguagePreference 
+    = MainLanguagePreference();
+
     return Column (
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -76,18 +80,45 @@ class OptionContent extends ConsumerWidget {
             thickness: 2,
           ),
         ),
-            Container (
-              padding: const EdgeInsets.only(bottom: 0),
-                child: const Text (
-                  'Menu',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
+        Container (
+              child: const Text (
+                'General',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                 ),
+              ),
             ),
             Container (
               padding: const EdgeInsets.only(bottom: 7),
+              child: Row (
+                children: [
+                  const Expanded(
+                    child: Text (
+                      'language',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SettingDropDownMenu (
+                    pref: mainLanguagePreference,
+                    theme: theme,
+                  ),
+                ],
+              ),
+            ),
+            Container (
+              child: const Text (
+                'Menu',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Container (
+              padding: const EdgeInsets.only(bottom: 5),
               child: Row (
                 children: [
                   const Expanded(
@@ -103,6 +134,29 @@ class OptionContent extends ConsumerWidget {
                     pref: showNumberOfLikePreference,
                     onChanged: (bool? value) async {
                       await showNumberOfLikePreference
+                        .saveValue(value: value ?? false);
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Container (
+              padding: const EdgeInsets.only(bottom: 7),
+              child: Row (
+                children: [
+                  const Expanded(
+                    child: Text (
+                      'show Number of like',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SettingCheckBox (
+                    theme: theme,
+                    pref: showVeganOnlyPreference,
+                    onChanged: (bool? value) async {
+                      await showVeganOnlyPreference
                         .saveValue(value: value ?? false);
                     },
                   ),
@@ -154,7 +208,7 @@ class SettingCheckBox extends ConsumerStatefulWidget {
     super.key,
   });
   final void Function (bool?) onChanged;
-  final SharedPreferencesHelper pref;
+  final SharedPreferencesBoolHelper pref;
   final ThemeData theme;
 
   @override
@@ -203,6 +257,61 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
         onChanged(value);
         _loadValue();
       },
+    );
+  }
+}
+
+class SettingDropDownMenu extends ConsumerStatefulWidget {
+  const SettingDropDownMenu({
+    required this.theme, 
+    required this.pref, 
+    super.key,
+  });
+  final ThemeData theme;
+  final SharedPreferencesStringHelper pref;
+
+  SettingDropDownMenuState createState() => SettingDropDownMenuState(theme: theme);
+}
+
+class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
+  SettingDropDownMenuState({required this.theme});
+  final ThemeData theme;
+  late String defaultLanguage;
+
+  @override
+
+  void initState() {
+    super.initState();
+    _loadValue();
+  }
+
+  Future<void> _loadValue() async {
+    final String fetchData = await widget.pref.getStoredValue() ?? 'English';
+    setState(() {
+      defaultLanguage = fetchData;
+    });
+    print(defaultLanguage);
+  }
+
+  @override
+  Widget build (BuildContext context) 
+  {
+    return DropdownMenu<LanguageSetting>(
+      initialSelection: LanguageSetting.getEnum(defaultLanguage),
+      requestFocusOnTap: false,
+      onSelected: (LanguageSetting? ls) {
+        if (ls != null) {
+          widget.pref.saveValue(value: ls.name);
+        } 
+      },
+      dropdownMenuEntries: LanguageSetting.values
+        .map<DropdownMenuEntry<LanguageSetting>>(
+        (LanguageSetting language) {
+          return DropdownMenuEntry<LanguageSetting>(
+            value: language,
+            label: language.name,
+          );
+      }).toList(),
     );
   }
 }

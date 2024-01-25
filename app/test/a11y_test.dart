@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ri_go_demo/main.dart';
 import 'package:ri_go_demo/src/features/rest_crud_demo/data/people_repository.dart';
 import 'package:ri_go_demo/src/utils/logger.dart';
@@ -10,12 +9,11 @@ import 'fake_repository.dart';
 
 // see https://raw.githubusercontent.com/flutter/codelabs/main/namer/step_08/test/a11y_test.dart
 void main() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
   testWidgets('Follows a11y guidelines for start screen',
       (WidgetTester tester) async {
     logger.d('test with provider, as they are');
     final SemanticsHandle handle = tester.ensureSemantics();
-    await tester.pumpWidget(ProviderScope(child: MyApp(pref: prefs)));
+    await tester.pumpWidget(ProviderScope(child: MyApp()));
     await _testA11y(tester);
     handle.dispose();
   });
@@ -29,7 +27,7 @@ void main() async {
         overrides: [
           peopleRepositoryProvider.overrideWithValue(FakeRepository()),
         ],
-        child: MyApp(pref: prefs),
+        child: MyApp(),
       ),
     );
     // The first frame is a loading state.

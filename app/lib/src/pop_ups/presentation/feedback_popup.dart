@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 class FeedbackPopup extends ConsumerWidget {
   const FeedbackPopup({super.key});
 
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
@@ -58,56 +57,87 @@ class HeadBar extends ConsumerWidget {
   }
 }
 
-class FeedbackContent extends ConsumerWidget {
+class FeedbackContent extends ConsumerStatefulWidget {
   const FeedbackContent ({required this.theme, super.key});
   final ThemeData theme;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Column (
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container (
-          padding: const EdgeInsets.only(bottom: 15),
-          alignment: Alignment.center,
-          child: Divider (
-            color: theme.colorScheme.secondary,
-            thickness: 2,
-          ),
-        ),
-        Container (
-          padding: const EdgeInsets.only(bottom: 15),
-          child: Text (
-            'What would you like to tell us?',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-              color: theme.colorScheme.onPrimary,
+  FeedbackContentState createState() => FeedbackContentState(theme: theme);
+}
+
+class FeedbackContentState extends ConsumerState<FeedbackContent> {
+  FeedbackContentState ({required this.theme});
+  final ThemeData theme;
+
+  late FocusNode _focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _focusNode.dispose();
+  }
+
+  void _handleTap() {
+    _focusNode.unfocus();
+    print("tap");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Listener(
+      onPointerDown: (_) => _handleTap(),
+      child: Column (
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container (
+            padding: const EdgeInsets.only(bottom: 15),
+            alignment: Alignment.center,
+            child: Divider (
+              color: theme.colorScheme.secondary,
+              thickness: 2,
             ),
           ),
-        ),
-        TextField(
-          minLines: 5,
-          maxLines: 5,
-          keyboardType: TextInputType.multiline,
-          style: TextStyle(color: theme.colorScheme.onPrimary),
-          decoration: InputDecoration (
-            filled: true,
-            fillColor: Colors.white,
-            labelStyle: TextStyle (
-              color: theme.colorScheme.onPrimary,
-            ),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: theme.colorScheme.onPrimary),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
+          Container (
+            padding: const EdgeInsets.only(bottom: 15),
+            child: Text (
+              'What would you like to tell us?',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
                 color: theme.colorScheme.onPrimary,
-              ), // Customize the color as needed
+              ),
             ),
           ),
-        ),
-      ],
+          TextField(
+            focusNode: _focusNode,
+            minLines: 5,
+            maxLines: 5,
+            keyboardType: TextInputType.multiline,
+            style: TextStyle(color: theme.colorScheme.onPrimary),
+            decoration: InputDecoration (
+              filled: true,
+              fillColor: Colors.white,
+              labelStyle: TextStyle (
+                color: theme.colorScheme.onPrimary,
+              ),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: theme.colorScheme.onPrimary),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: theme.colorScheme.onPrimary,
+                ), // Customize the color as needed
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
