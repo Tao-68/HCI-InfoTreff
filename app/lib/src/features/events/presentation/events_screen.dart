@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:add_2_calendar/add_2_calendar.dart' as calendar;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -492,48 +494,55 @@ class EventCover extends StatelessWidget {
     return Stack(
       children: [
         Container(
+        
           width: double.infinity,
           height: 150, // Set a fixed height for the image container
           decoration: BoxDecoration(
             image: DecorationImage(
+              invertColors: true,
               image: AssetImage(imagePath),
               fit: BoxFit.cover,
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(15),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.primary,
-                ),
-              ),
-              Row(
+        Container(
+          decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.black, Colors.transparent], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 15, right: 15, left: 15,),
+            child: Container(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Icon(
-                    Icons.thumb_up_outlined,
-                    color: theme.colorScheme.primary,
-                    size: 30,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.primary,
+                    ),
                   ),
-                  // Space between icons
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Icon(
-                    Icons.star_outline_rounded,
-                    color: theme.colorScheme.primary,
-                    size: 30,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Icon(
+                        Icons.thumb_up_outlined,
+                        color: theme.colorScheme.primary,
+                        size: 30,
+                      ),
+                      // Space between icons
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Icon(
+                        Icons.star_outline_rounded,
+                        color: theme.colorScheme.primary,
+                        size: 30,
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
         ),
       ],
