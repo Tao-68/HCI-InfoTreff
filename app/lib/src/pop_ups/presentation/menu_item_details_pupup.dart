@@ -66,18 +66,22 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                   2 => 'vegan',
                   _ => '',
                 },
+                style: const TextStyle(
+                  fontStyle: FontStyle.italic,
+                  color: Color.fromARGB(255, 38, 107, 40),
+                ),
               ),
               Accordion(
                 title: 'Allergens:',
-                childWidget: AllergensList(allergens: item.allergens,),
+                childWidget: Text(item.allergens,),
               ),
               Accordion(
                 title: 'Ingredients:',
-                childWidget: IngredientsList(ingredients: item.ingredients,),
+                childWidget: Text(item.ingredients,),
               ),
               Accordion(
                 title: 'Nutrition:',
-                childWidget: NutritionList(nutrition: item.nutrition,),
+                childWidget: Text(item.nutrition,),
               ),
               Text('Likes: ${item.likes}'),
               Text('Picture: ${item.picture}'),
@@ -90,60 +94,6 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
           child: CloseButton(theme: theme),
         ),
       ],
-    );
-  }
-}
-
-class AllergensList extends StatelessWidget {
-  const AllergensList({
-    required this.allergens,
-    super.key,
-  });
-
-  final String allergens;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-              title: Text(
-                allergens,
-                ),
-            );
-  }
-}
-
-class IngredientsList extends StatelessWidget {
-  const IngredientsList({
-    required this.ingredients,
-    super.key,
-  });
-
-  final String ingredients;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        ingredients,
-      ),
-    );
-  }
-}
-
-class NutritionList extends StatelessWidget {
-  const NutritionList({
-    required this.nutrition,
-    super.key,
-  });
-
-  final String nutrition;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        nutrition,
-      ),
     );
   }
 }
@@ -170,8 +120,79 @@ class CloseButton extends ConsumerWidget {
           Icons.close,
           color: theme.colorScheme.onSecondary,
         ),
-        iconSize: 40,
+        iconSize: 30,
       ),
     );
   }
 }
+
+
+class Accordion extends ConsumerStatefulWidget {
+  const Accordion({required this.title, required this.childWidget, super.key});
+  final String title;
+  final Widget childWidget;
+
+  @override
+  ConsumerState<Accordion> createState() => _AccordionState();
+}
+
+class _AccordionState extends ConsumerState<Accordion> {
+  // Show or hide the content
+  bool _showContent = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Card(
+      shape: RoundedRectangleBorder(
+        side: BorderSide(width: 2, color: theme.colorScheme.onPrimary),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+      ),
+      elevation: 4,
+      color: theme.colorScheme.primary,
+      shadowColor: theme.colorScheme.onSecondary,
+      child: Column(
+        children: [
+          // The title
+          ListTile(
+            title: Text(
+              widget.title,
+              style:
+              TextStyle(color: theme.colorScheme.onPrimary, fontSize: 20),
+            ),
+            onTap: () {
+              setState(() {
+                _showContent = !_showContent;
+              });
+            },
+            trailing: Icon(
+              _showContent ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+              color: theme.colorScheme.onPrimary,
+            ),
+          ),
+          // Show or hide the content based on the state
+          AnimatedCrossFade(
+            firstChild:  Container(),
+            secondChild: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    width: 1.5,
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              child: widget.childWidget,
+            ),
+            crossFadeState: _showContent
+                ? CrossFadeState.showSecond
+                : CrossFadeState.showFirst,
+            duration: const Duration(milliseconds: 300),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
