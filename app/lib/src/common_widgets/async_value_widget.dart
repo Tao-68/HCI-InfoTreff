@@ -11,13 +11,14 @@ class AsyncValueWidget<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return value.when(
       data: data,
       error: (error, st) => Center(child: ErrorMessageWidget(error)),
-      loading: () => const SizedBox(
+      loading: () => SizedBox(
         width: 60,
         height: 60,
-        child: Center(child: CircularProgressIndicator()),
+        child: Center(child: CircularProgressIndicator(color: theme.colorScheme.onSecondary,)),
       ),
     );
   }
