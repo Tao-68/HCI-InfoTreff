@@ -23,13 +23,13 @@ class EventsScreen extends ConsumerStatefulWidget {
 
 class _EventsScreen extends ConsumerState<EventsScreen> {
   late final LikeEventController _controller;
-  late final FavouritesController _favouriteController;
+  late final FavouritesRepository _favouriteRepository;
 
   @override
   void initState() {
     super.initState();
     _controller = ref.read(likeEventControllerProvider.notifier);
-    _favouriteController = ref.read(favouritesControllerProvider.notifier);
+    _favouriteRepository = ref.read(favouritesRepositoryProvider);
   }
 
   @override
@@ -72,11 +72,6 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
     );
   }
 
-  void likeEvent({required Event event, required bool like}) {
-    _controller.like(event: event, like: true);
-    _favouriteController.favouriteEvent(event: event, like: like);
-    //ref.invalidate(favouritesControllerProvider);
-  }
 }
 
 class Headline extends StatelessWidget {
@@ -188,6 +183,13 @@ class EventList extends ConsumerWidget {
       ),
     );
   }
+
+  Future<void> likeEvent({required Event event, required WidgetRef ref}) async {
+    final bool like = await favourites.changeFavouriteEvent(event);
+    unawaited(controller.like(event: event, like: like));
+    ref.invalidate(favouritesRepositoryProvider);
+  }
+
 }
 
 final specialsExpandedProvider =
