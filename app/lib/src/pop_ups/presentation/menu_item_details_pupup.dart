@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ri_go_demo/src/features/events/presentation/event_card.dart';
 import 'package:ri_go_demo/src/features/events/presentation/like_event_controller.dart';
 import 'package:ri_go_demo/src/features/favourites/data/favourites_repository.dart';
 import 'package:ri_go_demo/src/features/menu/data/menu_repository.dart';
@@ -15,7 +14,7 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    late final controller = ref.watch(menuRepositoryProvider);
+    late final controller = ref.watch(favouritesRepositoryProvider);
     return Stack(
       children: [
         Container(
@@ -34,16 +33,16 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                     ),
                   ),
                   FloatingActionButton(
-                    onPressed: () => controller.changeMenuLike(
-                      item: item,
-                      like: item.favorite,
-                    ),
+                    onPressed: () {
+                      controller.changeFavouriteItem(item);
+                      ref.invalidate(favouritesRepositoryProvider);
+                    },
                     backgroundColor: Colors.transparent,
                     elevation: 0,
                     child: Icon(
-                      item.favorite
-                          ? Icons.star_outline_rounded
-                          : Icons.star_rounded,
+                      controller.isLikedItem(item)
+                          ? Icons.star_rounded
+                          : Icons.star_outline_rounded,
                       color: item.favorite
                           ? const Color.fromRGBO(115, 66, 23, 1)
                           : null,
@@ -57,7 +56,12 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                         ? const Color.fromRGBO(115, 66, 23, 1)
                         : null,
                   ),
-                  Text('Price: ${item.price}'),
+                  Text('          ${item.price}',
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
                 ],
               ),
               Text(
@@ -195,4 +199,3 @@ class _AccordionState extends ConsumerState<Accordion> {
     );
   }
 }
-

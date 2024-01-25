@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:ri_go_demo/src/features/events/data/event_repository.dart';
 import 'package:ri_go_demo/src/features/menu/data/menu_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -13,13 +14,18 @@ part 'favourites_repository.g.dart';
 late SharedPreferences prefs;
 
 class FavouritesRepository {
+
+  static Future<void> init() async {
+    logger.d('FavouritesRepository.init');
+    prefs = await SharedPreferences.getInstance();
+  }
+
   Future<Favourites> getFavourites(
     AsyncValue<List<Event>> eventRepo,
     AsyncValue<Menu> itemRepo,
   ) async {
     final List<Event>? eventList = eventRepo.value;
     final Menu? itemList = itemRepo.value;
-    final prefs = await SharedPreferences.getInstance();
     final eventFavs = prefs.getStringList('events') ?? [];
     final Set<Event> events = {};
     if (eventList != null) {
@@ -49,7 +55,6 @@ class FavouritesRepository {
   }
 
   Future<bool> changeFavouriteEvent(Event event) async {
-    final prefs = await SharedPreferences.getInstance();
     final eventFavs = prefs.getStringList('events') ?? [];
     bool isLiked;
     if (eventFavs.contains(event.id.toString())) {
@@ -64,7 +69,6 @@ class FavouritesRepository {
   }
 
   Future<bool> changeFavouriteItem(Item item) async {
-    final prefs = await SharedPreferences.getInstance();
     final itemFavs = prefs.getStringList('items') ?? [];
     bool isLiked;
     if (itemFavs.contains(item.name)) {
@@ -78,8 +82,7 @@ class FavouritesRepository {
     return isLiked;
   }
 
-  Future<bool> isLikedEvent(Event event) async {    
-    final prefs = await SharedPreferences.getInstance();
+  bool isLikedEvent(Event event) {
     final eventFavs = prefs.getStringList('events') ?? [];
     if (eventFavs.contains(event.id.toString())) {
       return true;
@@ -88,8 +91,7 @@ class FavouritesRepository {
     }
   }
 
-  Future<bool> isLikedItem(Item item) async {
-    final prefs = await SharedPreferences.getInstance();
+  bool isLikedItem(Item item)  {
     final itemFavs = prefs.getStringList('items') ?? [];
     if (itemFavs.contains(item.name)) {
       return true;
