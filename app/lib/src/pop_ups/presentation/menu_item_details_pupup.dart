@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ri_go_demo/src/features/events/presentation/event_card.dart';
 import 'package:ri_go_demo/src/features/events/presentation/like_event_controller.dart';
 import 'package:ri_go_demo/src/features/favourites/data/favourites_repository.dart';
 import 'package:ri_go_demo/src/features/menu/data/menu_repository.dart';
@@ -41,8 +42,8 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                     elevation: 0,
                     child: Icon(
                       item.favorite
-                          ? Icons.favorite
-                          : Icons.favorite_border_outlined,
+                          ? Icons.star_outline_rounded
+                          : Icons.star_rounded,
                       color: item.favorite
                           ? const Color.fromRGBO(115, 66, 23, 1)
                           : null,
@@ -56,6 +57,7 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                         ? const Color.fromRGBO(115, 66, 23, 1)
                         : null,
                   ),
+                  Text('Price: ${item.price}'),
                 ],
               ),
               Text(
@@ -65,9 +67,18 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                   _ => '',
                 },
               ),
-              Text('Allergens: ${item.allergens}'),
-              Text('Nutrition: ${item.nutrition}'),
-              Text('Price: ${item.price}'),
+              Accordion(
+                title: 'Allergens:',
+                childWidget: AllergensList(allergens: item.allergens,),
+              ),
+              Accordion(
+                title: 'Ingredients:',
+                childWidget: IngredientsList(ingredients: item.ingredients,),
+              ),
+              Accordion(
+                title: 'Nutrition:',
+                childWidget: NutritionList(nutrition: item.nutrition,),
+              ),
               Text('Likes: ${item.likes}'),
               Text('Picture: ${item.picture}'),
             ],
@@ -79,6 +90,60 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
           child: CloseButton(theme: theme),
         ),
       ],
+    );
+  }
+}
+
+class AllergensList extends StatelessWidget {
+  const AllergensList({
+    required this.allergens,
+    super.key,
+  });
+
+  final String allergens;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+              title: Text(
+                allergens,
+                ),
+            );
+  }
+}
+
+class IngredientsList extends StatelessWidget {
+  const IngredientsList({
+    required this.ingredients,
+    super.key,
+  });
+
+  final String ingredients;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(
+        ingredients,
+      ),
+    );
+  }
+}
+
+class NutritionList extends StatelessWidget {
+  const NutritionList({
+    required this.nutrition,
+    super.key,
+  });
+
+  final String nutrition;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(
+        nutrition,
+      ),
     );
   }
 }
