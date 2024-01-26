@@ -1,15 +1,16 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum LanguageSetting {
-  english('english'),
-  deutsch('deutsch');
+
+  // deutsch('deutsch'),
+    english('english');
 
   const LanguageSetting(this.name);
   final String name;
 
   static LanguageSetting? getEnum(String name) {
     if (name == 'english') return LanguageSetting.english;
-    if (name == 'deutsch') return LanguageSetting.deutsch;
+    //if (name == 'deutsch') return LanguageSetting.deutsch;
     return null;
   }
 }

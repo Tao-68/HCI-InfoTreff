@@ -8,27 +8,32 @@ class FeedbackPopup extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    return Container(
-      color: theme.colorScheme.primary,
-      child: Stack(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-            alignment: Alignment.topRight,
-            child: HeadBar(theme: theme),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.primary,
+            border: Border.all(
+              width: 2,
+              color: theme.colorScheme.onPrimary,
+            ),
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 30),
-            alignment: Alignment.topRight,
-            child: FeedbackContent(theme: theme),
+          child: Column(
+            children: [
+              HeadBar(theme: theme),
+              FeedbackContent(theme: theme),
+              Container(
+                alignment: Alignment.bottomRight,
+                padding: const EdgeInsets.only(top: 15, right: 10),
+                child: SendButton(theme: theme),
+              ),
+            ],
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 340, horizontal: 30),
-            alignment: Alignment.topRight,
-            child: SendButton(theme: theme),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -10,7 +10,7 @@ class SettingsPopUp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     return Column(
-      mainAxisSize: MainAxisSize.max,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Container(
           padding: const EdgeInsets.all(20),
@@ -35,32 +35,31 @@ class SettingsPopUp extends ConsumerWidget {
 }
 
 class HeadBar extends ConsumerWidget {
-  const HeadBar({required this.theme, super.key});
+  const HeadBar ({required this.theme, super.key});
   final ThemeData theme;
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+ @override
+  Widget build (BuildContext context, WidgetRef ref) {
+    return Row (
       children: [
-        Expanded(
-          child: Text(
+        Expanded (
+          child: Text (
             'Settings',
-            style: TextStyle(
+            style: TextStyle (
               fontWeight: FontWeight.bold,
               fontSize: 35,
               color: theme.colorScheme.onPrimary,
             ),
           ),
         ),
-        CloseButton(theme: theme),
+        CloseButton(theme : theme),
       ],
     );
   }
 }
 
 class OptionContent extends ConsumerWidget {
-  const OptionContent({required this.theme, super.key});
+  const OptionContent ({required this.theme, super.key});
   final ThemeData theme;
 
   @override
@@ -76,29 +75,27 @@ class OptionContent extends ConsumerWidget {
     = MainLanguagePreference();
 
     return Column (
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
+        Container (
           padding: const EdgeInsets.only(bottom: 15),
           alignment: Alignment.center,
-          child: Divider(
+          child: Divider (
             color: theme.colorScheme.secondary,
             thickness: 2,
           ),
         ),
-        /*
         Container (
-          child: const Text (
-            'General',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+              child: const Text (
+                'General',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
               ),
             ),
-          ),
-          Container (
-            padding: const EdgeInsets.only(bottom: 7),
+            Container (
+              padding: const EdgeInsets.only(bottom: 7),
               child: Row (
                 children: [
                   const Expanded(
@@ -116,7 +113,6 @@ class OptionContent extends ConsumerWidget {
                 ],
               ),
             ),
-            */
             Container (
               child: const Text (
                 'Menu',
@@ -172,23 +168,13 @@ class OptionContent extends ConsumerWidget {
                 ],
               ),
             ),
-        Container(
-          padding: const EdgeInsets.only(bottom: 5),
-          child: const Text(
-            'Event',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-          ),
-        ),
-        Row(
-          children: [
-            const Expanded(
-              child: Text(
-                'Hide Number of participants',
+            Container (
+              padding: const EdgeInsets.only(bottom: 5),
+              child: const Text (
+                'Event',
                 style: TextStyle(
-                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                 ),
               ),
             ),
@@ -215,16 +201,13 @@ class OptionContent extends ConsumerWidget {
               ),
             ),
           ],
-        ),
-      ],
-    );
+      );
   }
 }
 
 class SettingCheckBox extends ConsumerStatefulWidget {
   const SettingCheckBox({
     required this.theme,
-
     required this.pref,
     required this.onChanged, 
     super.key,
@@ -247,7 +230,6 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
   });
 
   final ThemeData theme;
-
   final void Function (bool?) onChanged;
 
   bool isChecked = false;
@@ -272,7 +254,7 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
         borderRadius: BorderRadius.circular(7),
         side: BorderSide(
           color: theme.colorScheme.primary,
-          width: 2,
+          width: 2, 
         ),
       ),
       value: isChecked,
@@ -319,29 +301,22 @@ class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
   @override
   Widget build (BuildContext context) 
   {
-    return Container (
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: theme.colorScheme.onSecondary),
-        color: theme.colorScheme.secondary,
-      ),
-      child: DropdownMenu<LanguageSetting>(
-        initialSelection: LanguageSetting.getEnum(defaultLanguage),
-        requestFocusOnTap: false,
-        onSelected: (LanguageSetting? ls) {
-          if (ls != null) {
-            widget.pref.saveValue(value: ls.name);
-          } 
-        },
-        dropdownMenuEntries: LanguageSetting.values
-          .map<DropdownMenuEntry<LanguageSetting>>(
-          (LanguageSetting language) {
-            return DropdownMenuEntry<LanguageSetting>(
-              value: language,
-              label: language.name,
-            );
-        }).toList(),
-      ),
+    return DropdownMenu<LanguageSetting>(
+      initialSelection: LanguageSetting.getEnum(defaultLanguage),
+      requestFocusOnTap: false,
+      onSelected: (LanguageSetting? ls) {
+        if (ls != null) {
+          widget.pref.saveValue(value: ls.name);
+        } 
+      },
+      dropdownMenuEntries: LanguageSetting.values
+        .map<DropdownMenuEntry<LanguageSetting>>(
+        (LanguageSetting language) {
+          return DropdownMenuEntry<LanguageSetting>(
+            value: language,
+            label: language.name,
+          );
+      }).toList(),
     );
   }
 }
@@ -359,16 +334,16 @@ class CloseButton extends ConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: theme.colorScheme.onSecondary),
-        color: theme.colorScheme.secondary,
+        border: Border.all(width: 2, color: theme.colorScheme.primary),
+        color: theme.colorScheme.onSecondary,
       ),
       child: IconButton(
         onPressed: () => context.pop(),
         icon: Icon(
           Icons.close,
-          color: theme.colorScheme.onSecondary,
+          color: theme.colorScheme.primary,
         ),
-        iconSize: 30,
+        iconSize: 40,
       ),
     );
   }
