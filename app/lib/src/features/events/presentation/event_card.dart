@@ -1,14 +1,15 @@
 import 'dart:async';
+
 import 'package:add_2_calendar/add_2_calendar.dart' as calendar;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 import 'package:infotreff_connect/src/features/events/domain/event.dart';
 import 'package:infotreff_connect/src/features/events/presentation/like_event_controller.dart';
 import 'package:infotreff_connect/src/features/favourites/data/favourites_repository.dart';
 import 'package:infotreff_connect/src/features/menu/domain/menu.dart';
 import 'package:infotreff_connect/src/routing/app_router.dart';
+import 'package:intl/intl.dart';
 import 'package:share/share.dart';
 
 final specialsExpandedProvider =
@@ -40,7 +41,8 @@ class EventCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isSpecialsExpanded = ref.watch(specialsExpandedProvider(title));
+    final isSpecialsExpanded =
+        ref.watch(specialsExpandedProvider(title).notifier);
     final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(
@@ -60,7 +62,7 @@ class EventCard extends ConsumerWidget {
             event: event,
           ),
           ExpansionTile(
-            initiallyExpanded: isSpecialsExpanded,
+            initiallyExpanded: isSpecialsExpanded.state,
             backgroundColor: theme.colorScheme.onPrimary,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,10 +83,12 @@ class EventCard extends ConsumerWidget {
               ],
             ),
             onExpansionChanged: (bool expanded) {
-              ref.read(specialsExpandedProvider(title).state).state = expanded;
+              isSpecialsExpanded.state = expanded;
             },
             trailing: Icon(
-              isSpecialsExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+              isSpecialsExpanded.state
+                  ? Icons.arrow_drop_up
+                  : Icons.arrow_drop_down,
               color: theme.colorScheme.primary,
             ),
             children: <Widget>[
