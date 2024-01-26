@@ -64,16 +64,6 @@ class OptionContent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
-    final ShowNumberOfLikePreference showNumberOfLikePreference 
-    = ShowNumberOfLikePreference();
-    final HideNumberParticipantPreference hideNumberParticipantPreference 
-    = HideNumberParticipantPreference();
-    final ShowVeganOnlyPreference showVeganOnlyPreference 
-    = ShowVeganOnlyPreference();
-    final MainLanguagePreference mainLanguagePreference 
-    = MainLanguagePreference();
-
     return Column (
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -107,7 +97,7 @@ class OptionContent extends ConsumerWidget {
                     ),
                   ),
                   SettingDropDownMenu (
-                    pref: mainLanguagePreference,
+                    provider: mainLanguageProvider,
                     theme: theme,
                   ),
                 ],
@@ -136,10 +126,9 @@ class OptionContent extends ConsumerWidget {
                   ),
                   SettingCheckBox (
                     theme: theme,
-                    pref: showNumberOfLikePreference,
-                    onChanged: (bool? value) async {
-                      await showNumberOfLikePreference
-                        .saveValue(value: value ?? false);
+                    provider: showNumberOfLikeProvider,
+                    onChanged: ({required bool? value}) async {
+                      ref.read(showNumberOfLikeProvider.notifier).updateData(newData: value ?? false);
                     },
                   ),
                 ],
@@ -168,10 +157,9 @@ class OptionContent extends ConsumerWidget {
                   ),
                   SettingCheckBox ( 
                     theme: theme,
-                    pref: hideNumberParticipantPreference,
-                    onChanged: (bool? value) async {
-                      await hideNumberParticipantPreference
-                      .saveValue(value: value ?? false);
+                    provider: hideNumberParticipantProvider,
+                    onChanged: ({required bool? value}) async {
+                      ref.watch(hideNumberParticipantProvider.notifier).updateData(newData: value ?? false);
                     },
                   ),
                 ],
@@ -185,12 +173,12 @@ class OptionContent extends ConsumerWidget {
 class SettingCheckBox extends ConsumerStatefulWidget {
   const SettingCheckBox({
     required this.theme,
-    required this.pref,
+    required this.provider,
     required this.onChanged, 
     super.key,
   });
-  final void Function (bool?) onChanged;
-  final SharedPreferencesBoolHelper pref;
+  final void Function ({required bool? value}) onChanged;
+  final StateNotifierProvider<dynamic, bool> provider;
   final ThemeData theme;
 
   @override
@@ -207,25 +195,11 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
   });
 
   final ThemeData theme;
-  final void Function (bool?) onChanged;
-
-  bool isChecked = false;
-
-   @override
-  void initState() {
-    super.initState();
-    _loadValue();
-  }
-
-  Future<void> _loadValue() async {
-    bool fetchedData = await widget.pref.getStoredValue() ?? false;
-    setState(() {
-      isChecked = fetchedData;
-    });
-  }
+  final void Function ({required bool? value}) onChanged;
 
   @override
   Widget build (BuildContext context) {
+    final isChecked = ref.watch(widget.provider);
     return Checkbox (
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(7),
@@ -236,8 +210,7 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
       ),
       value: isChecked,
       onChanged: (bool? value) {
-        onChanged(value);
-        _loadValue();
+        onChanged(value: value);
       },
     );
   }
@@ -246,34 +219,23 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
 class SettingDropDownMenu extends ConsumerStatefulWidget {
   const SettingDropDownMenu({
     required this.theme, 
-    required this.pref, 
+    required this.provider, 
     super.key,
   });
   final ThemeData theme;
-  final SharedPreferencesStringHelper pref;
+  final StateNotifierProvider<dynamic, String> provider;
 
-  SettingDropDownMenuState createState() => SettingDropDownMenuState(theme: theme);
+  @override
+  SettingDropDownMenuState createState() { 
+    return SettingDropDownMenuState(theme: theme);
+  }
 }
 
 class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
   SettingDropDownMenuState({required this.theme});
   final ThemeData theme;
-  late String defaultLanguage;
+  String defaultLanguage = 'english';
 
-  @override
-
-  void initState() {
-    super.initState();
-    _loadValue();
-  }
-
-  Future<void> _loadValue() async {
-    final String fetchData = await widget.pref.getStoredValue() ?? 'English';
-    setState(() {
-      defaultLanguage = fetchData;
-    });
-    print(defaultLanguage);
-  }
 
   @override
   Widget build (BuildContext context) 
@@ -284,7 +246,7 @@ class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
       requestFocusOnTap: false,
       onSelected: (LanguageSetting? ls) {
         if (ls != null) {
-          widget.pref.saveValue(value: ls.name);
+          ref.read(widget.provider.notifier).updateData(newData: ls.name);
         } 
       },
       dropdownMenuEntries: LanguageSetting.values

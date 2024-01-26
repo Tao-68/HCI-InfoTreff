@@ -11,6 +11,8 @@ import 'package:ri_go_demo/src/features/menu/domain/menu.dart';
 import 'package:ri_go_demo/src/routing/app_router.dart';
 import 'package:share/share.dart';
 
+import '../../../global_value/global_value.dart';
+
 final specialsExpandedProvider =
     StateProvider.family<bool, String>((ref, eventId) => false);
 
@@ -62,23 +64,10 @@ class EventCard extends ConsumerWidget {
           ExpansionTile(
             initiallyExpanded: isSpecialsExpanded,
             backgroundColor: theme.colorScheme.onPrimary,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  dateTime,
-                  style: TextStyle(color: theme.colorScheme.primary),
-                ),
-                Row(
-                  children: <Widget>[
-                    Icon(Icons.person, color: theme.colorScheme.primary),
-                    Text(
-                      ' $attendeeCount',
-                      style: TextStyle(color: theme.colorScheme.primary),
-                    ),
-                  ],
-                ),
-              ],
+            title: EventCardTitle(
+              attendeeCount: attendeeCount,
+              theme: theme,
+              dateTime: dateTime,
             ),
             onExpansionChanged: (bool expanded) {
               ref.read(specialsExpandedProvider(title).state).state = expanded;
@@ -495,5 +484,84 @@ class ImComingButton extends StatelessWidget {
     final bool like = await favourites.changeFavouriteEvent(event);
     unawaited(likeEventController.like(event: event, like: like));
     ref.invalidate(favouritesRepositoryProvider);
+  }
+}
+
+class EventCardTitle extends ConsumerStatefulWidget {
+  const EventCardTitle({
+    required this.dateTime,
+    required this.attendeeCount,
+    required this.theme,
+    super.key,
+  });
+
+  final String dateTime;
+  final ThemeData theme;
+  final int attendeeCount;
+
+  @override
+  EventCardTitleState createState() => EventCardTitleState(
+    dateTime: dateTime,
+    attendeeCount: attendeeCount,
+    theme: theme,
+  );
+} 
+
+class EventCardTitleState extends ConsumerState<EventCardTitle> {
+  EventCardTitleState ({
+    required this.dateTime,
+    required this.attendeeCount,
+    required this.theme,
+  });
+
+  final String dateTime;
+  final ThemeData theme;
+  final int attendeeCount;
+
+  late bool hideAttendantCount;
+
+  @override 
+  void initState() {
+    super.initState();
+    _getData();
+  }
+
+  Future<void> _getData() async {
+  }
+
+  @override
+  Widget build (BuildContext context) {
+    final myState = ref.watch(hideNumberParticipantProvider);
+    if (myState) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              dateTime,
+              style: TextStyle(color: theme.colorScheme.primary),
+            ),
+          ],
+      );
+    }
+    else {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text (
+            dateTime,
+            style: TextStyle(color: theme.colorScheme.primary),
+          ),
+          Row (
+            children: <Widget>[
+              Icon(Icons.person, color: theme.colorScheme.primary),
+              Text(
+                ' $attendeeCount',
+                style: TextStyle(color: theme.colorScheme.primary),
+              ),
+            ],
+          ),
+        ],
+      );
+    }
   }
 }
