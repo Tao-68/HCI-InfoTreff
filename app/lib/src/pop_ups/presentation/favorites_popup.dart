@@ -154,14 +154,10 @@ class EventList extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  onTap: () {
-                    context
-                      ..goNamed(
-                        SubRoutes.menuItemDetails.name,
-                        extra: item,
-                      )
-                      ..pop();
-                  },
+                  onTap: () => context.goNamed(
+                    SubRoutes.menuItemDetails.name,
+                    extra: item,
+                  ),
                 ),
               ),
         ],
