@@ -123,6 +123,7 @@ class FilterButton extends ConsumerWidget {
         color: theme.colorScheme.onSecondary,
       ),
       child: IconButton(
+        // ignore: inference_failure_on_function_invocation
         onPressed: () => showDialog(
           context: context,
           builder: (BuildContext context) => const Dialog(
