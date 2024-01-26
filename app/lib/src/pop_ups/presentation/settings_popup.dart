@@ -146,29 +146,6 @@ class OptionContent extends ConsumerWidget {
               ),
             ),
             Container (
-              padding: const EdgeInsets.only(bottom: 7),
-              child: Row (
-                children: [
-                  const Expanded(
-                    child: Text (
-                      'show Number of like',
-                      style: TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                  SettingCheckBox (
-                    theme: theme,
-                    pref: showVeganOnlyPreference,
-                    onChanged: (bool? value) async {
-                      await showVeganOnlyPreference
-                        .saveValue(value: value ?? false);
-                    },
-                  ),
-                ],
-              ),
-            ),
-            Container (
               padding: const EdgeInsets.only(bottom: 5),
               child: const Text (
                 'Event',
