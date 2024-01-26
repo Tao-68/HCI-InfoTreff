@@ -279,7 +279,8 @@ class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
   Widget build (BuildContext context) 
   {
     return DropdownMenu<LanguageSetting>(
-      initialSelection: LanguageSetting.getEnum(defaultLanguage),
+      initialSelection: LanguageSetting.getEnum(defaultLanguage)
+        ?? LanguageSetting.english,
       requestFocusOnTap: false,
       onSelected: (LanguageSetting? ls) {
         if (ls != null) {
