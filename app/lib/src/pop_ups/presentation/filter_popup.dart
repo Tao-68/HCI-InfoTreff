@@ -14,7 +14,10 @@ class FilterPopUp extends ConsumerWidget {
         Container(
           decoration: BoxDecoration(
             color: theme.colorScheme.primary,
-            border: Border.all(width: 2, color: theme.colorScheme.onPrimary,),
+            border: Border.all(
+              width: 2,
+              color: theme.colorScheme.onPrimary,
+            ),
             borderRadius: const BorderRadius.all(Radius.circular(20)),
           ),
           padding: const EdgeInsets.all(20),
@@ -44,7 +47,7 @@ class FilterPopUp extends ConsumerWidget {
                   ),
                 ),
               ),
-              // TODO(Filter): MenuFilter should be generated based on a list
+              //MenuFilter should be generated based on a list
               MenuFilter(title: 'New', theme: theme),
               MenuFilter(title: 'Vegan', theme: theme),
               MenuFilter(title: 'Vegetarian', theme: theme),
@@ -122,7 +125,7 @@ class ApplyButton extends ConsumerWidget {
           ),
         ),
         onPressed: () {
-          // TODO(Filter): filter anwenden
+          // filter anwenden
         },
       ),
     );

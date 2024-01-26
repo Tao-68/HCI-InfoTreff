@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ri_go_demo/src/features/events/data/event_repository.dart';
-import 'package:ri_go_demo/src/features/menu/data/menu_repository.dart';
+import 'package:infotreff_connect/src/features/events/data/event_repository.dart';
+import 'package:infotreff_connect/src/features/menu/data/menu_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -1,14 +1,15 @@
 import 'dart:async';
+
 import 'package:add_2_calendar/add_2_calendar.dart' as calendar;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:infotreff_connect/src/features/events/domain/event.dart';
+import 'package:infotreff_connect/src/features/events/presentation/like_event_controller.dart';
+import 'package:infotreff_connect/src/features/favourites/data/favourites_repository.dart';
+import 'package:infotreff_connect/src/features/menu/domain/menu.dart';
+import 'package:infotreff_connect/src/routing/app_router.dart';
 import 'package:intl/intl.dart';
-import 'package:ri_go_demo/src/features/events/domain/event.dart';
-import 'package:ri_go_demo/src/features/events/presentation/like_event_controller.dart';
-import 'package:ri_go_demo/src/features/favourites/data/favourites_repository.dart';
-import 'package:ri_go_demo/src/features/menu/domain/menu.dart';
-import 'package:ri_go_demo/src/routing/app_router.dart';
 import 'package:share/share.dart';
 
 import '../../../global_value/global_value.dart';
@@ -42,7 +43,8 @@ class EventCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isSpecialsExpanded = ref.watch(specialsExpandedProvider(title));
+    final isSpecialsExpanded =
+        ref.watch(specialsExpandedProvider(title).notifier);
     final theme = Theme.of(context);
     return Card(
       shape: RoundedRectangleBorder(
@@ -62,7 +64,7 @@ class EventCard extends ConsumerWidget {
             event: event,
           ),
           ExpansionTile(
-            initiallyExpanded: isSpecialsExpanded,
+            initiallyExpanded: isSpecialsExpanded.state,
             backgroundColor: theme.colorScheme.onPrimary,
             title: EventCardTitle(
               attendeeCount: attendeeCount,
@@ -70,10 +72,12 @@ class EventCard extends ConsumerWidget {
               dateTime: dateTime,
             ),
             onExpansionChanged: (bool expanded) {
-              ref.read(specialsExpandedProvider(title).state).state = expanded;
+              isSpecialsExpanded.state = expanded;
             },
             trailing: Icon(
-              isSpecialsExpanded ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+              isSpecialsExpanded.state
+                  ? Icons.arrow_drop_up
+                  : Icons.arrow_drop_down,
               color: theme.colorScheme.primary,
             ),
             children: <Widget>[
@@ -339,10 +343,12 @@ class EventCover extends ConsumerWidget {
         ),
         Container(
           decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.black, Colors.transparent],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,),),
+            gradient: LinearGradient(
+              colors: [Colors.black, Colors.transparent],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
           child: Padding(
             padding: const EdgeInsets.only(
               top: 15,

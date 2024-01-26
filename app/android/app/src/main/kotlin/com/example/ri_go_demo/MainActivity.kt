@@ -1,4 +1,4 @@
-package com.example.ri_go_demo
+package com.example.infotreff_connect
 
 import io.flutter.embedding.android.FlutterActivity
 

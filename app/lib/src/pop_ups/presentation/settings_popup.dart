@@ -35,31 +35,31 @@ class SettingsPopUp extends ConsumerWidget {
 }
 
 class HeadBar extends ConsumerWidget {
-  const HeadBar ({required this.theme, super.key});
+  const HeadBar({required this.theme, super.key});
   final ThemeData theme;
 
- @override
-  Widget build (BuildContext context, WidgetRef ref) {
-    return Row (
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Row(
       children: [
-        Expanded (
-          child: Text (
+        Expanded(
+          child: Text(
             'Settings',
-            style: TextStyle (
+            style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 35,
               color: theme.colorScheme.onPrimary,
             ),
           ),
         ),
-        CloseButton(theme : theme),
+        CloseButton(theme: theme),
       ],
     );
   }
 }
 
 class OptionContent extends ConsumerWidget {
-  const OptionContent ({required this.theme, super.key});
+  const OptionContent({required this.theme, super.key});
   final ThemeData theme;
 
   @override
@@ -67,10 +67,10 @@ class OptionContent extends ConsumerWidget {
     return Column (
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container (
+        Container(
           padding: const EdgeInsets.only(bottom: 15),
           alignment: Alignment.center,
-          child: Divider (
+          child: Divider(
             color: theme.colorScheme.secondary,
             thickness: 2,
           ),
@@ -183,14 +183,14 @@ class SettingCheckBox extends ConsumerStatefulWidget {
 
   @override
   _SettingCheckBoxState createState() => _SettingCheckBoxState(
-    theme: theme, 
-    onChanged: onChanged,
-  );
+        theme: theme,
+        onChanged: onChanged,
+      );
 }
 
 class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
   _SettingCheckBoxState({
-    required this.theme, 
+    required this.theme,
     required this.onChanged,
   });
 
@@ -205,7 +205,7 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
         borderRadius: BorderRadius.circular(7),
         side: BorderSide(
           color: theme.colorScheme.primary,
-          width: 2, 
+          width: 2,
         ),
       ),
       value: isChecked,
@@ -238,11 +238,10 @@ class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
 
 
   @override
-  Widget build (BuildContext context) 
-  {
+  Widget build(BuildContext context) {
     return DropdownMenu<LanguageSetting>(
-      initialSelection: LanguageSetting.getEnum(defaultLanguage)
-        ?? LanguageSetting.english,
+      initialSelection:
+          LanguageSetting.getEnum(defaultLanguage) ?? LanguageSetting.english,
       requestFocusOnTap: false,
       onSelected: (LanguageSetting? ls) {
         if (ls != null) {
@@ -250,12 +249,11 @@ class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
         } 
       },
       dropdownMenuEntries: LanguageSetting.values
-        .map<DropdownMenuEntry<LanguageSetting>>(
-        (LanguageSetting language) {
-          return DropdownMenuEntry<LanguageSetting>(
-            value: language,
-            label: language.name,
-          );
+          .map<DropdownMenuEntry<LanguageSetting>>((LanguageSetting language) {
+        return DropdownMenuEntry<LanguageSetting>(
+          value: language,
+          label: language.name,
+        );
       }).toList(),
     );
   }

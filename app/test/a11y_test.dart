@@ -1,9 +1,11 @@
+//ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ri_go_demo/main.dart';
-import 'package:ri_go_demo/src/features/rest_crud_demo/data/people_repository.dart';
-import 'package:ri_go_demo/src/utils/logger.dart';
+import 'package:infotreff_connect/main.dart';
+import 'package:infotreff_connect/src/features/rest_crud_demo/data/people_repository.dart';
+import 'package:infotreff_connect/src/utils/logger.dart';
 
 import 'fake_repository.dart';
 

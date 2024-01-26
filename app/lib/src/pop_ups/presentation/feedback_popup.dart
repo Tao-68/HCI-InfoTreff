@@ -39,40 +39,40 @@ class FeedbackPopup extends ConsumerWidget {
 }
 
 class HeadBar extends ConsumerWidget {
-  const HeadBar ({required this.theme, super.key});
+  const HeadBar({required this.theme, super.key});
   final ThemeData theme;
 
- @override
-  Widget build (BuildContext context, WidgetRef ref) {
-    return Row (
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Row(
       children: [
-        Expanded (
-          child: Text (
+        Expanded(
+          child: Text(
             'Feedback',
-            style: TextStyle (
+            style: TextStyle(
               fontWeight: FontWeight.bold,
               color: theme.colorScheme.onPrimary,
               fontSize: 35,
             ),
           ),
         ),
-        CloseButton(theme : theme),
+        CloseButton(theme: theme),
       ],
     );
   }
 }
 
 class FeedbackContent extends ConsumerStatefulWidget {
-  const FeedbackContent ({required this.theme, super.key});
+  const FeedbackContent({required this.theme, super.key});
   final ThemeData theme;
 
   @override
-  FeedbackContentState createState() => FeedbackContentState(theme: theme);
+  FeedbackContentState createState() => FeedbackContentState();
 }
 
 class FeedbackContentState extends ConsumerState<FeedbackContent> {
-  FeedbackContentState ({required this.theme});
-  final ThemeData theme;
+  FeedbackContentState();
+  late final ThemeData theme;
 
   late FocusNode _focusNode;
 
@@ -80,6 +80,7 @@ class FeedbackContentState extends ConsumerState<FeedbackContent> {
   void initState() {
     super.initState();
     _focusNode = FocusNode();
+    theme = widget.theme;
   }
 
   @override
@@ -96,20 +97,20 @@ class FeedbackContentState extends ConsumerState<FeedbackContent> {
   Widget build(BuildContext context) {
     return Listener(
       onPointerDown: (_) => _handleTap(),
-      child: Column (
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container (
+          Container(
             padding: const EdgeInsets.only(bottom: 15),
             alignment: Alignment.center,
-            child: Divider (
+            child: Divider(
               color: theme.colorScheme.secondary,
               thickness: 2,
             ),
           ),
-          Container (
+          Container(
             padding: const EdgeInsets.only(bottom: 15),
-            child: Text (
+            child: Text(
               'What would you like to tell us?',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -124,10 +125,10 @@ class FeedbackContentState extends ConsumerState<FeedbackContent> {
             maxLines: 5,
             keyboardType: TextInputType.multiline,
             style: TextStyle(color: theme.colorScheme.onPrimary),
-            decoration: InputDecoration (
+            decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,
-              labelStyle: TextStyle (
+              labelStyle: TextStyle(
                 color: theme.colorScheme.onPrimary,
               ),
               border: OutlineInputBorder(
@@ -147,15 +148,15 @@ class FeedbackContentState extends ConsumerState<FeedbackContent> {
 }
 
 class SendButton extends ConsumerWidget {
-  const SendButton ({required this.theme, super.key});
+  const SendButton({required this.theme, super.key});
   final ThemeData theme;
 
   @override
-  Widget build (BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>
-          (theme.colorScheme.secondary),
+        backgroundColor:
+            MaterialStateProperty.all<Color>(theme.colorScheme.secondary),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),

@@ -1,5 +1,5 @@
-name: ri_go_demo
-description: A demo project, that uses riverpod and go_router.
+name: infotreff_connect
+description: Infoapp für das Infotreff 
 
 publish_to: "none"
 
