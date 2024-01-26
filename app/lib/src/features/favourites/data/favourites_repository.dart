@@ -14,9 +14,9 @@ part 'favourites_repository.g.dart';
 late SharedPreferences prefs;
 
 class FavouritesRepository {
-
   static Future<void> init() async {
     logger.d('FavouritesRepository.init');
+    WidgetsFlutterBinding.ensureInitialized();
     prefs = await SharedPreferences.getInstance();
   }
 
@@ -91,7 +91,7 @@ class FavouritesRepository {
     }
   }
 
-  bool isLikedItem(Item item)  {
+  bool isLikedItem(Item item) {
     final itemFavs = prefs.getStringList('items') ?? [];
     if (itemFavs.contains(item.name)) {
       return true;
@@ -99,7 +99,6 @@ class FavouritesRepository {
       return false;
     }
   }
-
 }
 
 @riverpod
