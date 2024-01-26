@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ri_go_demo/src/pop_ups/presentation/favorites_popup.dart';
-import 'package:ri_go_demo/src/pop_ups/presentation/feedback_popup.dart';
-import 'package:ri_go_demo/src/pop_ups/presentation/settings_popup.dart';
+import 'package:infotreff_connect/src/pop_ups/presentation/favorites_popup.dart';
+import 'package:infotreff_connect/src/pop_ups/presentation/feedback_popup.dart';
+import 'package:infotreff_connect/src/pop_ups/presentation/settings_popup.dart';
 
 //import '../constants/breakpoint.dart';
 //import '../utils/localization.dart';

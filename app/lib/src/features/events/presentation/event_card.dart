@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:ri_go_demo/src/features/events/domain/event.dart';
-import 'package:ri_go_demo/src/features/events/presentation/like_event_controller.dart';
-import 'package:ri_go_demo/src/features/favourites/data/favourites_repository.dart';
-import 'package:ri_go_demo/src/features/menu/domain/menu.dart';
-import 'package:ri_go_demo/src/routing/app_router.dart';
+import 'package:infotreff_connect/src/features/events/domain/event.dart';
+import 'package:infotreff_connect/src/features/events/presentation/like_event_controller.dart';
+import 'package:infotreff_connect/src/features/favourites/data/favourites_repository.dart';
+import 'package:infotreff_connect/src/features/menu/domain/menu.dart';
+import 'package:infotreff_connect/src/routing/app_router.dart';
 import 'package:share/share.dart';
 
 final specialsExpandedProvider =
@@ -350,10 +350,12 @@ class EventCover extends ConsumerWidget {
         ),
         Container(
           decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.black, Colors.transparent],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,),),
+            gradient: LinearGradient(
+              colors: [Colors.black, Colors.transparent],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
           child: Padding(
             padding: const EdgeInsets.only(
               top: 15,

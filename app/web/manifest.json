@@ -1,6 +1,6 @@
 {
-    "name": "ri_go_demo",
-    "short_name": "ri_go_demo",
+    "name": "infotreff_connect",
+    "short_name": "infotreff_connect",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

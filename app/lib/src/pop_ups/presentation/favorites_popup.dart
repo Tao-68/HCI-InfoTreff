@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ri_go_demo/src/common_widgets/async_value_widget.dart';
-import 'package:ri_go_demo/src/features/events/presentation/event_card.dart';
-import 'package:ri_go_demo/src/features/events/presentation/like_event_controller.dart';
-import 'package:ri_go_demo/src/routing/app_router.dart';
+import 'package:infotreff_connect/src/common_widgets/async_value_widget.dart';
+import 'package:infotreff_connect/src/features/events/presentation/event_card.dart';
+import 'package:infotreff_connect/src/features/events/presentation/like_event_controller.dart';
+import 'package:infotreff_connect/src/routing/app_router.dart';
 import '../../features/favourites/data/favourites_repository.dart';
 
 class FavoritesPopup extends ConsumerStatefulWidget {
