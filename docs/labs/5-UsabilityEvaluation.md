@@ -22,8 +22,12 @@ Some of the heuristics were also checked beforehand, during the UI refactoring, 
 # User Testing
 
 For the Usability Tests six participants were asked to perform the same tasks and rate the dificullty of each task afterwards.
-The test method and results are detailed in the folowing document:
-[Usability Tests InfoTreff Connect](../docs/usability-test.pdf)
+
+
+
+
+
+A detailed documentation of the test method and results are can be found in the following document: https://code.fbi.h-da.de/hci-trapp/hci-lab-studi-wise23-24/hciMo-4-Huynh_Lehr_Reining_Schultze_Tan/-/blob/a94b531aaa15125c2bfb2d1a6ec11cb87b9b826c/docs/usability-test.pdf
 
 
 # Walkthrough
