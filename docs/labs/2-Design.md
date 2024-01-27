@@ -86,3 +86,8 @@ For interactiv elements, like expandable lists or like buttons we created the fo
 In order to test the design we used figmas prototyping feature to create a navigation shown in this user flow diagram:
 
 ![Figma_Prototype_UserFlowDiagram](../FigmaPrototype/UserFlowDiagram.png){: height="100em" width="100em"}  
+
+
+##Prototype 
+
+You can experience the prototpe here [Prototype](https://www.figma.com/proto/jiCQyxJfKdGPFxwAN9XFMU/InfoTreffApp_Emil?node-id=3-7&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2)
