@@ -92,8 +92,9 @@ The interviewees were suprised that we included an option to export events to th
 
 ## Project model 
 
-We have decided in favour of Agile UX as a process model. The iterative structure that is used in agile UX provides a nice structure to plan for the labs this semester. With the planning and implementing cycles we can optimize our design to get a good result in the UX. We will create milestones for each lab and try to use them as good as possible to sort issues. We will build our backlog with the help of issues and labels. If an issue is started it gets moved to the ongoing label and if it is done it will receive the tested/done label.
-Especially while developing the UX we will work with many users and ask them for feedback on how we can improve the design in the next iteration.
+We have decided in favour of Agile UX as a process model. The iterative structure and feedback loop that is used in agile UX provides a suitable structure to plan for the labs this semester. With the planning and implementing cycles we can optimize our design to get a good result in the UX. We will create milestones for each lab and try to use them as beneficial as possible to sort issues. We will build our backlog with the help of issues and labels. If an issue is started it gets moved to the ongoing label and when it is done it will receive the tested/done label.
+
+Especially while developing the UX Agile UX promotes close collaboration between developers, designers, and users. We will work with many users and ask them for feedback on how we can improve the design in the next iteration. Agile UX focuses on creating a product that meets user needs and delivers a great user experience. Through your lab sessions, you can continuously test and validate your app with real users (like classmates or potential café customers), ensuring that the final product is user-friendly and meets their expectations.
 
 In our opinion, Double Diamond is too powerful and large in its functions to be used effectively on our small scale. We also liked the Design Sprint approach, but we found the effort on the project and process management side too high.
 
