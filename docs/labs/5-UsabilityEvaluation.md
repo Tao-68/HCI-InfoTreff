@@ -19,6 +19,13 @@ Some of the heuristics were also checked beforehand, during the UI refactoring, 
 | Help users recognize, diagnose, and recover from errors | [ ] yes [x] no | The app does not show any error messages. | The app should be checked for errors and appropriate error messages should be implemented. |
 | Help and documentation | [ ] yes [x] no | The app does not contain any information on how to use it, because no complicated actions need to be performed to use it. It also lacks semantic labels for accessibility. | Whether documentation on how to use the app needs to be provided should be checked during user testing. Accessibility features need to be implemented in any case. |
 
+# User Testing
+
+For the Usability Tests six participants were asked to perform the same tasks and rate the dificullty of each task afterwards.
+The test method and results are detailed in the folowing document:
+[Usability Tests InfoTreff Connect](./docs/usability-test.pdf)
+
+
 # Walkthrough
 
 A walthrough video of our app can be found under the following link:
