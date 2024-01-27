@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ri_go_demo/src/features/favourites/data/favourites_repository.dart';
+import 'package:infotreff_connect/src/features/favourites/data/favourites_repository.dart';
+import '../../global_value/global_value.dart';
 
 import '../../features/menu/domain/menu.dart';
 
@@ -58,8 +59,7 @@ class MenuItemDetailsPopUp extends ConsumerWidget {
                   item.nutrition,
                 ),
               ),
-              Text('Likes: ${item.likes}'),
-              Text('Picture: ${item.picture}'),
+              ShowText(item: item),
             ],
           ),
         ),
@@ -226,4 +226,34 @@ class _AccordionState extends ConsumerState<Accordion> {
       ),
     );
   }
+}
+
+class ShowText extends ConsumerStatefulWidget {
+  const ShowText ({required this.item, super.key});
+  final Item item;
+
+  @override
+  ShowTextState createState() => ShowTextState(item: item);
+}
+
+class ShowTextState extends ConsumerState<ShowText> {
+  ShowTextState({required this.item});
+  final Item item;
+  late bool showNoLike;
+
+  @override
+  Widget build(BuildContext context) {
+    final showNoLike = ref.watch(showNumberOfLikeProvider);
+    if (showNoLike) { 
+      return Column (
+        children: [           
+          Text('Likes: ${item.likes}'),
+          Text('Picture: ${item.picture}'),
+        ],
+      );
+    }
+    return Text('Picture: ${item.picture}');
+
+
+  } 
 }

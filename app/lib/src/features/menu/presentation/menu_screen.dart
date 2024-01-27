@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ri_go_demo/src/pop_ups/presentation/filter_popup.dart';
-import 'package:ri_go_demo/src/routing/app_router.dart';
+import 'package:infotreff_connect/src/pop_ups/presentation/filter_popup.dart';
+import 'package:infotreff_connect/src/routing/app_router.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
 import '../data/menu_repository.dart';
@@ -54,7 +54,8 @@ class MenuPage extends ConsumerWidget {
 
 class Headline extends StatelessWidget {
   const Headline({
-    required this.theme, super.key,
+    required this.theme,
+    super.key,
   });
 
   final ThemeData theme;
@@ -122,6 +123,7 @@ class FilterButton extends ConsumerWidget {
         color: theme.colorScheme.onSecondary,
       ),
       child: IconButton(
+        // ignore: inference_failure_on_function_invocation
         onPressed: () => showDialog(
           context: context,
           builder: (BuildContext context) => const Dialog(
@@ -294,7 +296,7 @@ class _AccordionState extends ConsumerState<Accordion> {
           ),
           // Show or hide the content based on the state
           AnimatedCrossFade(
-            firstChild:  Container(),
+            firstChild: Container(),
             secondChild: Container(
               decoration: BoxDecoration(
                 border: Border(

@@ -8,6 +8,7 @@ import 'src/routing/app_router.dart';
 import 'src/utils/localization.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await FavouritesRepository.init();
   runApp(
     const ProviderScope(child: MyApp()),
@@ -16,6 +17,7 @@ Future<void> main() async {
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final goRouter = ref.watch(goRouterProvider);

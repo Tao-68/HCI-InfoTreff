@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:ri_go_demo/src/exceptions/api_exception.dart';
+import 'package:infotreff_connect/src/exceptions/api_exception.dart';
 
 import '../utils/localization.dart';
 import '../utils/logger.dart';

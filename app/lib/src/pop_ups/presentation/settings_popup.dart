@@ -64,7 +64,7 @@ class OptionContent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
+    return Column (
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
@@ -75,69 +75,98 @@ class OptionContent extends ConsumerWidget {
             thickness: 2,
           ),
         ),
-        Container(
-          padding: EdgeInsets.zero,
-          child: const Text(
-            'Menu',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(bottom: 7),
-          child: Row(
-            children: [
-              const Expanded(
-                child: Text(
-                  'show Number of like',
-                  style: TextStyle(
-                    fontSize: 15,
-                  ),
-                ),
-              ),
-              SettingCheckBox(
-                provider: likeViewProvider,
-                theme: theme,
-                onChanged: (bool? value) {
-                  ref.read(likeViewProvider.notifier).changeValue(value);
-                },
-              ),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(bottom: 5),
-          child: const Text(
-            'Event',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-          ),
-        ),
-        Row(
-          children: [
-            const Expanded(
-              child: Text(
-                'Hide Number of participants',
+        Container (
+              child: const Text (
+                'General',
                 style: TextStyle(
-                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                 ),
               ),
             ),
-            SettingCheckBox(
-              provider: hideParticipantProvider,
-              theme: theme,
-              onChanged: (bool? value) {
-                ref.read(hideParticipantProvider.notifier).changeValue(value);
-              },
+            Container (
+              padding: const EdgeInsets.only(bottom: 7),
+              child: Row (
+                children: [
+                  const Expanded(
+                    child: Text (
+                      'language',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SettingDropDownMenu (
+                    provider: mainLanguageProvider,
+                    theme: theme,
+                  ),
+                ],
+              ),
+            ),
+            Container (
+              child: const Text (
+                'Menu',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Container (
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Row (
+                children: [
+                  const Expanded(
+                    child: Text (
+                      'show Number of like',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SettingCheckBox (
+                    theme: theme,
+                    provider: showNumberOfLikeProvider,
+                    onChanged: ({required bool? value}) async {
+                      ref.read(showNumberOfLikeProvider.notifier).updateData(newData: value ?? false);
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Container (
+              padding: const EdgeInsets.only(bottom: 5),
+              child: const Text (
+                'Event',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Container (
+              child: Row (
+                children: [
+                  const Expanded( 
+                    child: Text (
+                      'Hide Number of participants',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  SettingCheckBox ( 
+                    theme: theme,
+                    provider: hideNumberParticipantProvider,
+                    onChanged: ({required bool? value}) async {
+                      ref.watch(hideNumberParticipantProvider.notifier).updateData(newData: value ?? false);
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
-        ),
-      ],
-    );
+      );
   }
 }
 
@@ -145,17 +174,16 @@ class SettingCheckBox extends ConsumerStatefulWidget {
   const SettingCheckBox({
     required this.theme,
     required this.provider,
-    required this.onChanged,
+    required this.onChanged, 
     super.key,
   });
-  final void Function(bool?) onChanged;
-  final StateNotifierProvider<StateNotifier<bool?>, bool?> provider;
+  final void Function ({required bool? value}) onChanged;
+  final StateNotifierProvider<dynamic, bool> provider;
   final ThemeData theme;
 
   @override
   _SettingCheckBoxState createState() => _SettingCheckBoxState(
         theme: theme,
-        provider: provider,
         onChanged: onChanged,
       );
 }
@@ -163,17 +191,16 @@ class SettingCheckBox extends ConsumerStatefulWidget {
 class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
   _SettingCheckBoxState({
     required this.theme,
-    required this.provider,
     required this.onChanged,
   });
+
   final ThemeData theme;
-  final StateNotifierProvider<StateNotifier<bool?>, bool?> provider;
-  final void Function(bool?) onChanged;
+  final void Function ({required bool? value}) onChanged;
 
   @override
-  Widget build(BuildContext context) {
-    final bool? isChecked = ref.watch(provider);
-    return Checkbox(
+  Widget build (BuildContext context) {
+    final isChecked = ref.watch(widget.provider);
+    return Checkbox (
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(7),
         side: BorderSide(
@@ -182,7 +209,52 @@ class _SettingCheckBoxState extends ConsumerState<SettingCheckBox> {
         ),
       ),
       value: isChecked,
-      onChanged: onChanged,
+      onChanged: (bool? value) {
+        onChanged(value: value);
+      },
+    );
+  }
+}
+
+class SettingDropDownMenu extends ConsumerStatefulWidget {
+  const SettingDropDownMenu({
+    required this.theme, 
+    required this.provider, 
+    super.key,
+  });
+  final ThemeData theme;
+  final StateNotifierProvider<dynamic, String> provider;
+
+  @override
+  SettingDropDownMenuState createState() { 
+    return SettingDropDownMenuState(theme: theme);
+  }
+}
+
+class SettingDropDownMenuState extends ConsumerState<SettingDropDownMenu> {
+  SettingDropDownMenuState({required this.theme});
+  final ThemeData theme;
+  String defaultLanguage = 'english';
+
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownMenu<LanguageSetting>(
+      initialSelection:
+          LanguageSetting.getEnum(defaultLanguage) ?? LanguageSetting.english,
+      requestFocusOnTap: false,
+      onSelected: (LanguageSetting? ls) {
+        if (ls != null) {
+          ref.read(widget.provider.notifier).updateData(newData: ls.name);
+        } 
+      },
+      dropdownMenuEntries: LanguageSetting.values
+          .map<DropdownMenuEntry<LanguageSetting>>((LanguageSetting language) {
+        return DropdownMenuEntry<LanguageSetting>(
+          value: language,
+          label: language.name,
+        );
+      }).toList(),
     );
   }
 }
@@ -200,16 +272,16 @@ class CloseButton extends ConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(width: 2, color: theme.colorScheme.onSecondary),
-        color: theme.colorScheme.secondary,
+        border: Border.all(width: 2, color: theme.colorScheme.primary),
+        color: theme.colorScheme.onSecondary,
       ),
       child: IconButton(
         onPressed: () => context.pop(),
         icon: Icon(
           Icons.close,
-          color: theme.colorScheme.onSecondary,
+          color: theme.colorScheme.primary,
         ),
-        iconSize: 30,
+        iconSize: 40,
       ),
     );
   }

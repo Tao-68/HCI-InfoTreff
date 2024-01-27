@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:ri_go_demo/src/features/rest_crud_demo/data/people_repository.dart';
-import 'package:ri_go_demo/src/features/rest_crud_demo/domain/person.dart';
-import 'package:ri_go_demo/src/utils/logger.dart';
+import 'package:infotreff_connect/src/features/rest_crud_demo/data/people_repository.dart';
+import 'package:infotreff_connect/src/features/rest_crud_demo/domain/person.dart';
+import 'package:infotreff_connect/src/utils/logger.dart';
 
 /// A mocked implementation of Repository
 /// @see https://riverpod.dev/docs/cookbooks/testing

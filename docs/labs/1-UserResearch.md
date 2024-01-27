@@ -17,27 +17,27 @@ We have opted for user interviews as user research. We chose to do partly standa
 ## Questions for user interviews
 
 1. how often do you visit the Infotreff-Café and what do you usually order?
-   - this question provides us with extra information on the interviewee, that we can use to weight the questions that follow
+    - this question provides us with extra information on the interviewee, that we can use to weight the questions that follow
 2. which offers do you know in the Infotreff Café?
-   - related to hypotheses 1. We get a feeling of how good the current information flow is and if people always order the same items when they visit the café. 
+    - related to hypotheses 1. We get a feeling of how good the current information flow is and if people always order the same items when they visit the café. 
 3. how do you find out about the offers in the restaurants or cafés?
-   - related to hypotheses 1. We want to know the classic sources on which people get information from cafés. With the answers to this question we get an idea on which part of the app we should focus.
+    - related to hypotheses 1. We want to know the classic sources on which people get information from cafés. With the answers to this question we get an idea on which part of the app we should focus.
 4. what is your experience with the current presentation of the offer?
-   - related to hypotheses 1 and 2. If the current presentation is accepted by the users we can base our design on the on-site presentation. None of the hot drinks have pictures on-site, so this question might provide information regarding pictures for hot drinks.
+    - related to hypotheses 1 and 2. If the current presentation is accepted by the users we can base our design on the on-site presentation. None of the hot drinks have pictures on-site, so this question might provide information regarding pictures for hot drinks.
 5. what information about the ingredients would be important to you?
-   - related to hypotheses 3. We want to know which information is relevant to users. This way we know that we aren't missing any of the custom needs of the users. This question is also very relevant because we might find some special diets that we would have forgotten.
+    - related to hypotheses 3. We want to know which information is relevant to users. This way we know that we aren't missing any of the custom needs of the users. This question is also very relevant because we might find some special diets that we would have forgotten.
 6. how would detailed descriptions and pictures of the drinks and snacks influence your purchase decision?
-   - related to hypotheses 2 and 3. We want to know how much information a user wants for an item. We don't want to force information onto a user and most importantly don't want to influence them with our app.
+    - related to hypotheses 2 and 3. We want to know how much information a user wants for an item. We don't want to force information onto a user and most importantly don't want to influence them with our app.
 7. what do you think of an overview for events?
-   - related to hypotheses 4. We want to get more information on the acceptance for the event feature. Events are poorly displayed at the FBI right now and we want to improve this with this feature. If people don't want a feature in this app we have to scrap this part and move on without it.
+    - related to hypotheses 4. We want to get more information on the acceptance for the event feature. Events are poorly displayed at the FBI right now and we want to improve this with this feature. If people don't want a feature in this app we have to scrap this part and move on without it.
 8. would you like to be able to integrate events into your calendar?
-   - related to hypotheses 5. Is our hypotheses correct and do people actually want to add events to their calendar
+    - related to hypotheses 5. Is our hypotheses correct and do people actually want to add events to their calendar
 9. would you like to be able to share events with others? 
-   - in a addition to hypotheses 5 we want to know if people want to share events with others without having to take a screenshot
+    - in a addition to hypotheses 5 we want to know if people want to share events with others without having to take a screenshot
 10. would you use such an application as an app or via the web?
-   - not related to any hypotheses. We want our design to fit the prefered type of app usage
+    - not related to any hypotheses. We want our design to fit the prefered type of app usage
 11. would social features, such as seeing which items are popular with students, influence your choice?
-   - we don't want to influence our users with their purchases. If many people answer they will be influenced we will make viewing likes optional
+    - we don't want to influence our users with their purchases. If many people answer they will be influenced we will make viewing likes optional
 
 ## Results of the interviews
 

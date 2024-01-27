@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ri_go_demo/src/routing/app_router.dart';
+import 'package:infotreff_connect/src/routing/app_router.dart';
 
 import '../../../common_widgets/async_value_widget.dart';
 import '../data/event_repository.dart';
@@ -45,10 +44,10 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
               Headline(theme: theme),
               Expanded(
                 child: SizedBox(
-                  child:
-                      EventList(
-                        theme: theme, 
-                        likeEventController: _controller,),
+                  child: EventList(
+                    theme: theme,
+                    likeEventController: _controller,
+                  ),
                 ),
               ),
             ],
@@ -66,7 +65,6 @@ class _EventsScreen extends ConsumerState<EventsScreen> {
       ],
     );
   }
-
 }
 
 class Headline extends StatelessWidget {
@@ -164,8 +162,7 @@ class EventList extends ConsumerWidget {
             title: events[index].title,
             dateTime: events[index].date,
             attendeeCount: events[index].likes,
-            imagePath:
-                'assets/events-assets/$imageName.jpg',
+            imagePath: 'assets/events-assets/$imageName.jpg',
             description: 'This is a description for an extremely awesome event',
             controller: likeEventController,
             specials: events[index].specials,
