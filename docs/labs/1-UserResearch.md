@@ -60,7 +60,7 @@ Vielen Dank für die Informationen und deine Anmerkungen. Wir werden versuchen a
 ## Results of the interviews
 
 1. Average visit is 3 times per week, only one interviewee has never been to the Info-Treff-Café
-2. Most interviewees know the offers pretty well regarding the menu, only some mentioned the events --> focus on events (?)
+2. Most interviewees know the offers pretty well regarding the menu, only some mentioned the events (Haloween and Parties).
 3. Most inform themselves through on-site resources or through online menu. 
    Only some inform themselves through emails and posters (regarding events) or directly through the café.
 4. Most users are satisfied with the current presentation as they find the layout clear presented (can use it for orientation)
