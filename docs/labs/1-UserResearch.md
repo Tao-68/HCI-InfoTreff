@@ -49,6 +49,14 @@ Ok kein Problem dann führen wir das Interview auf Deutsch weiter. Als Kunde/Mit
 11. Would social features, such as seeing which items are popular with students, influence your choice?
     - We don't want to influence our users with their purchases. If many people answer they will be influenced we will make viewing likes optional
 
+### End of the interview
+
+(Englisch ok: )
+Thank you very much for the information and feedback you provided. We will use this to create the best possible app for this café. Have a nice day.
+
+(Englisch not ok:)
+Vielen Dank für die Informationen und deine Anmerkungen. Wir werden versuchen auf dieser Basis die bestmögliche App für das Café zu erstellen. Ich wünsche dir noch einen schönen Tag.
+
 ## Results of the interviews
 
 1. Average visit is 3 times per week, only one interviewee has never been to the Info-Treff-Café
@@ -64,13 +72,6 @@ Ok kein Problem dann führen wir das Interview auf Deutsch weiter. Als Kunde/Mit
 10. Mixed feedback from interviewees, some find it easier with an app, while others find the web app cooler. But the app on the phone has more vote compared to the web
 11.  Most interviewees will be influenced especially while trying new things out. One mentioned that it would be great if able to see how many people are attending an event and a feature to state that they are attending the event (enable button for function)
 
-### End of the interview
-
-(Englisch ok: )
-Thank you very much for the information and feedback you provided. We will use this to create the best possible app for this café. Have a nice day.
-
-(Englisch not ok:)
-Vielen Dank für die Informationen und deine Anmerkungen. Wir werden versuchen auf dieser Basis die bestmögliche App für das Café zu erstellen. Ich wünsche dir noch einen schönen Tag.
 
 ### Conclusion of the interviews
 
