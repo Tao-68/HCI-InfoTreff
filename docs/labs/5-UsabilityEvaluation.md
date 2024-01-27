@@ -1,7 +1,4 @@
 # Usability Evaluation
-Document your usability evaluation (plan and findings).
-
-## Usability Heuristics
 
 The app was checked using Jakob Nielsen's 10 general principles for interaction design in full before the final presentation, showing mostly positive results. Because we focused on developing an app for smartphones the evaluation was performed on a mobile device.
 Many positive results stem from the comparatively few inputs a user can perform in the app.
