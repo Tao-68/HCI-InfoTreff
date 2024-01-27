@@ -15,29 +15,32 @@ We have opted for user interviews as user research. We chose to do partly standa
 6. Users would like to have the opportunity to give feedback --> people often make suggestions for new items or have questions regarding the offerings in the InfoTreff café.
 
 ## Questions for user interviews
+#### Introduction
 
-1. how often do you visit the Infotreff-Café and what do you usually order?
-    - this question provides us with extra information on the interviewee, that we can use to weight the questions that follow
-2. which offers do you know in the Infotreff Café?
-    - related to hypotheses 1. We get a feeling of how good the current information flow is and if people always order the same items when they visit the café. 
-3. how do you find out about the offers in the restaurants or cafés?
-    - related to hypotheses 1. We want to know the classic sources on which people get information from cafés. With the answers to this question we get an idea on which part of the app we should focus.
-4. what is your experience with the current presentation of the offer?
-    - related to hypotheses 1 and 2. If the current presentation is accepted by the users we can base our design on the on-site presentation. None of the hot drinks have pictures on-site, so this question might provide information regarding pictures for hot drinks.
-5. what information about the ingredients would be important to you?
-    - related to hypotheses 3. We want to know which information is relevant to users. This way we know that we aren't missing any of the custom needs of the users. This question is also very relevant because we might find some special diets that we would have forgotten.
-6. how would detailed descriptions and pictures of the drinks and snacks influence your purchase decision?
-    - related to hypotheses 2 and 3. We want to know how much information a user wants for an item. We don't want to force information onto a user and most importantly don't want to influence them with our app.
-7. what do you think of an overview for events?
-    - related to hypotheses 4. We want to get more information on the acceptance for the event feature. Events are poorly displayed at the FBI right now and we want to improve this with this feature. If people don't want a feature in this app we have to scrap this part and move on without it.
-8. would you like to be able to integrate events into your calendar?
-    - related to hypotheses 5. Is our hypotheses correct and do people actually want to add events to their calendar
-9. would you like to be able to share events with others? 
-    - in a addition to hypotheses 5 we want to know if people want to share events with others without having to take a screenshot
-10. would you use such an application as an app or via the web?
-    - not related to any hypotheses. We want our design to fit the prefered type of app usage
-11. would social features, such as seeing which items are popular with students, influence your choice?
-    - we don't want to influence our users with their purchases. If many people answer they will be influenced we will make viewing likes optional
+User interviews are conducted to gather feedback for the development of the Infotreff-Café app. The purpose of this interview is to obtain detailed insights from users regarding their experiences at Infotreff-Café, their opinion of our design ideas, and their preferences in terms of app features and information dissemination. The questions have been designed to explore various aspects of user interaction with the café, ranging from frequency of visits and menu choices to opinions on potential app functionalities like event overviews and social features, thereby guiding the development of a user-centric café app.
+
+1. How often do you visit the Infotreff-Café and what do you usually order?
+    - This question provides us with extra information on the interviewee, that we can use to weight the questions that follow
+2. Which offers do you know in the Infotreff Café?
+    - Related to hypotheses 1. We get a feeling of how good the current information flow is and if people always order the same items when they visit the café. 
+3. How do you find out about the offers in the restaurants or cafés?
+    - Related to hypotheses 1. We want to know the classic sources on which people get information from cafés. With the answers to this question we get an idea on which part of the app we should focus.
+4. What is your experience with the current presentation of the offer?
+    - Related to hypotheses 1 and 2. If the current presentation is accepted by the users we can base our design on the on-site presentation. None of the hot drinks have pictures on-site, so this question might provide information regarding pictures for hot drinks.
+5. What information about the ingredients would be important to you?
+    - Related to hypotheses 3. We want to know which information is relevant to users. This way we know that we aren't missing any of the custom needs of the users. This question is also very relevant because we might find some special diets that we would have forgotten.
+6. How would detailed descriptions and pictures of the drinks and snacks influence your purchase decision?
+    - Related to hypotheses 2 and 3. We want to know how much information a user wants for an item. We don't want to force information onto a user and most importantly don't want to influence them with our app.
+7. What do you think of an overview for events?
+    - Related to hypotheses 4. We want to get more information on the acceptance for the event feature. Events are poorly displayed at the FBI right now and we want to improve this with this feature. If people don't want a feature in this app we have to scrap this part and move on without it.
+8. Would you like to be able to integrate events into your calendar?
+    - Related to hypotheses 5. Is our hypotheses correct and do people actually want to add events to their calendar
+9. Would you like to be able to share events with others? 
+    - In a addition to hypotheses 5 we want to know if people want to share events with others without having to take a screenshot
+10. Would you use such an application as an app or via the web?
+    - Not related to any hypotheses. We want our design to fit the prefered type of app usage
+11. Would social features, such as seeing which items are popular with students, influence your choice?
+    - We don't want to influence our users with their purchases. If many people answer they will be influenced we will make viewing likes optional
 
 ## Results of the interviews
 
@@ -60,12 +63,13 @@ We have decided in favour of Agile UX as a process model. We think it fits best 
 
 ## User Personas
 
-**1. Frank Müller**
+
+**1. Frank Müller, a biology student**
 
 Age: 22
 
 Background:
-   Originates from a small town with a profound connection to nature
+   Originates from a small town with beautiful nature
    Early fascination with the natural world influenced academic pursuits in biology
 
 Academic Journey:
@@ -88,7 +92,7 @@ Lifestyle:
 “As a student, I would like to know available snack from the cafeteria without go there, so that I can decide beforehand. I want to know the ingredient and the nutrient of the snack on the menu, so that I can manage my meal to benefit my workout routine. As a student, I also want to share event to my friend and add event detailed to my personal calendar, so that it’s easier to manage my time table and to invite more friend to the event”
 
 
-**2. Sandra Rodriguez**
+**2. Sandra Rodriguez, vegan**
 
 Age: 23
 
@@ -115,7 +119,7 @@ Activism and Community Involvement:
 
 „As a vegan, I want to know if there is some available vegan option in the menu. I want to know if the calorie of the food is low for a more healthy diet. I also want to know if some event for vegan advocacy group are on the site”
 
-**3. Konrad Ingram**
+**3. Konrad Ingram, software engineering Professor**
 
 Age:	47
 
