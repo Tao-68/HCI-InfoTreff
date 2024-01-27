@@ -63,7 +63,7 @@ We have decided in favour of Agile UX as a process model. We think it fits best 
 
 ## User Personas
 
-
+![Frank](../persona_img/frank.png){: height="150em" width="150em"}
 **1. Frank Müller, an active student**
 
 Age: 22
@@ -91,7 +91,7 @@ Lifestyle:
 
 “As a student, I would like to know available snack from the cafeteria without go there, so that I can decide beforehand. I want to know the ingredient and the nutrient of the snack on the menu, so that I can manage my meal to benefit my workout routine. As a student, I also want to share event to my friend and add event detailed to my personal calendar, so that it’s easier to manage my time table and to invite more friend to the event”
 
-
+![Sandra](../persona_img/sandra.png){: height="150em" width="150em"}
 **2. Sandra Rodriguez, vegan and a nutrition-conscious student**
 
 Age: 23
@@ -119,7 +119,8 @@ Activism and Community Involvement:
 
 „As a vegan, I want to know if there is some available vegan option in the menu. I want to know if the calorie of the food is low for a more healthy diet. I also want to know if some event for vegan advocacy group are on the site”
 
-**3. Konrad Ingram, an opiniona[]([[[url](url)](url)](url))ted Professor**
+![Konrad](../persona_img/konrad.png){: height="150em" width="150em"}
+**3. Konrad Ingram, an opinionated Professor**
 
 Age:	47
 
