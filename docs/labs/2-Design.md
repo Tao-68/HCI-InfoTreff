@@ -10,12 +10,12 @@ Therefore all three were incorporated into the design, along with the planned fe
  
 ## Prototype 1:  
 
-![Prototype_Thomas_1](../PaperPrototypes/design_thomas1.jpg){: height="150em" width="150em"}
-![Prototype_Thomas_2](../PaperPrototypes/design_thomas2.jpg){: height="150em" width="150em"}
-![Prototype_Thomas_3](../PaperPrototypes/design_thomas3.jpg){: height="150em" width="150em"}  
-![Prototype_Thomas_4](../PaperPrototypes/design_thomas4.jpg){: height="150em" width="150em"}
-![Prototype_Thomas_5](../PaperPrototypes/design_thomas5.jpg){: height="150em" width="150em"}
-![Prototype_Thomas_6](../PaperPrototypes/design_thomas6.jpg){: height="150em" width="150em"}  
+![Prototype_Thomas_1](../PaperPrototypes/design_thomas1.jpg){: height="170em" width="170em"}
+![Prototype_Thomas_2](../PaperPrototypes/design_thomas2.jpg){: height="170em" width="170em"}
+![Prototype_Thomas_3](../PaperPrototypes/design_thomas3.jpg){: height="170em" width="170em"}  
+![Prototype_Thomas_4](../PaperPrototypes/design_thomas4.jpg){: height="170em" width="170em"}
+![Prototype_Thomas_5](../PaperPrototypes/design_thomas5.jpg){: height="170em" width="170em"}
+![Prototype_Thomas_6](../PaperPrototypes/design_thomas6.jpg){: height="170em" width="170em"}  
 
 The first paper prototpe consisted of expandable tiles for the main information categories: events, specials, snacks and drinks.
 
@@ -23,8 +23,8 @@ These Categories contained lists of further expandable tiles, to show detailed i
 
 ## Prototype 2:  
 
-![Prototype_Emil_1](../PaperPrototypes/design_emil1.jpg){: height="200em" width="200em"}
-![Prototype_Emil_2](../PaperPrototypes/design_emil2.jpg){: height="200em" width="200em"}  
+![Prototype_Emil_1](../PaperPrototypes/design_emil1.jpg){: height="230em" width="230em"}
+![Prototype_Emil_2](../PaperPrototypes/design_emil2.jpg){: height="230em" width="230em"}  
 
 The second paper prototype contained a seperation between menu and event calander.
 
@@ -40,9 +40,9 @@ After testing and discussing the two initial prototypes, we identified elements 
 
 From the first we kept the expandable lists and from the second the basic sreen layouts and navigation.
 
-![Prototype_Final_1](../PaperPrototypes/FinalPaperPrototype1.jpg){: height="200em" width="200em"}
-![Prototype_Final_2](../PaperPrototypes/FinalPaperPrototype2.jpg){: height="200em" width="200em"}
-![Prototype_Final_3](../PaperPrototypes/FinalPaperPrototype3.jpg){: height="200em" width="200em"}  
+![Prototype_Final_1](../PaperPrototypes/FinalPaperPrototype1.jpg){: height="230em" width="230em"}
+![Prototype_Final_2](../PaperPrototypes/FinalPaperPrototype2.jpg){: height="230em" width="230em"}
+![Prototype_Final_3](../PaperPrototypes/FinalPaperPrototype3.jpg){: height="230em" width="230em"}  
 
 We also incorporated the InfoTreffs logo and aimed to match it with a more rounded and fluid design.
 
@@ -57,8 +57,8 @@ During the creation of the Figma prototype the brightest colour derived from the
 The highest contrast ratio is 13.5 for the primary light against the primary dark colour.
 The lowest contrast ratio is 3.26 the secondary light against the secondary dark, which is only used for some buttons.
 
-![Logo_InfoTreff](../PaperPrototypes/logoInfoTreff.png){: height="150em" width="150em"}  
-![Colours_InfoTreff](../PaperPrototypes/Farben_Infotreff_app.png){: height="1200em" width="200em"}  
+![Logo_InfoTreff](../PaperPrototypes/logoInfoTreff.png){: height="180em" width="180em"}  
+![Colours_InfoTreff](../PaperPrototypes/Farben_Infotreff_app.png){: height="1250em" width="250em"}  
 
 ## Font  
 The Font used in the figma prototype is Averia Serif Libre, which is available under an Open Font Licens.  
@@ -76,17 +76,17 @@ At the end of the design process we used Figma to create an interactive prototyp
 
 The prototype consists of 3 main screens and six pop-ups.
 
-![Figma_Prototype_Screens](../FigmaPrototype/Prototype_MainScreens.png){: height="100em" width="100em"}  
+![Figma_Prototype_Screens](../FigmaPrototype/Prototype_MainScreens.png){: height="200em" width="200em"}  
 
-![Figma_Prototype_PopUps](../FigmaPrototype/Prototype_PopUps.png){: height="100em" width="100em"}  
+![Figma_Prototype_PopUps](../FigmaPrototype/Prototype_PopUps.png){: height="200em" width="200em"}  
 
 For interactive elements, like expandable lists or like buttons we created the folowing components.
 
-![Figma_Prototype_Components](../FigmaPrototype/Prototype_Componenten.png){: height="100em" width="100em"}  
+![Figma_Prototype_Components](../FigmaPrototype/Prototype_Componenten.png){: height="200em" width="200em"}  
 
 In order to test the design we used figma's prototyping feature to create a navigation shown in this user flow diagram:
 
-![Figma_Prototype_UserFlowDiagram](../FigmaPrototype/UserFlowDiagram.png){: height="100em" width="100em"}  
+![Figma_Prototype_UserFlowDiagram](../FigmaPrototype/UserFlowDiagram.png){: height="200em" width="200em"}  
 
 
 ##Prototype 
