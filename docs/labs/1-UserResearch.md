@@ -57,6 +57,23 @@ User interviews are conducted to gather feedback for the development of the Info
 10. Mixed feedback from interviewees, some find it easier with an app, while others find the web app cooler. But the app on the phone has more vote compared to the web
 11.  Most interviewees will be influenced especially while trying new things out. One mentioned that it would be great if able to see how many people are attending an event and a feature to state that they are attending the event (enable button for function)
 
+### Conclusion of the interviews
+
+1. People will use our app. Currently information are scattered and for many people hard to find.
+2. We want to keep our menu list as compact as the one on-site because people like it very much.
+3. For the details we will add allergens, diet, nutrition and a picture.  
+4. All our hypotheses for event presentation and event features were correct. We will implement an overview of the events with a share function and an option to export the event to the personal calender.
+5. We want to focus on developing a mobile app, but have to consider web deployment as well.
+6. We dont want to influence customers if they don't want to be. So we will add an option to turn off likes in the settings of the app.
+
+### Derivation of MVP features
+
+Most interviewees expected a menu and an event card after they heard from our app idea. In the interviews we came to the conclusion that a details screen, and all the information related to it, is expected by the users.
+
+### Derivation of Delighters 
+
+The interviewees were suprised that we included an option to export events to their calender and share them with their friends. So this feature will act as one of our delighters. After the interview when we told the interviewees that they will be able to give feedback to the café team they were suprised and happy at the same time. They appreciate the feature to make suggestions and were looking forward to share their ideas.
+
 ## Project model 
 
 We have decided in favour of Agile UX as a process model. We think it fits best with the approach we have planned for this semester, based on the lab exercises. In our opinion, Double Diamond is too powerful and large in its functions to be used effectively on our small scale. We also liked the Design Sprint approach, but we found the effort on the project and process management side too high.
