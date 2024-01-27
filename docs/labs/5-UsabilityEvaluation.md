@@ -22,4 +22,4 @@ Some of the heuristics were also checked beforehand, during the UI refactoring, 
 # Walkthrough
 
 A walthrough video of our app can be found under the following link:
-https://drive.google.com/file/d/1J0i0wDzN7ti7-FVd8jPfCwIdqr2waZip/view?usp=sharing
+https://drive.google.com/file/d/1aAQie4ibExiegXJco8CVqjrK1DFhNrio/view?usp=sharing
