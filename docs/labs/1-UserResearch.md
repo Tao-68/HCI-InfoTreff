@@ -107,7 +107,9 @@ Lifestyle:
 
 **User Story**
 
-“As a student, I would like to know available snack from the cafeteria without go there, so that I can decide beforehand. I want to know the ingredient and the nutrient of the snack on the menu, so that I can manage my meal to benefit my workout routine. As a student, I also want to share event to my friend and add event detailed to my personal calendar, so that it’s easier to manage my time table and to invite more friend to the event”
+1. As an app user, I want to check the content of the snack on the menu, so I know the ingredient and nutrients. 
+2. As a student, I want to share event details, so I can invite others.
+3. As a student, I want to add event details into my personal calendar, so I can view in my calendar.
 
 ![Sandra](../persona_img/sandra.png){: height="150em" width="150em"}
 
@@ -136,7 +138,9 @@ Activism and Community Involvement:
 
 **User story** 
 
-„As a vegan, I want to know if there is some available vegan option in the menu. I want to know if the calorie of the food is low for a more healthy diet. I also want to know if some event for vegan advocacy group are on the site”
+1. As a vegan, I want to look at an overview of the menu, so I can find the available vegan option in the menu. 
+2. As an app user, I want to check food details, so i can know the calorie content of the food. 
+3. As an app user, I want to have an event overview, so I can join vegan advocacy group when available.
 
 ![Konrad](../persona_img/konrad.png){: height="150em" width="150em"}
 
@@ -171,6 +175,7 @@ Coffee Corner:
 
 **User story**
 
-“As a teacher, I want to arrage some event for my student, and have some mealtime conversation. I want to give the feedback of the caffee to the maker, so that it might improve in the future. “
+1. As a teacher, I want to see available events, so I can join and have some mealtime conversation. 
+2. As an app user, I want to give the feedback of the caffee to the maker, so I can provide suggestions.
 
 
