@@ -66,9 +66,9 @@ Vielen Dank für die Informationen und deine Anmerkungen. Wir werden versuchen a
 4. Most users are satisfied with the current presentation as they find the layout clear presented (can use it for orientation)
 5. Currently most interviewees are interested in the allergens (such as lactose contents, vegan, vegetarian) and the ingredients. Some may be on a specific diet which may influence how they choose their meal. One specified wanting to know about the availability or scarcity of items on the menu
 6. Most are unaffected by the pictures while making decisions. The feature will be used if it is available
-7. Has a very positive feedback from interviewees, stating the feature is great
-8. Has a very positive feedback from interviewees, stating the feature is great
-9. Has a very positive feedback from interviewees, stating the feature is great
+7. [Overview of events: ] All 9 interviewees have a very positive feedback, stating the feature is great. 
+8. [Integration of events: ] All 9 interviewees have a very positive feedback, stating the feature is great
+9. [Sharing Events: ] All 9 interviewees have a very positive feedback, stating the feature is great
 10. Mixed feedback from interviewees, some find it easier with an app, while others find the web app cooler. But the app on the phone has more vote compared to the web
 11.  Most interviewees will be influenced especially while trying new things out. One mentioned that it would be great if able to see how many people are attending an event and a feature to state that they are attending the event (enable button for function)
 
