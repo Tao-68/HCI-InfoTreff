@@ -16,8 +16,15 @@ We have opted for user interviews as user research. We chose to do partly standa
 
 ## Questions for user interviews
 #### Introduction
+Hallo und danke das du dir kurz Zeit nimmst mir ein paar Fragen zu unserer App zu beantworten. Ich werde jetzt auf Englisch wechseln, wenn das für dich in Ordnung ist, da wir unsere Dokumentation und den Projektprozess auf Englisch aufgebaut haben.
 
-User interviews are conducted to gather feedback for the development of the Infotreff-Café app. The purpose of this interview is to obtain detailed insights from users regarding their experiences at Infotreff-Café, their opinion of our design ideas, and their preferences in terms of app features and information dissemination. The questions have been designed to explore various aspects of user interaction with the café, ranging from frequency of visits and menu choices to opinions on potential app functionalities like event overviews and social features, thereby guiding the development of a user-centric café app.
+(Englisch ok: )
+Since you are a customer/member of the InfoTreff and we want to develop an app for this lovely café we like to hear your opinion on the following topics.
+
+(Englisch not ok:)
+Ok kein Problem dann führen wir das Interview auf Deutsch weiter. Als Kunde/Mitglied des InfoTreff ist uns deine Meinung zu den folgenden Fragen wichtig, sodass wir eine bestmögliche App für das Café machen können.
+
+### Questions
 
 1. How often do you visit the Infotreff-Café and what do you usually order?
     - This question provides us with extra information on the interviewee, that we can use to weight the questions that follow
@@ -57,6 +64,14 @@ User interviews are conducted to gather feedback for the development of the Info
 10. Mixed feedback from interviewees, some find it easier with an app, while others find the web app cooler. But the app on the phone has more vote compared to the web
 11.  Most interviewees will be influenced especially while trying new things out. One mentioned that it would be great if able to see how many people are attending an event and a feature to state that they are attending the event (enable button for function)
 
+### End of the interview
+
+(Englisch ok: )
+Thank you very much for the information and feedback you provided. We will use this to create the best possible app for this café. Have a nice day.
+
+(Englisch not ok:)
+Vielen Dank für die Informationen und deine Anmerkungen. Wir werden versuchen auf dieser Basis die bestmögliche App für das Café zu erstellen. Ich wünsche dir noch einen schönen Tag.
+
 ### Conclusion of the interviews
 
 1. People will use our app. Currently information are scattered and for many people hard to find.
@@ -76,7 +91,10 @@ The interviewees were suprised that we included an option to export events to th
 
 ## Project model 
 
-We have decided in favour of Agile UX as a process model. We think it fits best with the approach we have planned for this semester, based on the lab exercises. In our opinion, Double Diamond is too powerful and large in its functions to be used effectively on our small scale. We also liked the Design Sprint approach, but we found the effort on the project and process management side too high.
+We have decided in favour of Agile UX as a process model. The iterative structure that is used in agile UX provides a nice structure to plan for the labs this semester. With the planning and implementing cycles we can optimize our design to get a good result in the UX. We will create milestones for each lab and try to use them as good as possible to sort issues. We will build our backlog with the help of issues and labels. If an issue is started it gets moved to the ongoing label and if it is done it will receive the tested/done label.
+Especially while developing the UX we will work with many users and ask them for feedback on how we can improve the design in the next iteration.
+
+In our opinion, Double Diamond is too powerful and large in its functions to be used effectively on our small scale. We also liked the Design Sprint approach, but we found the effort on the project and process management side too high.
 
 ## User Personas
 
