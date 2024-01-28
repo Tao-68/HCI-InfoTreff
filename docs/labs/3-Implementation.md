@@ -1,5 +1,9 @@
 # Implementation
-Document your app with a rough class diagram...
+
+## Class diagram
+The following class diagram shows the most important classes for our app:
+
+![Class Diagram](../classdiagram_Infotreff_Connect.jpg)
 
 ## Interaction diagrams
 
