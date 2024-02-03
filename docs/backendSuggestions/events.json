@@ -1,123 +1,65 @@
-{
-    "open living rooms" : [
-        {
-            "title" : "HomeComing - Cocktails",
-            "date" : "2023-10-18T17:00:00",
-            "description" : "Cocktailparty at the begin of the semester",
-            "specials" : [
-                {
-                    "food": ["Wraps"],
-                    "drinks": ["Cocktails"]
-                }
-            ],
-            "favorite" : false,
-            "likes" : 0
-        },
-        {
-            "title" : "Game Night",
-            "date" : "2023-11-08T17:00:00",
-            "description" : "Magic, Table Top Games, Card Games and more",
-            "special" : [
-            {
-                "food": ["HotDogs"],
-                "drinks": ["none"]
-            }
-            ],
-            "favorite" : false,
-            "likes" : 0
-        },
-        {
-            "title" : "Karaoke",
-            "date" : "2023-11-22T17:00:00",
-            "description" : "Karaoke in 2.04 with Cocktails",
-            "specials" : [
-                {
-                    "food": ["Burger"],
-                    "drinks": ["Cocktails"]
-                }
-            ],
-            "favorite" : false,
-            "likes" : 0
-        },
-        {
-            "title" : "Christmas Market",
-            "date" : "2023-12-06T15:00:00",
-            "description" : "The InfoTreff gets covered in christas atmosphere",
-            "specials" : [
-                {
-                    "food": ["waffels", "potato soup"],
-                    "drinks": ["Glühwein","Kinderpunsch"]
-                }
-            ],
-            "favorite" : false,
-            "likes" : 0
-        },
-        {
-            "title" : "Study Evening",
-            "date" : "2024-01-17T15:00:00",
-            "description" : "Ask tutors all questions and get explanation for your problems",
-            "specials" : [
-                {
-                    "food": ["Chili Sin Carne"],
-                    "drinks": ["none"]
-                }
-            ],
-            "favorite" : false,
-            "likes" : 0
-        },
-        {
-            "title" : "Study Evening",
-            "date" : "2024-01-17T15:00:00",
-            "description" : "Ask tutors all questions and get explanation for your problems",
-            "specials" : [
-                {
-                    "food": ["Spaghetti Bolognese"],
-                    "drinks": ["none"]
-                }
-            ],
-            "favorite" : false,
-            "likes" : 0
-        }
-    ],
-    "partys" : [
-        {
-            "title" : "Halloween",
-            "date" : "2023-10-30T19:00:00",
-            "description" : "Dress up and enjoy the spookiest night with us",
-            "specials" : [
-                {
-                    "food": ["Hot Dogs"],
-                    "drinks": ["Cocktails","Bowle"]
-                }
-            ],
-            "favorite" : false,
-            "likes" : 0
-        },
-        {
-            "title" : "Christmas",
-            "date" : "2023-12-20T19:00:00",
-            "description" : "Christmas and the holidays are near so let's celebrate toegether",
-            "specials" : [
-                {
-                    "food": ["Sausages, backed potatos"],
-                    "drinks": ["Cocktails", "Glühwein", "Kinderpunsch"]
-                }
-            ],
-            "favorite" : false,
-            "likes" : 0
-        },
-        {
-            "title" : "Prokastination Night",
-            "date" : "2024-02-09T19:00:00",
-            "description" : "It's almost exam phase so let us have some fun before the hard work starts",
-            "specials" : [
-                {
-                    "food": ["suprise"],
-                    "drinks": ["Cocktails"]
-                }
-            ],
-            "favorite" : false,
-            "likes" : 0
-        }
+[
+  {
+    "id": 1,
+    "date": "31.10.2024 18:00",
+    "likes": 18,
+    "title": "Halloween",
+    "picture": "",
+    "specials": [
+      {
+        "diet": 2,
+        "name": "Bloody Mary",
+        "likes": 0,
+        "price": "6.00€",
+        "active": true,
+        "picture": "",
+        "favorite": false,
+        "allergens": "",
+        "nutrition": "",
+        "ingredients": ""
+      }
     ]
-}
+  },
+  {
+    "id": 2,
+    "date": "15.04.2024 18:00",
+    "likes": 15,
+    "title": "Easter",
+    "picture": "",
+    "specials": [
+      {
+        "diet": 1,
+        "name": "Osterei",
+        "likes": 0,
+        "price": "1.00€",
+        "active": true,
+        "picture": "",
+        "favorite": false,
+        "allergens": "",
+        "nutrition": "",
+        "ingredients": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "date": "21.12.2024 18:00",
+    "likes": 14,
+    "title": "Christmas Party",
+    "picture": "",
+    "specials": [
+      {
+        "diet": 1,
+        "name": "Eierlikör",
+        "likes": 0,
+        "price": "3.00€",
+        "active": true,
+        "picture": "",
+        "favorite": false,
+        "allergens": "",
+        "nutrition": "",
+        "ingredients": ""
+      }
+    ]
+  }
+]
